@@ -1,11 +1,5 @@
-import React from 'react'
-import {
-  MDBContainer,
-  MDBRow,
-  MDBCol,
-  MDBInput,
-  MDBBtn
-} from 'mdbreact';
+import React from "react";
+import { MDBContainer, MDBRow, MDBCol, MDBInput, MDBBtn } from "mdbreact";
 
 class Signin extends React.Component {
   render() {
@@ -34,14 +28,19 @@ class Signin extends React.Component {
                 />
               </div>
               <div className="text-center">
-                <MDBBtn>Login</MDBBtn>
+                <MDBBtn
+                  style={{ borderRadius: "20px" }}
+                  onClick={() => this.props.history.push("/")}
+                >
+                  Login
+                </MDBBtn>
               </div>
             </form>
           </MDBCol>
         </MDBRow>
       </MDBContainer>
-    )
+    );
   }
 }
 
-export default Signin
+export default Signin;

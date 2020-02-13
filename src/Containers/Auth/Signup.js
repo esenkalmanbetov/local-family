@@ -1,11 +1,5 @@
-import React from 'react'
-import {
-  MDBContainer,
-  MDBRow,
-  MDBCol,
-  MDBBtn,
-  MDBInput
-} from 'mdbreact';
+import React from "react";
+import { MDBContainer, MDBRow, MDBCol, MDBBtn, MDBInput } from "mdbreact";
 
 class Signup extends React.Component {
   render() {
@@ -52,14 +46,20 @@ class Signup extends React.Component {
                 />
               </div>
               <div className="text-center">
-                <MDBBtn color="primary">Register</MDBBtn>
+                <MDBBtn
+                  style={{ borderRadius: "20px" }}
+                  color="primary"
+                  onClick={() => this.props.history.push("/")}
+                >
+                  Register
+                </MDBBtn>
               </div>
             </form>
           </MDBCol>
         </MDBRow>
       </MDBContainer>
-    )
+    );
   }
 }
 
-export default Signup
+export default Signup;
