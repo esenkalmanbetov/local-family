@@ -1,6 +1,6 @@
-import React from 'react'
+import React from "react";
 
-import './Kz.scss'
+import "./Kz.scss";
 
 class Kz extends React.Component {
   render() {
@@ -8,8 +8,8 @@ class Kz extends React.Component {
       <div>
         <h2>Welcome to Kazakstan</h2>
       </div>
-    )
+    );
   }
 }
 
-export default Kz
+export default Kz;

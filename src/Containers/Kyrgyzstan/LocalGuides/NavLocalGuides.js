@@ -1,11 +1,10 @@
-import React from 'react'
-import { withRouter } from 'react-router'
-import { Link } from 'react-router-dom'
+import React from "react";
+import { withRouter } from "react-router";
+import { Link } from "react-router-dom";
 
 class NavGuides extends React.Component {
-
   render() {
-    const { url } = this.props.match
+    const { url } = this.props.match;
 
     return (
       <div>
@@ -13,18 +12,18 @@ class NavGuides extends React.Component {
         <h4>Lists</h4>
         <ul>
           <li>
-            <Link to={`${url}/a`} >profile a</Link>
+            <Link to={`${url}/a`}>profile a</Link>
           </li>
           <li>
-            <Link to={`${url}/b`} >profile b</Link>
+            <Link to={`${url}/b`}>profile b</Link>
           </li>
           <li>
-            <Link to={`${url}/c`} >profile c</Link>
+            <Link to={`${url}/c`}>profile c</Link>
           </li>
         </ul>
       </div>
-    )
+    );
   }
 }
 
-export default withRouter(NavGuides)
+export default withRouter(NavGuides);

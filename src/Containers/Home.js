@@ -1,7 +1,7 @@
-import React from 'react'
-import { Link } from 'react-router-dom'
+import React from "react";
+import { Link } from "react-router-dom";
 
-import './Home.scss'
+import "./Home.scss";
 
 class Home extends React.Component {
   render() {
@@ -9,15 +9,15 @@ class Home extends React.Component {
       <div>
         <ul>
           <li>
-            <Link to='/kg'>Kg</Link>
+            <Link to="/kg">Kg</Link>
           </li>
           <li>
-            <Link to='/kz'>  Kz</Link>
+            <Link to="/kz">Kz</Link>
           </li>
         </ul>
       </div>
-    )
+    );
   }
 }
 
-export default Home
+export default Home;

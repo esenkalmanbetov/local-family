@@ -1,22 +1,18 @@
-import React from 'react';
-import {
-  BrowserRouter as Router,
-  Switch,
-  Route
-} from 'react-router-dom'
+import React from "react";
+import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 
-import '@fortawesome/fontawesome-free/css/all.min.css';
-import 'bootstrap-css-only/css/bootstrap.min.css';
-import 'mdbreact/dist/css/mdb.css';
+import "@fortawesome/fontawesome-free/css/all.min.css";
+import "bootstrap-css-only/css/bootstrap.min.css";
+import "mdbreact/dist/css/mdb.css";
 
-import Header from '../Components/Header'
-import Footer from '../Components/Footer'
-import Home from './Home'
-import Kg from './Kyrgyzstan/Kg'
-import Kz from './Kz'
-import Signup from './Auth/Signup'
-import Signin from './Auth/Signin'
-import './App.css';
+import Header from "../Components/Header";
+import Footer from "../Components/Footer";
+import Home from "./Home";
+import Kg from "./Kyrgyzstan/Kg";
+import Kz from "./Kz";
+import Signup from "./Auth/Signup";
+import Signin from "./Auth/Signin";
+import "./App.css";
 
 function App() {
   return (

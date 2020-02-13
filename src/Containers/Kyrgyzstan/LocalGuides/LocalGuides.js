@@ -1,16 +1,13 @@
-import React from 'react'
-import { withRouter } from 'react-router'
-import {
-  Switch,
-  Route
-} from 'react-router-dom'
+import React from "react";
+import { withRouter } from "react-router";
+import { Switch, Route } from "react-router-dom";
 
-import NavLocalGuides from './NavLocalGuides'
-import GuideDetail from './GuideDetail'
+import NavLocalGuides from "./NavLocalGuides";
+import GuideDetail from "./GuideDetail";
 
 class LocalGuides extends React.Component {
   render() {
-    const { path } = this.props.match
+    const { path } = this.props.match;
 
     return (
       <div>
@@ -19,8 +16,8 @@ class LocalGuides extends React.Component {
           <Route exact path={`${path}/:guideId`} component={GuideDetail} />
         </Switch>
       </div>
-    )
+    );
   }
 }
 
-export default withRouter(LocalGuides)
+export default withRouter(LocalGuides);

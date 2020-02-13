@@ -1,16 +1,13 @@
-import React from 'react'
-import { withRouter } from 'react-router'
-import {
-  Switch,
-  Route
-} from 'react-router-dom'
+import React from "react";
+import { withRouter } from "react-router";
+import { Switch, Route } from "react-router-dom";
 
-import NavLocalFamilies from './NavLocalFamilies'
-import FamilyDetail from './FamilyDetail'
+import NavLocalFamilies from "./NavLocalFamilies";
+import FamilyDetail from "./FamilyDetail";
 
 class LocalFamilies extends React.Component {
   render() {
-    const { path } = this.props.match
+    const { path } = this.props.match;
 
     return (
       <div>
@@ -19,8 +16,8 @@ class LocalFamilies extends React.Component {
           <Route exact path={`${path}/:familyId`} component={FamilyDetail} />
         </Switch>
       </div>
-    )
+    );
   }
 }
 
-export default withRouter(LocalFamilies)
+export default withRouter(LocalFamilies);
