@@ -16,16 +16,16 @@ class Header extends React.Component {
             <Link to="/">
               <img
                 style={{ width: "50px" }}
-                class="d-flex rounded-circle avatar mb-3 mx-auto"
+                className="d-flex rounded-circle avatar mx-auto"
                 src={logo}
                 alt='logo'
               ></img>
             </Link>
           </MDBCol>
-          <MDBCol size="5" className="mb-3 text-center">
+          <MDBCol size="4" className="mb-3 text-center">
             <h1>Local Family</h1>
           </MDBCol>
-          <MDBCol>
+          <MDBCol size="5">
             <Link to="/signup">
               <MDBBtn
                 style={{ borderRadius: "20px" }}
@@ -46,7 +46,7 @@ class Header extends React.Component {
                 Signin
               </MDBBtn>
             </Link>
-            <Link to="/profile">
+            <Link to="/personal-account">
               <MDBIcon icon="user" size="2x" />
             </Link>
           </MDBCol>

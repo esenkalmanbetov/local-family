@@ -12,7 +12,7 @@ import Kg from "./Kyrgyzstan/Kg";
 import Kz from "./Kz";
 import Signup from "./Auth/Signup";
 import Signin from "./Auth/Signin";
-import Profile from "./Profile/Profile";
+import PersonalAccount from "./PersonalAccount/index";
 
 import "./App.css";
 
@@ -28,7 +28,7 @@ function App() {
             <Route path="/kz" component={Kz} />
             <Route path="/signup" component={Signup} />
             <Route path="/signin" component={Signin} />
-            <Route path="/profile" component={Profile} />
+            <Route path="/personal-account" component={PersonalAccount} />
           </Switch>
         </div>
         <Footer />
