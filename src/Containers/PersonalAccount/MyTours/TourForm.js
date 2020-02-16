@@ -2,21 +2,41 @@ import React from "react";
 import { MDBRow, MDBCol, MDBBtn } from "mdbreact";
 class TourForm extends React.Component {
   state = {
-    Title: "Good tour",
-    Place: "Sary Ozon",
-    Description: "Very Good"
+    form: {
+      Title: "",
+      Place: "",
+      Description: "",
+      Id: 0
+    }
+  };
+
+  componentDidMount() {
+    this.initForm();
+  }
+
+  initForm = () => {
+    let form = this.props.tour || this.state.form
+    this.setState({ form });
   };
 
   submitHandler = event => {
     event.preventDefault();
     event.target.className += " was-validated";
+    let form = this.state.form;
+    if (form.Title && form.Place) {
+      this.props.onSave(form);
+      this.props.toggleForm();
+    }
   };
 
   changeHandler = event => {
-    this.setState({ [event.target.name]: event.target.value });
+    let form = { ...this.state.form };
+    form[event.target.name] = event.target.value;
+    this.setState({ form });
   };
 
   render() {
+    const { form } = this.state;
     return (
       <div>
         <form
@@ -25,12 +45,12 @@ class TourForm extends React.Component {
           noValidate
         >
           <MDBRow>
-            <MDBCol md="4" className="mb-3">
+            <MDBCol md="6" className="mb-3">
               <label htmlFor="defaultFormRegisterNameEx" className="grey-text">
                 Title
               </label>
               <input
-                value={this.state.Title}
+                value={form.Title}
                 name="Title"
                 onChange={this.changeHandler}
                 type="text"
@@ -41,7 +61,7 @@ class TourForm extends React.Component {
               />
               <div className="valid-feedback">Looks good!</div>
             </MDBCol>
-            <MDBCol md="4" className="mb-3">
+            <MDBCol md="6" className="mb-3">
               <label
                 htmlFor="defaultFormRegisterEmailEx2"
                 className="grey-text"
@@ -49,7 +69,7 @@ class TourForm extends React.Component {
                 Place
               </label>
               <input
-                value={this.state.Place}
+                value={form.Place}
                 name="Place"
                 onChange={this.changeHandler}
                 type="text"
@@ -60,7 +80,7 @@ class TourForm extends React.Component {
               />
               <div className="valid-feedback">Looks good!</div>
             </MDBCol>
-            <MDBCol md="4" className="mb-3">
+            <MDBCol md="12" className="mb-3">
               <label
                 htmlFor="defaultFormRegisterConfirmEx3"
                 className="grey-text"
@@ -68,7 +88,7 @@ class TourForm extends React.Component {
                 Description
               </label>
               <input
-                value={this.state.Description}
+                value={form.Description}
                 onChange={this.changeHandler}
                 type="textArea"
                 id="defaultFormRegisterConfirmEx3"
@@ -78,11 +98,11 @@ class TourForm extends React.Component {
               />
             </MDBCol>
           </MDBRow>
-          
-          <MDBBtn color="primary" type="submit" color="success">
+
+          <MDBBtn type="submit" color="success">
             Save
           </MDBBtn>
-          <MDBBtn color="primary" type="button">
+          <MDBBtn onClick={this.props.toggleForm} color="primary" type="button">
             Cancel
           </MDBBtn>
         </form>

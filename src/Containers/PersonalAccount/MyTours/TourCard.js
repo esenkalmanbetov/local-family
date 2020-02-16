@@ -9,7 +9,7 @@ import {
   MDBCol
 } from "mdbreact";
 
-const TourCard = () => {
+const TourCard = ({ tour, onEdit }) => {
   return (
     <MDBCol>
       <MDBCard style={{ width: "22rem" }}>
@@ -19,12 +19,10 @@ const TourCard = () => {
           waves
         />
         <MDBCardBody>
-          <MDBCardTitle>Card title</MDBCardTitle>
-          <MDBCardText>
-            Some quick example text to build on the card title and make up the
-            bulk of the card&apos;s content.
-          </MDBCardText>
-          <MDBBtn>Edit</MDBBtn>
+          <MDBCardTitle>{tour.Title}</MDBCardTitle>
+          <MDBCardTitle>{tour.Place}</MDBCardTitle>
+          <MDBCardText>{tour.Description}</MDBCardText>
+          <MDBBtn onClick={() => onEdit(tour.Id)}>Edit</MDBBtn>
           <MDBBtn>Delete</MDBBtn>
         </MDBCardBody>
       </MDBCard>
