@@ -5,10 +5,13 @@ import TourForm from "./TourForm";
 import TourCard from "./TourCard";
 
 class MyTours extends Component {
-  state = {
-    isTourFormOpen: -1,
-    tourList: []
-  };
+  constructor(props) {
+    super(props);
+    this.state = {
+      isTourFormOpen: -1,
+      tourList: []
+    };
+  }
 
   componentDidMount() {
     this.initTourList();
@@ -16,7 +19,7 @@ class MyTours extends Component {
 
   initTourList = () => {
     let tourList = JSON.parse(localStorage.getItem("tourList"));
-    this.setState({ tourList });
+    tourList && this.setState({ tourList });
   };
 
   toggleTourForm = (isTourFormOpen = -1) => {
@@ -57,6 +60,7 @@ class MyTours extends Component {
     const {
       state: { isTourFormOpen, tourList }
     } = this;
+
     return (
       <MDBContainer>
         <MDBRow>
