@@ -3,12 +3,12 @@ import { MDBRow, MDBCol, MDBContainer, MDBBtn } from "mdbreact";
 
 class ProfileForm extends React.Component {
   state = {
-    fname: "Mark",
-    lname: "Otto",
+    fname: "James",
+    lname: "Cole",
     email: "",
     city: "",
     state: "",
-    zip: ""
+    address: ""
   };
 
   submitHandler = event => {
@@ -135,43 +135,26 @@ class ProfileForm extends React.Component {
                 htmlFor="defaultFormRegisterPasswordEx4"
                 className="grey-text"
               >
-                Zip
+                Address
               </label>
               <input
-                value={this.state.zip}
+                value={this.state.address}
                 onChange={this.changeHandler}
                 type="text"
                 id="defaultFormRegisterPasswordEx4"
                 className="form-control"
-                name="zip"
-                placeholder="Zip"
+                name="address"
+                placeholder="address"
                 required
               />
               <div className="invalid-feedback">
-                Please provide a valid zip.
+                Please provide your address.
               </div>
               <div className="valid-feedback">Looks good!</div>
             </MDBCol>
           </MDBRow>
-          <MDBCol md="4" className="mb-3">
-            <div className="custom-control custom-checkbox pl-3">
-              <input
-                className="custom-control-input"
-                type="checkbox"
-                value=""
-                id="invalidCheck"
-                required
-              />
-              <label className="custom-control-label" htmlFor="invalidCheck">
-                Agree to terms and conditions
-              </label>
-              <div className="invalid-feedback">
-                You must agree before submitting.
-              </div>
-            </div>
-          </MDBCol>
           <MDBBtn color="primary" type="submit">
-            Submit Form
+            Save
           </MDBBtn>
         </form>
       </div>

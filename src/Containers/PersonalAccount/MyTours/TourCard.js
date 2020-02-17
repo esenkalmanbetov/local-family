@@ -3,29 +3,30 @@ import {
   MDBBtn,
   MDBCard,
   MDBCardBody,
-  MDBCardImage,
+  // MDBCardImage,
   MDBCardTitle,
   MDBCardText,
   MDBCol
 } from "mdbreact";
 
-const TourCard = () => {
+import ImageCarousel from "./ImageCarousel";
+
+const TourCard = ({ tour, onEdit, onDelete }) => {
   return (
     <MDBCol>
       <MDBCard style={{ width: "22rem" }}>
-        <MDBCardImage
+        {/* <MDBCardImage
           className="img-fluid"
           src="https://mdbootstrap.com/img/Photos/Others/images/43.jpg"
           waves
-        />
+        /> */}
+        <ImageCarousel />
         <MDBCardBody>
-          <MDBCardTitle>Card title</MDBCardTitle>
-          <MDBCardText>
-            Some quick example text to build on the card title and make up the
-            bulk of the card&apos;s content.
-          </MDBCardText>
-          <MDBBtn>Edit</MDBBtn>
-          <MDBBtn>Delete</MDBBtn>
+          <MDBCardTitle>{tour.Title}</MDBCardTitle>
+          <MDBCardTitle>{tour.Place}</MDBCardTitle>
+          <MDBCardText>{tour.Description}</MDBCardText>
+          <MDBBtn onClick={() => onEdit(tour.Id)}>Edit</MDBBtn>
+          <MDBBtn onClick={() => onDelete(tour.Id)}>Delete</MDBBtn>
         </MDBCardBody>
       </MDBCard>
     </MDBCol>
