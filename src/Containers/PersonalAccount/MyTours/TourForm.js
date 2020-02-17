@@ -22,7 +22,7 @@ class ImageUpload extends React.Component {
           return (
             <div key={idx}>
               picture
-              <img src={URL.createObjectURL(picture)} alt={'surot'} />
+              <img src={URL.createObjectURL(picture)} alt={"surot"} />
             </div>
           );
         })}
