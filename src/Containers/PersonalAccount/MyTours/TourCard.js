@@ -9,7 +9,7 @@ import {
   MDBCol
 } from "mdbreact";
 
-const TourCard = ({ tour, onEdit }) => {
+const TourCard = ({ tour, onEdit, onDelete }) => {
   return (
     <MDBCol>
       <MDBCard style={{ width: "22rem" }}>
@@ -23,7 +23,7 @@ const TourCard = ({ tour, onEdit }) => {
           <MDBCardTitle>{tour.Place}</MDBCardTitle>
           <MDBCardText>{tour.Description}</MDBCardText>
           <MDBBtn onClick={() => onEdit(tour.Id)}>Edit</MDBBtn>
-          <MDBBtn>Delete</MDBBtn>
+          <MDBBtn onClick={() => onDelete(tour.Id)}>Delete</MDBBtn>
         </MDBCardBody>
       </MDBCard>
     </MDBCol>

@@ -41,7 +41,16 @@ class MyTours extends Component {
     tourList.forEach(tour => {
       if (form.Id === tour.Id) for (let key in tour) tour[key] = form[key];
     });
+    localStorage.setItem("tourList", JSON.stringify(tourList));
     this.setState({ tourList });
+  };
+
+  deleteTour = id => {
+    let tourList = [...this.state.tourList];
+    const deleteIdx = tourList.findIndex(tour => tour.Id === id);
+    tourList.splice(deleteIdx, 1);
+    this.setState({ tourList });
+    localStorage.setItem("tourList", JSON.stringify(tourList));
   };
 
   render() {
@@ -72,7 +81,11 @@ class MyTours extends Component {
                       toggleForm={this.toggleTourForm}
                     />
                   ) : (
-                    <TourCard tour={tour} onEdit={this.toggleTourForm} />
+                    <TourCard
+                      tour={tour}
+                      onEdit={this.toggleTourForm}
+                      onDelete={this.deleteTour}
+                    />
                   )}
                 </div>
               );
