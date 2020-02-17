@@ -71,7 +71,7 @@ class MyTours extends Component {
                 toggleForm={this.toggleTourForm}
               />
             ) : null}
-            {tourList.map(tour => {
+            {/* {tourList.map(tour => {
               return (
                 <div key={tour.Id}>
                   {isTourFormOpen === tour.Id ? (
@@ -89,7 +89,7 @@ class MyTours extends Component {
                   )}
                 </div>
               );
-            })}
+            })} */}
           </MDBCol>
         </MDBRow>
       </MDBContainer>
