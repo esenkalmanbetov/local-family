@@ -3,21 +3,24 @@ import {
   MDBBtn,
   MDBCard,
   MDBCardBody,
-  MDBCardImage,
+  // MDBCardImage,
   MDBCardTitle,
   MDBCardText,
   MDBCol
 } from "mdbreact";
 
+import ImageCarousel from "./ImageCarousel";
+
 const TourCard = ({ tour, onEdit, onDelete }) => {
   return (
     <MDBCol>
       <MDBCard style={{ width: "22rem" }}>
-        <MDBCardImage
+        {/* <MDBCardImage
           className="img-fluid"
           src="https://mdbootstrap.com/img/Photos/Others/images/43.jpg"
           waves
-        />
+        /> */}
+        <ImageCarousel />
         <MDBCardBody>
           <MDBCardTitle>{tour.Title}</MDBCardTitle>
           <MDBCardTitle>{tour.Place}</MDBCardTitle>
