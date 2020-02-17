@@ -71,7 +71,7 @@ class MyTours extends Component {
                 toggleForm={this.toggleTourForm}
               />
             ) : null}
-            {tourList.map((tour, idx) => {
+            {tourList.map(tour => {
               return (
                 <div key={tour.Id}>
                   {isTourFormOpen === tour.Id ? (
