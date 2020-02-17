@@ -1,5 +1,42 @@
 import React from "react";
 import { MDBRow, MDBCol, MDBBtn } from "mdbreact";
+import ImageUploader from "react-images-upload";
+
+class ImageUpload extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = { pictures: [] };
+    this.onDrop = this.onDrop.bind(this);
+  }
+
+  onDrop(pictureFiles, pictureDataURLs) {
+    this.setState({
+      pictures: this.state.pictures.concat(pictureFiles)
+    });
+  }
+
+  render() {
+    return (
+      <div>
+        {this.state.pictures.map((picture, idx) => {
+          return (
+            <div key={idx}>
+              picture
+              <img src={URL.createObjectURL(picture)} alt={'surot'} />
+            </div>
+          );
+        })}
+        <ImageUploader
+          withIcon={true}
+          buttonText="Choose images"
+          onChange={this.onDrop}
+          // imgExtension={['.jpg', '.gif', '.png', '.gif']}
+          // maxFileSize={5242880}
+        />
+      </div>
+    );
+  }
+}
 class TourForm extends React.Component {
   state = {
     form: {
@@ -15,7 +52,7 @@ class TourForm extends React.Component {
   }
 
   initForm = () => {
-    let form = this.props.tour || this.state.form
+    let form = this.props.tour || this.state.form;
     this.setState({ form });
   };
 
@@ -98,6 +135,8 @@ class TourForm extends React.Component {
               />
             </MDBCol>
           </MDBRow>
+
+          <ImageUpload />
 
           <MDBBtn type="submit" color="success">
             Save
