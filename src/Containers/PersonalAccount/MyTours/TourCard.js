@@ -15,12 +15,7 @@ const TourCard = ({ tour, onEdit, onDelete }) => {
   return (
     <MDBCol>
       <MDBCard style={{ width: "22rem" }}>
-        {/* <MDBCardImage
-          className="img-fluid"
-          src="https://mdbootstrap.com/img/Photos/Others/images/43.jpg"
-          waves
-        /> */}
-        <ImageCarousel />
+        <ImageCarousel Pictures={tour.Pictures} />
         <MDBCardBody>
           <MDBCardTitle>{tour.Title}</MDBCardTitle>
           <MDBCardTitle>{tour.Place}</MDBCardTitle>
