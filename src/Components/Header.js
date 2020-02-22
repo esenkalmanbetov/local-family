@@ -16,12 +16,9 @@ class Header extends React.Component {
                 <div className="row align-items-center">
                   <div className="col-xl-2 col-lg-2">
                     <div className="logo">
-                      <a href="index.html">
-                        <img
-                          src={Logo}
-                          alt="Local family"
-                        />
-                      </a>
+                      <Link to="/">
+                        <img src={Logo} alt="Local family" />
+                      </Link>
                     </div>
                   </div>
                   <div className="col-xl-6 col-lg-6">
@@ -29,17 +26,15 @@ class Header extends React.Component {
                       <nav>
                         <ul id="navigation">
                           <li>
-                            <a className="active" href="index.html">
+                            <Link className="active" to="/">
                               home
-                            </a>
+                            </Link>
                           </li>
                           <li>
-                            <a href="about.html">About</a>
+                            <Link to="/about">About</Link>
                           </li>
                           <li>
-                            <a className="" href="travel_destination.html">
-                              Destination
-                            </a>
+                            <Link to="/travel_destination">Destination</Link>
                           </li>
                           <li>
                             <a href="">
@@ -131,6 +126,26 @@ class Header extends React.Component {
             </div>
           </div>
         </div>
+
+        {/* <!-- Modal --> */}
+        <div
+          class="modal fade custom_search_pop"
+          id="exampleModalCenter"
+          tabindex="-1"
+          role="dialog"
+          aria-labelledby="exampleModalCenterTitle"
+          aria-hidden="true"
+        >
+          <div class="modal-dialog modal-dialog-centered" role="document">
+            <div class="modal-content">
+              <div class="serch_form">
+                <input type="text" placeholder="Search" />
+                <button type="submit">search</button>
+              </div>
+            </div>
+          </div>
+        </div>
+        {/* <!-- link that opens popup --> */}
       </header>
     );
   }

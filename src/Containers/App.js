@@ -9,6 +9,8 @@ import Kz from "./Kz";
 import Signup from "./Auth/Signup";
 import Signin from "./Auth/Signin";
 import PersonalAccount from "./PersonalAccount/index";
+import About from "../pages/About";
+import TravelDestination from "../pages/TravelDestination";
 
 import "./App.css";
 
@@ -20,6 +22,8 @@ function App() {
         <div className="containers">
           <Switch>
             <Route exact path="/" component={Home} />
+            <Route path="/about" component={About} />
+            <Route path="/travel_destination" component={TravelDestination} />
             <Route path="/kg" component={Kg} />
             <Route path="/kz" component={Kz} />
             <Route path="/signup" component={Signup} />

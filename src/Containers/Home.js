@@ -3,6 +3,12 @@ import { Link } from "react-router-dom";
 
 import "./Home.scss";
 
+import VideoArea from "../Components/VideoArea";
+import TravelVariationArea from "../Components/TravelVariationArea";
+import TestimonialArea from "../Components/TestimonialArea";
+import RecentTripArea from "../Components/RecentTripArea";
+import NewLetterArea from "../Components/NewLetterArea";
+
 import Dest1 from "../assets/img/destination/1.png";
 import Dest2 from "../assets/img/destination/2.png";
 import Dest3 from "../assets/img/destination/3.png";
@@ -17,16 +23,6 @@ import Place4 from "../assets/img/place/4.png";
 import Place5 from "../assets/img/place/5.png";
 import Place6 from "../assets/img/place/6.png";
 
-import Icon1 from "../assets/img/svg_icon/1.svg";
-import Icon2 from "../assets/img/svg_icon/2.svg";
-import Icon3 from "../assets/img/svg_icon/3.svg";
-
-import Trip1 from "../assets/img/trip/1.png";
-import Trip2 from "../assets/img/trip/2.png";
-import Trip3 from "../assets/img/trip/3.png";
-
-import Author from "../assets/img/testmonial/author.png";
-
 class Home extends React.Component {
   render() {
     return (
@@ -40,95 +36,49 @@ class Home extends React.Component {
           </li>
         </ul> */}
 
-        {/* slider_area_start */}
-        <div className="slider_area">
-          <div className="slider_active owl-carousel">
-            <div className="single_slider  d-flex align-items-center slider_bg_1 overlay">
-              <div className="container">
-                <div className="row align-items-center">
-                  <div className="col-xl-12 col-md-12">
-                    <div className="slider_text text-center">
-                      <h3>Indonesia</h3>
-                      <p>Pixel perfect design with awesome contents</p>
-                      <a href="#" className="boxed-btn3">
-                        Explore Now
-                      </a>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div className="single_slider  d-flex align-items-center slider_bg_2 overlay">
-              <div className="container">
-                <div className="row align-items-center">
-                  <div className="col-xl-12 col-md-12">
-                    <div className="slider_text text-center">
-                      <h3>Australia</h3>
-                      <p>Pixel perfect design with awesome contents</p>
-                      <a href="#" className="boxed-btn3">
-                        Explore Now
-                      </a>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div className="single_slider  d-flex align-items-center slider_bg_3 overlay">
-              <div className="container">
-                <div className="row align-items-center">
-                  <div className="col-xl-12 col-md-12">
-                    <div className="slider_text text-center">
-                      <h3>Switzerland</h3>
-                      <p>Pixel perfect design with awesome contents</p>
-                      <a href="#" className="boxed-btn3">
-                        Explore Now
-                      </a>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-        {/* slider_area_end */}
-
-        {/* where_togo_area_start */}
-        <div class="where_togo_area">
+        <div class="popular_destination_area countries">
           <div class="container">
-            <div class="row align-items-center">
-              <div class="col-lg-3">
-                <div class="form_area">
-                  <h3>Where you want to go?</h3>
+            <div class="row">
+              <div class="col-lg-4 col-md-6">
+                <div class="single_destination">
+                  <div class="thumb">
+                    <img src={Dest6} alt="" />
+                  </div>
+                  <div class="content">
+                    <p class="d-flex align-items-center">
+                      Kyrgyzstan{" "}
+                      <a href="travel_destination.html"> 07 Places</a>{" "}
+                    </p>
+                  </div>
                 </div>
               </div>
-              <div class="col-lg-9">
-                <div class="search_wrap">
-                  <form class="search_form" action="#">
-                    <div class="input_field">
-                      <input type="text" placeholder="Where to go?" />
-                    </div>
-                    <div class="input_field">
-                      <input id="datepicker" placeholder="Date" />
-                    </div>
-                    <div class="input_field">
-                      <select>
-                        <option data-display="Travel type">Travel type</option>
-                        <option value="1">Some option</option>
-                        <option value="2">Another option</option>
-                      </select>
-                    </div>
-                    <div class="search_btn">
-                      <button class="boxed-btn4 " type="submit">
-                        Search
-                      </button>
-                    </div>
-                  </form>
+              <div class="col-lg-4 col-md-6">
+                <div class="single_destination">
+                  <div class="thumb">
+                    <img src={Dest5} alt="" />
+                  </div>
+                  <div class="content">
+                    <p class="d-flex align-items-center">
+                      Kazakstan <a href="travel_destination.html"> 03 Places</a>{" "}
+                    </p>
+                  </div>
+                </div>
+              </div>
+              <div class="col-lg-4 col-md-6">
+                <div class="single_destination">
+                  <div class="thumb">
+                    <img src={Dest2} alt="" />
+                  </div>
+                  <div class="content">
+                    <p class="d-flex align-items-center">
+                      Ozbekstan <a href="travel_destination.html"> 10 Places</a>{" "}
+                    </p>
+                  </div>
                 </div>
               </div>
             </div>
           </div>
         </div>
-        {/* where_togo_area_start */}
 
         {/* popular_destination_area_start */}
         <div class="popular_destination_area">
@@ -222,45 +172,7 @@ class Home extends React.Component {
         </div>
         {/* popular_destination_area_end */}
 
-        {/* newletter_area_start */}
-        <div class="newletter_area overlay">
-          <div class="container">
-            <div class="row justify-content-center align-items-center">
-              <div class="col-lg-10">
-                <div class="row align-items-center">
-                  <div class="col-lg-5">
-                    <div class="newsletter_text">
-                      <h4>Subscribe Our Newsletter</h4>
-                      <p>
-                        Subscribe newsletter to get offers and about new places
-                        to discover.
-                      </p>
-                    </div>
-                  </div>
-                  <div class="col-lg-7">
-                    <div class="mail_form">
-                      <div class="row no-gutters">
-                        <div class="col-lg-9 col-md-8">
-                          <div class="newsletter_field">
-                            <input type="email" placeholder="Your mail" />
-                          </div>
-                        </div>
-                        <div class="col-lg-3 col-md-4">
-                          <div class="newsletter_btn">
-                            <button class="boxed-btn4 " type="submit">
-                              Subscribe
-                            </button>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-        {/* <!-- newletter_area_end  --> */}
+        <NewLetterArea />
 
         <div class="popular_places_area">
           <div class="container">
@@ -469,197 +381,13 @@ class Home extends React.Component {
           </div>
         </div>
 
-        <div class="video_area video_bg overlay">
-          <div class="container">
-            <div class="row">
-              <div class="col-lg-12">
-                <div class="video_wrap text-center">
-                  <h3>Enjoy Video</h3>
-                  <div class="video_icon">
-                    <a
-                      class="popup-video video_play_button"
-                      href="https://www.youtube.com/watch?v=f59dDEk57i0"
-                    >
-                      <i class="fa fa-play"></i>
-                    </a>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
+        <VideoArea />
 
-        <div class="travel_variation_area">
-          <div class="container">
-            <div class="row">
-              <div class="col-lg-4 col-md-6">
-                <div class="single_travel text-center">
-                  <div class="icon">
-                    <img src={Icon1} alt="" />
-                  </div>
-                  <h3>Comfortable Journey</h3>
-                  <p>
-                    A wonderful serenity has taken to the possession of my
-                    entire soul.
-                  </p>
-                </div>
-              </div>
-              <div class="col-lg-4 col-md-6">
-                <div class="single_travel text-center">
-                  <div class="icon">
-                    <img src={Icon2} alt="" />
-                  </div>
-                  <h3>Luxuries Hotel</h3>
-                  <p>
-                    A wonderful serenity has taken to the possession of my
-                    entire soul.
-                  </p>
-                </div>
-              </div>
-              <div class="col-lg-4 col-md-6">
-                <div class="single_travel text-center">
-                  <div class="icon">
-                    <img src={Icon3} alt="" />
-                  </div>
-                  <h3>Travel Guide</h3>
-                  <p>
-                    A wonderful serenity has taken to the possession of my
-                    entire soul.
-                  </p>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
+        <TravelVariationArea />
 
-        {/* <!-- testimonial_area  --> */}
-        <div class="testimonial_area">
-          <div class="container">
-            <div class="row">
-              <div class="col-xl-12">
-                <div class="testmonial_active owl-carousel">
-                  <div class="single_carousel">
-                    <div class="row justify-content-center">
-                      <div class="col-lg-8">
-                        <div class="single_testmonial text-center">
-                          <div class="author_thumb">
-                            <img src={Author} alt="" />
-                          </div>
-                          <p>
-                            "Working in conjunction with humanitarian aid
-                            agencies, we have supported programmes to help
-                            alleviate human suffering.
-                          </p>
-                          <div class="testmonial_author">
-                            <h3>- Micky Mouse</h3>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                  <div class="single_carousel">
-                    <div class="row justify-content-center">
-                      <div class="col-lg-8">
-                        <div class="single_testmonial text-center">
-                          <div class="author_thumb">
-                            <img src={Author} alt="" />
-                          </div>
-                          <p>
-                            "Working in conjunction with humanitarian aid
-                            agencies, we have supported programmes to help
-                            alleviate human suffering.
-                          </p>
-                          <div class="testmonial_author">
-                            <h3>- Tom Mouse</h3>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                  <div class="single_carousel">
-                    <div class="row justify-content-center">
-                      <div class="col-lg-8">
-                        <div class="single_testmonial text-center">
-                          <div class="author_thumb">
-                            <img src={Author} alt="" />
-                          </div>
-                          <p>
-                            "Working in conjunction with humanitarian aid
-                            agencies, we have supported programmes to help
-                            alleviate human suffering.
-                          </p>
-                          <div class="testmonial_author">
-                            <h3>- Jerry Mouse</h3>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-        {/* <!-- /testimonial_area  --> */}
+        <TestimonialArea />
 
-        <div class="recent_trip_area">
-          <div class="container">
-            <div class="row justify-content-center">
-              <div class="col-lg-6">
-                <div class="section_title text-center mb_70">
-                  <h3>Recent Trips</h3>
-                </div>
-              </div>
-            </div>
-            <div class="row">
-              <div class="col-lg-4 col-md-6">
-                <div class="single_trip">
-                  <div class="thumb">
-                    <img src={Trip1} alt="" />
-                  </div>
-                  <div class="info">
-                    <div class="date">
-                      <span>Oct 12, 2019</span>
-                    </div>
-                    <a href="#">
-                      <h3>Journeys Are Best Measured In New Friends</h3>
-                    </a>
-                  </div>
-                </div>
-              </div>
-              <div class="col-lg-4 col-md-6">
-                <div class="single_trip">
-                  <div class="thumb">
-                    <img src={Trip2} alt="" />
-                  </div>
-                  <div class="info">
-                    <div class="date">
-                      <span>Oct 12, 2019</span>
-                    </div>
-                    <a href="#">
-                      <h3>Journeys Are Best Measured In New Friends</h3>
-                    </a>
-                  </div>
-                </div>
-              </div>
-              <div class="col-lg-4 col-md-6">
-                <div class="single_trip">
-                  <div class="thumb">
-                    <img src={Trip3} alt="" />
-                  </div>
-                  <div class="info">
-                    <div class="date">
-                      <span>Oct 12, 2019</span>
-                    </div>
-                    <a href="#">
-                      <h3>Journeys Are Best Measured In New Friends</h3>
-                    </a>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
+        <RecentTripArea />
       </div>
     );
   }
