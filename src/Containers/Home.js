@@ -3,10 +3,10 @@ import React from "react";
 import "./Home.scss";
 
 import VideoArea from "../Components/VideoArea";
-import TravelVariationArea from "../Components/TravelVariationArea";
-import TestimonialArea from "../Components/TestimonialArea";
 import RecentTripArea from "../Components/RecentTripArea";
-import NewLetterArea from "../Components/NewLetterArea";
+// import TravelVariationArea from "../Components/TravelVariationArea";
+// import TestimonialArea from "../Components/TestimonialArea";
+// import NewLetterArea from "../Components/NewLetterArea";
 
 import Dest1 from "../assets/img/destination/1.png";
 import Dest2 from "../assets/img/destination/2.png";
@@ -26,15 +26,6 @@ class Home extends React.Component {
   render() {
     return (
       <div>
-        {/* <ul>
-          <li>
-            <Link to="/kg">Kg</Link>
-          </li>
-          <li>
-            <Link to="/kz">Kz</Link>
-          </li>
-        </ul> */}
-
         <div class="popular_destination_area countries">
           <div class="container">
             <div class="row">
@@ -176,7 +167,7 @@ class Home extends React.Component {
         </div>
         {/* popular_destination_area_end */}
 
-        <NewLetterArea />
+        {/* <NewLetterArea /> */}
 
         <div class="popular_places_area">
           <div class="container">
@@ -386,11 +377,8 @@ class Home extends React.Component {
         </div>
 
         <VideoArea />
-
-        <TravelVariationArea />
-
-        <TestimonialArea />
-
+        {/* <TravelVariationArea /> */}
+        {/* <TestimonialArea /> */}
         <RecentTripArea />
       </div>
     );
