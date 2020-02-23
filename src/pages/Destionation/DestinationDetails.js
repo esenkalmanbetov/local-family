@@ -121,12 +121,12 @@ class DestinationDetails extends React.Component {
                 <div class="single_place">
                   <div class="thumb">
                     <img src={Place1} alt="" />
-                    <a href="#" class="prise">
+                    <a href="destination_details" class="prise">
                       $500
                     </a>
                   </div>
                   <div class="place_info">
-                    <a href="#">
+                    <a href="destination_details">
                       <h3>California</h3>
                     </a>
                     <p>United State of America</p>
@@ -137,11 +137,11 @@ class DestinationDetails extends React.Component {
                         <i class="fa fa-star"></i>
                         <i class="fa fa-star"></i>
                         <i class="fa fa-star"></i>
-                        <a href="#">(20 Review)</a>
+                        <a href="destination_details">(20 Review)</a>
                       </span>
                       <div class="days">
                         <i class="fa fa-clock-o"></i>
-                        <a href="#">5 Days</a>
+                        <a href="destination_details">5 Days</a>
                       </div>
                     </div>
                   </div>
@@ -151,12 +151,12 @@ class DestinationDetails extends React.Component {
                 <div class="single_place">
                   <div class="thumb">
                     <img src={Place2} alt="" />
-                    <a href="#" class="prise">
+                    <a href="destination_details" class="prise">
                       $500
                     </a>
                   </div>
                   <div class="place_info">
-                    <a href="#">
+                    <a href="destination_details">
                       <h3>Korola Megna</h3>
                     </a>
                     <p>United State of America</p>
@@ -167,11 +167,11 @@ class DestinationDetails extends React.Component {
                         <i class="fa fa-star"></i>
                         <i class="fa fa-star"></i>
                         <i class="fa fa-star"></i>
-                        <a href="#">(20 Review)</a>
+                        <a href="destination_details">(20 Review)</a>
                       </span>
                       <div class="days">
                         <i class="fa fa-clock-o"></i>
-                        <a href="#">5 Days</a>
+                        <a href="destination_details">5 Days</a>
                       </div>
                     </div>
                   </div>
@@ -181,12 +181,12 @@ class DestinationDetails extends React.Component {
                 <div class="single_place">
                   <div class="thumb">
                     <img src={Place3} alt="" />
-                    <a href="#" class="prise">
+                    <a href="destination_details" class="prise">
                       $500
                     </a>
                   </div>
                   <div class="place_info">
-                    <a href="#">
+                    <a href="destination_details">
                       <h3>London</h3>
                     </a>
                     <p>United State of America</p>
@@ -197,11 +197,11 @@ class DestinationDetails extends React.Component {
                         <i class="fa fa-star"></i>
                         <i class="fa fa-star"></i>
                         <i class="fa fa-star"></i>
-                        <a href="#">(20 Review)</a>
+                        <a href="destination_details">(20 Review)</a>
                       </span>
                       <div class="days">
                         <i class="fa fa-clock-o"></i>
-                        <a href="#">5 Days</a>
+                        <a href="destination_details">5 Days</a>
                       </div>
                     </div>
                   </div>

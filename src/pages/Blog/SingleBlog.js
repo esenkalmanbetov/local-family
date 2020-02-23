@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import { withRouter } from "react-router";
 
 import SingleBlog1 from "../../assets/img/blog/single_blog_1.png";
@@ -42,14 +43,14 @@ class SingleBlog extends React.Component {
                     </h2>
                     <ul class="blog-info-link mt-3 mb-4">
                       <li>
-                        <a href="#">
+                        <Link>
                           <i class="fa fa-user"></i> Travel, Lifestyle
-                        </a>
+                        </Link>
                       </li>
                       <li>
-                        <a href="#">
+                        <Link>
                           <i class="fa fa-comments"></i> 03 Comments
-                        </a>
+                        </Link>
                       </li>
                     </ul>
                     <p class="excert">
@@ -109,24 +110,24 @@ class SingleBlog extends React.Component {
                     </div>
                     <ul class="social-icons">
                       <li>
-                        <a href="#">
+                        <Link>
                           <i class="fa fa-facebook-f"></i>
-                        </a>
+                        </Link>
                       </li>
                       <li>
-                        <a href="#">
+                        <Link>
                           <i class="fa fa-twitter"></i>
-                        </a>
+                        </Link>
                       </li>
                       <li>
-                        <a href="#">
+                        <Link>
                           <i class="fa fa-dribbble"></i>
-                        </a>
+                        </Link>
                       </li>
                       <li>
-                        <a href="#">
+                        <Link>
                           <i class="fa fa-behance"></i>
-                        </a>
+                        </Link>
                       </li>
                     </ul>
                   </div>
@@ -134,42 +135,42 @@ class SingleBlog extends React.Component {
                     <div class="row">
                       <div class="col-lg-6 col-md-6 col-12 nav-left flex-row d-flex justify-content-start align-items-center">
                         <div class="thumb">
-                          <a href="#">
+                          <Link>
                             <img
                               class="img-fluid"
                               src={PostPreviewPng}
                               alt=""
                             />
-                          </a>
+                          </Link>
                         </div>
                         <div class="arrow">
-                          <a href="#">
+                          <Link>
                             <span class="lnr text-white ti-arrow-left"></span>
-                          </a>
+                          </Link>
                         </div>
                         <div class="detials">
                           <p>Prev Post</p>
-                          <a href="#">
+                          <Link>
                             <h4>Space The Final Frontier</h4>
-                          </a>
+                          </Link>
                         </div>
                       </div>
                       <div class="col-lg-6 col-md-6 col-12 nav-right flex-row d-flex justify-content-end align-items-center">
                         <div class="detials">
                           <p>Next Post</p>
-                          <a href="#">
+                          <Link>
                             <h4>Telescopes 101</h4>
-                          </a>
+                          </Link>
                         </div>
                         <div class="arrow">
-                          <a href="#">
+                          <Link>
                             <span class="lnr text-white ti-arrow-right"></span>
-                          </a>
+                          </Link>
                         </div>
                         <div class="thumb">
-                          <a href="#">
+                          <Link>
                             <img class="img-fluid" src={PostNextPng} alt="" />
-                          </a>
+                          </Link>
                         </div>
                       </div>
                     </div>
@@ -179,9 +180,9 @@ class SingleBlog extends React.Component {
                   <div class="media align-items-center">
                     <img src={AuthorPng} alt="" />
                     <div class="media-body">
-                      <a href="#">
+                      <Link>
                         <h4>Harvard milan</h4>
-                      </a>
+                      </Link>
                       <p>
                         Second divided from form fish beast made. Every of seas
                         all gathered use saying you're, he our dominion twon
@@ -208,14 +209,14 @@ class SingleBlog extends React.Component {
                           <div class="d-flex justify-content-between">
                             <div class="d-flex align-items-center">
                               <h5>
-                                <a href="#">Emilly Blunt</a>
+                                <Link>Emilly Blunt</Link>
                               </h5>
                               <p class="date">December 4, 2017 at 3:12 pm </p>
                             </div>
                             <div class="reply-btn">
-                              <a href="#" class="btn-reply text-uppercase">
+                              <Link class="btn-reply text-uppercase">
                                 reply
-                              </a>
+                              </Link>
                             </div>
                           </div>
                         </div>
@@ -238,14 +239,14 @@ class SingleBlog extends React.Component {
                           <div class="d-flex justify-content-between">
                             <div class="d-flex align-items-center">
                               <h5>
-                                <a href="#">Emilly Blunt</a>
+                                <Link>Emilly Blunt</Link>
                               </h5>
                               <p class="date">December 4, 2017 at 3:12 pm </p>
                             </div>
                             <div class="reply-btn">
-                              <a href="#" class="btn-reply text-uppercase">
+                              <Link class="btn-reply text-uppercase">
                                 reply
-                              </a>
+                              </Link>
                             </div>
                           </div>
                         </div>
@@ -268,14 +269,14 @@ class SingleBlog extends React.Component {
                           <div class="d-flex justify-content-between">
                             <div class="d-flex align-items-center">
                               <h5>
-                                <a href="#">Emilly Blunt</a>
+                                <Link>Emilly Blunt</Link>
                               </h5>
                               <p class="date">December 4, 2017 at 3:12 pm </p>
                             </div>
                             <div class="reply-btn">
-                              <a href="#" class="btn-reply text-uppercase">
+                              <Link class="btn-reply text-uppercase">
                                 reply
-                              </a>
+                              </Link>
                             </div>
                           </div>
                         </div>

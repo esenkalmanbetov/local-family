@@ -1,5 +1,4 @@
 import React from "react";
-import { Link } from "react-router-dom";
 
 import "./Home.scss";
 
@@ -40,41 +39,46 @@ class Home extends React.Component {
           <div class="container">
             <div class="row">
               <div class="col-lg-4 col-md-6">
-                <div class="single_destination">
-                  <div class="thumb">
-                    <img src={Dest6} alt="" />
+                <a href="/travel_destination">
+                  <div class="single_destination">
+                    <div class="thumb">
+                      <img src={Dest6} alt="" />
+                    </div>
+                    <div class="content">
+                      <p class="d-flex align-items-center">
+                        Kyrgyzstan <a href="travel_destination"> 07 Places</a>{" "}
+                      </p>
+                    </div>
                   </div>
-                  <div class="content">
-                    <p class="d-flex align-items-center">
-                      Kyrgyzstan{" "}
-                      <a href="travel_destination.html"> 07 Places</a>{" "}
-                    </p>
-                  </div>
-                </div>
+                </a>
               </div>
               <div class="col-lg-4 col-md-6">
-                <div class="single_destination">
-                  <div class="thumb">
-                    <img src={Dest5} alt="" />
+                <a href="/travel_destination">
+                  <div class="single_destination">
+                    <div class="thumb">
+                      <img src={Dest5} alt="" />
+                    </div>
+                    <div class="content">
+                      <p class="d-flex align-items-center">
+                        Kazakstan <a href="travel_destination"> 03 Places</a>{" "}
+                      </p>
+                    </div>
                   </div>
-                  <div class="content">
-                    <p class="d-flex align-items-center">
-                      Kazakstan <a href="travel_destination.html"> 03 Places</a>{" "}
-                    </p>
-                  </div>
-                </div>
+                </a>
               </div>
               <div class="col-lg-4 col-md-6">
-                <div class="single_destination">
-                  <div class="thumb">
-                    <img src={Dest2} alt="" />
+                <a href="/travel_destination">
+                  <div class="single_destination">
+                    <div class="thumb">
+                      <img src={Dest2} alt="" />
+                    </div>
+                    <div class="content">
+                      <p class="d-flex align-items-center">
+                        Ozbekstan <a href="travel_destination"> 10 Places</a>{" "}
+                      </p>
+                    </div>
                   </div>
-                  <div class="content">
-                    <p class="d-flex align-items-center">
-                      Ozbekstan <a href="travel_destination.html"> 10 Places</a>{" "}
-                    </p>
-                  </div>
-                </div>
+                </a>
               </div>
             </div>
           </div>
@@ -102,7 +106,7 @@ class Home extends React.Component {
                   </div>
                   <div class="content">
                     <p class="d-flex align-items-center">
-                      Italy <a href="travel_destination.html"> 07 Places</a>{" "}
+                      Italy <a href="travel_destination"> 07 Places</a>{" "}
                     </p>
                   </div>
                 </div>
@@ -114,7 +118,7 @@ class Home extends React.Component {
                   </div>
                   <div class="content">
                     <p class="d-flex align-items-center">
-                      Brazil <a href="travel_destination.html"> 03 Places</a>{" "}
+                      Brazil <a href="travel_destination"> 03 Places</a>{" "}
                     </p>
                   </div>
                 </div>
@@ -126,7 +130,7 @@ class Home extends React.Component {
                   </div>
                   <div class="content">
                     <p class="d-flex align-items-center">
-                      America <a href="travel_destination.html"> 10 Places</a>{" "}
+                      America <a href="travel_destination"> 10 Places</a>{" "}
                     </p>
                   </div>
                 </div>
@@ -138,7 +142,7 @@ class Home extends React.Component {
                   </div>
                   <div class="content">
                     <p class="d-flex align-items-center">
-                      Nepal <a href="travel_destination.html"> 02 Places</a>{" "}
+                      Nepal <a href="travel_destination"> 02 Places</a>{" "}
                     </p>
                   </div>
                 </div>
@@ -150,7 +154,7 @@ class Home extends React.Component {
                   </div>
                   <div class="content">
                     <p class="d-flex align-items-center">
-                      Maldives <a href="travel_destination.html"> 02 Places</a>{" "}
+                      Maldives <a href="travel_destination"> 02 Places</a>{" "}
                     </p>
                   </div>
                 </div>
@@ -162,7 +166,7 @@ class Home extends React.Component {
                   </div>
                   <div class="content">
                     <p class="d-flex align-items-center">
-                      Indonesia <a href="travel_destination.html"> 05 Places</a>{" "}
+                      Indonesia <a href="travel_destination"> 05 Places</a>{" "}
                     </p>
                   </div>
                 </div>
@@ -192,12 +196,12 @@ class Home extends React.Component {
                 <div class="single_place">
                   <div class="thumb">
                     <img src={Place1} alt="" />
-                    <a href="#" class="prise">
+                    <a href="destination_details" class="prise">
                       $500
                     </a>
                   </div>
                   <div class="place_info">
-                    <a href="destination_details.html">
+                    <a href="destination_details">
                       <h3>California</h3>
                     </a>
                     <p>United State of America</p>
@@ -208,11 +212,11 @@ class Home extends React.Component {
                         <i class="fa fa-star"></i>
                         <i class="fa fa-star"></i>
                         <i class="fa fa-star"></i>
-                        <a href="#">(20 Review)</a>
+                        <a href="destination_details">(20 Review)</a>
                       </span>
                       <div class="days">
                         <i class="fa fa-clock-o"></i>
-                        <a href="#">5 Days</a>
+                        <a href="destination_details">5 Days</a>
                       </div>
                     </div>
                   </div>
@@ -222,12 +226,12 @@ class Home extends React.Component {
                 <div class="single_place">
                   <div class="thumb">
                     <img src={Place2} alt="" />
-                    <a href="#" class="prise">
+                    <a href="destination_details" class="prise">
                       $500
                     </a>
                   </div>
                   <div class="place_info">
-                    <a href="destination_details.html">
+                    <a href="destination_details">
                       <h3>Korola Megna</h3>
                     </a>
                     <p>United State of America</p>
@@ -238,11 +242,11 @@ class Home extends React.Component {
                         <i class="fa fa-star"></i>
                         <i class="fa fa-star"></i>
                         <i class="fa fa-star"></i>
-                        <a href="#">(20 Review)</a>
+                        <a href="destination_details">(20 Review)</a>
                       </span>
                       <div class="days">
                         <i class="fa fa-clock-o"></i>
-                        <a href="#">5 Days</a>
+                        <a href="destination_details">5 Days</a>
                       </div>
                     </div>
                   </div>
@@ -252,12 +256,12 @@ class Home extends React.Component {
                 <div class="single_place">
                   <div class="thumb">
                     <img src={Place3} alt="" />
-                    <a href="#" class="prise">
+                    <a href="destination_details" class="prise">
                       $500
                     </a>
                   </div>
                   <div class="place_info">
-                    <a href="destination_details.html">
+                    <a href="destination_details">
                       <h3>London</h3>
                     </a>
                     <p>United State of America</p>
@@ -268,11 +272,11 @@ class Home extends React.Component {
                         <i class="fa fa-star"></i>
                         <i class="fa fa-star"></i>
                         <i class="fa fa-star"></i>
-                        <a href="#">(20 Review)</a>
+                        <a href="destination_details">(20 Review)</a>
                       </span>
                       <div class="days">
                         <i class="fa fa-clock-o"></i>
-                        <a href="#">5 Days</a>
+                        <a href="destination_details">5 Days</a>
                       </div>
                     </div>
                   </div>
@@ -282,12 +286,12 @@ class Home extends React.Component {
                 <div class="single_place">
                   <div class="thumb">
                     <img src={Place4} alt="" />
-                    <a href="#" class="prise">
+                    <a href="destination_details" class="prise">
                       $500
                     </a>
                   </div>
                   <div class="place_info">
-                    <a href="destination_details.html">
+                    <a href="destination_details">
                       <h3>Miami Beach</h3>
                     </a>
                     <p>United State of America</p>
@@ -298,11 +302,11 @@ class Home extends React.Component {
                         <i class="fa fa-star"></i>
                         <i class="fa fa-star"></i>
                         <i class="fa fa-star"></i>
-                        <a href="#">(20 Review)</a>
+                        <a href="destination_details">(20 Review)</a>
                       </span>
                       <div class="days">
                         <i class="fa fa-clock-o"></i>
-                        <a href="#">5 Days</a>
+                        <a href="destination_details">5 Days</a>
                       </div>
                     </div>
                   </div>
@@ -312,12 +316,12 @@ class Home extends React.Component {
                 <div class="single_place">
                   <div class="thumb">
                     <img src={Place5} alt="" />
-                    <a href="#" class="prise">
+                    <a href="destination_details" class="prise">
                       $500
                     </a>
                   </div>
                   <div class="place_info">
-                    <a href="destination_details.html">
+                    <a href="destination_details">
                       <h3>California</h3>
                     </a>
                     <p>United State of America</p>
@@ -328,11 +332,11 @@ class Home extends React.Component {
                         <i class="fa fa-star"></i>
                         <i class="fa fa-star"></i>
                         <i class="fa fa-star"></i>
-                        <a href="#">(20 Review)</a>
+                        <a href="destination_details">(20 Review)</a>
                       </span>
                       <div class="days">
                         <i class="fa fa-clock-o"></i>
-                        <a href="#">5 Days</a>
+                        <a href="destination_details">5 Days</a>
                       </div>
                     </div>
                   </div>
@@ -342,12 +346,12 @@ class Home extends React.Component {
                 <div class="single_place">
                   <div class="thumb">
                     <img src={Place6} alt="" />
-                    <a href="#" class="prise">
+                    <a href="destination_details" class="prise">
                       $500
                     </a>
                   </div>
                   <div class="place_info">
-                    <a href="destination_details.html">
+                    <a href="destination_details">
                       <h3>Saintmartine Iceland</h3>
                     </a>
                     <p>United State of America</p>
@@ -358,11 +362,11 @@ class Home extends React.Component {
                         <i class="fa fa-star"></i>
                         <i class="fa fa-star"></i>
                         <i class="fa fa-star"></i>
-                        <a href="#">(20 Review)</a>
+                        <a href="destination_details">(20 Review)</a>
                       </span>
                       <div class="days">
                         <i class="fa fa-clock-o"></i>
-                        <a href="#">5 Days</a>
+                        <a href="destination_details">5 Days</a>
                       </div>
                     </div>
                   </div>
@@ -372,7 +376,7 @@ class Home extends React.Component {
             <div class="row">
               <div class="col-lg-12">
                 <div class="more_place_btn text-center">
-                  <a class="boxed-btn4" href="#">
+                  <a class="boxed-btn4" href="travel_destination">
                     More Places
                   </a>
                 </div>

@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import { withRouter } from "react-router";
 
 import Post1 from "../../assets/img/post/post_1.png";
@@ -47,40 +48,40 @@ class RightSidebar extends React.Component {
           <h4 class="widget_title">Category</h4>
           <ul class="list cat-list">
             <li>
-              <a href="#" class="d-flex">
+              <Link class="d-flex">
                 <p>Resaurant food</p>
                 <p>(37)</p>
-              </a>
+              </Link>
             </li>
             <li>
-              <a href="#" class="d-flex">
+              <Link class="d-flex">
                 <p>Travel news</p>
                 <p>(10)</p>
-              </a>
+              </Link>
             </li>
             <li>
-              <a href="#" class="d-flex">
+              <Link class="d-flex">
                 <p>Modern technology</p>
                 <p>(03)</p>
-              </a>
+              </Link>
             </li>
             <li>
-              <a href="#" class="d-flex">
+              <Link class="d-flex">
                 <p>Product</p>
                 <p>(11)</p>
-              </a>
+              </Link>
             </li>
             <li>
-              <a href="#" class="d-flex">
+              <Link class="d-flex">
                 <p>Inspiration</p>
                 <p>21</p>
-              </a>
+              </Link>
             </li>
             <li>
-              <a href="#" class="d-flex">
+              <Link class="d-flex">
                 <p>Health Care (21)</p>
                 <p>09</p>
-              </a>
+              </Link>
             </li>
           </ul>
         </aside>
@@ -90,36 +91,36 @@ class RightSidebar extends React.Component {
           <div class="media post_item">
             <img src={Post1} alt="post" />
             <div class="media-body">
-              <a href="single-blog.html">
+              <Link href="single-blog.html">
                 <h3>From life was you fish...</h3>
-              </a>
+              </Link>
               <p>January 12, 2019</p>
             </div>
           </div>
           <div class="media post_item">
             <img src={Post2} alt="post" />
             <div class="media-body">
-              <a href="single-blog.html">
+              <Link href="single-blog.html">
                 <h3>The Amazing Hubble</h3>
-              </a>
+              </Link>
               <p>02 Hours ago</p>
             </div>
           </div>
           <div class="media post_item">
             <img src={Post3} alt="post" />
             <div class="media-body">
-              <a href="single-blog.html">
+              <Link href="single-blog.html">
                 <h3>Astronomy Or Astrology</h3>
-              </a>
+              </Link>
               <p>03 Hours ago</p>
             </div>
           </div>
           <div class="media post_item">
             <img src={Post4} alt="post" />
             <div class="media-body">
-              <a href="single-blog.html">
+              <Link href="single-blog.html">
                 <h3>Asteroids telescope</h3>
-              </a>
+              </Link>
               <p>01 Hours ago</p>
             </div>
           </div>
@@ -128,28 +129,28 @@ class RightSidebar extends React.Component {
           <h4 class="widget_title">Tag Clouds</h4>
           <ul class="list">
             <li>
-              <a href="#">project</a>
+              <Link>project</Link>
             </li>
             <li>
-              <a href="#">love</a>
+              <Link>love</Link>
             </li>
             <li>
-              <a href="#">technology</a>
+              <Link>technology</Link>
             </li>
             <li>
-              <a href="#">travel</a>
+              <Link>travel</Link>
             </li>
             <li>
-              <a href="#">restaurant</a>
+              <Link>restaurant</Link>
             </li>
             <li>
-              <a href="#">life style</a>
+              <Link>life style</Link>
             </li>
             <li>
-              <a href="#">design</a>
+              <Link>design</Link>
             </li>
             <li>
-              <a href="#">illustration</a>
+              <Link>illustration</Link>
             </li>
           </ul>
         </aside>
@@ -158,34 +159,34 @@ class RightSidebar extends React.Component {
           <h4 class="widget_title">Instagram Feeds</h4>
           <ul class="instagram_row flex-wrap">
             <li>
-              <a href="#">
+              <Link>
                 <img class="img-fluid" src={Post5} alt="" />
-              </a>
+              </Link>
             </li>
             <li>
-              <a href="#">
+              <Link>
                 <img class="img-fluid" src={Post6} alt="" />
-              </a>
+              </Link>
             </li>
             <li>
-              <a href="#">
+              <Link>
                 <img class="img-fluid" src={Post7} alt="" />
-              </a>
+              </Link>
             </li>
             <li>
-              <a href="#">
+              <Link>
                 <img class="img-fluid" src={Post8} alt="" />
-              </a>
+              </Link>
             </li>
             <li>
-              <a href="#">
+              <Link>
                 <img class="img-fluid" src={Post9} alt="" />
-              </a>
+              </Link>
             </li>
             <li>
-              <a href="#">
+              <Link>
                 <img class="img-fluid" src={Post10} alt="" />
-              </a>
+              </Link>
             </li>
           </ul>
         </aside>

@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
 import "./Footer.scss";
 
@@ -21,42 +22,42 @@ class Footer extends React.Component {
               <div class="col-xl-4 col-md-6 col-lg-4 ">
                 <div class="footer_widget">
                   <div class="footer_logo">
-                    <a href="#">
+                    <a href="/">
                       <img src={FooterLogo} alt="" />
                     </a>
                   </div>
                   <p>
                     5th flora, 700/D kings road, green <br /> lane New York-1782{" "}
                     <br />
-                    <a href="#">+10 367 826 2567</a> <br />
-                    <a href="#">contact@carpenter.com</a>
+                    <Link>+10 367 826 2567</Link> <br />
+                    <Link>contact@carpenter.com</Link>
                   </p>
                   <div class="socail_links">
                     <ul>
                       <li>
-                        <a href="#">
+                        <Link>
                           <i class="ti-facebook"></i>
-                        </a>
+                        </Link>
                       </li>
                       <li>
-                        <a href="#">
+                        <Link>
                           <i class="ti-twitter-alt"></i>
-                        </a>
+                        </Link>
                       </li>
                       <li>
-                        <a href="#">
+                        <Link>
                           <i class="fa fa-instagram"></i>
-                        </a>
+                        </Link>
                       </li>
                       <li>
-                        <a href="#">
+                        <Link>
                           <i class="fa fa-pinterest"></i>
-                        </a>
+                          </Link>
                       </li>
                       <li>
-                        <a href="#">
+                        <Link>
                           <i class="fa fa-youtube-play"></i>
-                        </a>
+                          </Link>
                       </li>
                     </ul>
                   </div>
@@ -67,16 +68,16 @@ class Footer extends React.Component {
                   <h3 class="footer_title">Company</h3>
                   <ul class="links">
                     <li>
-                      <a href="#">Pricing</a>
+                      <Link>Pricing</Link>
                     </li>
                     <li>
-                      <a href="#">About</a>
+                      <a href="about">About</a>
                     </li>
                     <li>
-                      <a href="#"> Gallery</a>
+                      <Link> Gallery</Link>
                     </li>
                     <li>
-                      <a href="#"> Contact</a>
+                      <a href="contact"> Contact</a>
                     </li>
                   </ul>
                 </div>
@@ -86,63 +87,63 @@ class Footer extends React.Component {
                   <h3 class="footer_title">Popular destination</h3>
                   <ul class="links double_links">
                     <li>
-                      <a href="#">Indonesia</a>
+                      <a href="travel_destination">Indonesia</a>
                     </li>
                     <li>
-                      <a href="#">America</a>
+                      <a href="travel_destination">America</a>
                     </li>
                     <li>
-                      <a href="#">India</a>
+                      <a href="travel_destination">India</a>
                     </li>
                     <li>
-                      <a href="#">Switzerland</a>
+                      <a href="travel_destination">Switzerland</a>
                     </li>
                     <li>
-                      <a href="#">Italy</a>
+                      <a href="travel_destination">Italy</a>
                     </li>
                     <li>
-                      <a href="#">Canada</a>
+                      <a href="travel_destination">Canada</a>
                     </li>
                     <li>
-                      <a href="#">Franch</a>
+                      <a href="travel_destination">Franch</a>
                     </li>
                     <li>
-                      <a href="#">England</a>
+                      <a href="travel_destination">England</a>
                     </li>
                   </ul>
                 </div>
               </div>
               <div class="col-xl-3 col-md-6 col-lg-3">
                 <div class="footer_widget">
-                  <h3 class="footer_title">Instagram</h3>
+                  <h3 class="footer_title">Popular Places</h3>
                   <div class="instagram_feed">
                     <div class="single_insta">
-                      <a href="#">
+                      <a href="destination_details">
                         <img src={Instagram1} alt="" />
                       </a>
                     </div>
                     <div class="single_insta">
-                      <a href="#">
+                      <a href="destination_details">
                         <img src={Instagram2} alt="" />
                       </a>
                     </div>
                     <div class="single_insta">
-                      <a href="#">
+                      <a href="destination_details">
                         <img src={Instagram3} alt="" />
                       </a>
                     </div>
                     <div class="single_insta">
-                      <a href="#">
+                      <a href="destination_details">
                         <img src={Instagram4} alt="" />
                       </a>
                     </div>
                     <div class="single_insta">
-                      <a href="#">
+                      <a href="destination_details">
                         <img src={Instagram5} alt="" />
                       </a>
                     </div>
                     <div class="single_insta">
-                      <a href="#">
+                      <a href="destination_details">
                         <img src={Instagram6} alt="" />
                       </a>
                     </div>
@@ -163,7 +164,7 @@ class Footer extends React.Component {
                   <script>document.write(new Date().getFullYear());</script> All
                   rights reserved | This template is made with{" "}
                   <i class="fa fa-heart-o" aria-hidden="true"></i> by{" "}
-                  <a href="https://colorlib.com" target="_blank">
+                  <a href="https://colorlib.com" target="_blank" rel="noopener noreferrer">
                     Colorlib
                   </a>
                   {/* <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. --> */}

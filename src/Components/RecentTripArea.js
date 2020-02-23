@@ -27,7 +27,7 @@ class RecentTripArea extends React.Component {
                   <div class="date">
                     <span>Oct 12, 2019</span>
                   </div>
-                  <a href="#">
+                  <a href="destination_details">
                     <h3>Journeys Are Best Measured In New Friends</h3>
                   </a>
                 </div>
@@ -42,7 +42,7 @@ class RecentTripArea extends React.Component {
                   <div class="date">
                     <span>Oct 12, 2019</span>
                   </div>
-                  <a href="#">
+                  <a href="destination_details">
                     <h3>Journeys Are Best Measured In New Friends</h3>
                   </a>
                 </div>
@@ -57,7 +57,7 @@ class RecentTripArea extends React.Component {
                   <div class="date">
                     <span>Oct 12, 2019</span>
                   </div>
-                  <a href="#">
+                  <a href="destination_details">
                     <h3>Journeys Are Best Measured In New Friends</h3>
                   </a>
                 </div>

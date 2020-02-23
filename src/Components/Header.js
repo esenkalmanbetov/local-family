@@ -16,9 +16,9 @@ class Header extends React.Component {
                 <div className="row align-items-center">
                   <div className="col-xl-2 col-lg-2">
                     <div className="logo">
-                      <Link to="/">
+                      <a href="/">
                         <img src={Logo} alt="Local family" />
-                      </Link>
+                      </a>
                     </div>
                   </div>
                   <div className="col-xl-6 col-lg-6">
@@ -26,15 +26,15 @@ class Header extends React.Component {
                       <nav>
                         <ul id="navigation">
                           <li>
-                            <Link className="active" to="/">
+                            <a className="active" href="/">
                               home
-                            </Link>
+                            </a>
                           </li>
                           <li>
-                            <Link to="/about">About</Link>
+                            <a href="/about">About</a>
                           </li>
                           <li>
-                            <Link to="/travel_destination">Destination</Link>
+                            <a href="/travel_destination">Destination</a>
                           </li>
                           <li>
                             <Link>
@@ -42,9 +42,9 @@ class Header extends React.Component {
                             </Link>
                             <ul className="submenu">
                               <li>
-                                <Link to="/destination_details">
+                                <a href="/destination_details">
                                   Destinations details
-                                </Link>
+                                </a>
                               </li>
                             </ul>
                           </li>
@@ -54,15 +54,15 @@ class Header extends React.Component {
                             </Link>
                             <ul className="submenu">
                               <li>
-                                <Link to="/blog">blog</Link>
+                                <a href="/blog">blog</a>
                               </li>
                               <li>
-                                <Link to="/single-blog">single-blog</Link>
+                                <a href="/single-blog">single-blog</a>
                               </li>
                             </ul>
                           </li>
                           <li>
-                            <Link to="/contact">Contact</Link>
+                            <a href="/contact">Contact</a>
                           </li>
                         </ul>
                       </nav>
@@ -79,41 +79,37 @@ class Header extends React.Component {
                       <div className="social_links d-none d-xl-block">
                         <ul>
                           <li>
-                            <a href="#">
+                            <Link>
                               {" "}
                               <i className="fa fa-instagram"></i>{" "}
-                            </a>
+                            </Link>
                           </li>
                           <li>
-                            <a href="#">
+                            <Link>
                               {" "}
                               <i className="fa fa-linkedin"></i>{" "}
-                            </a>
+                            </Link>
                           </li>
                           <li>
-                            <a href="#">
+                            <Link>
                               {" "}
                               <i className="fa fa-facebook"></i>{" "}
-                            </a>
+                            </Link>
                           </li>
                           <li>
-                            <a href="#">
+                            <Link>
                               {" "}
                               <i className="fa fa-google-plus"></i>{" "}
-                            </a>
+                            </Link>
                           </li>
                         </ul>
                       </div>
                     </div>
                   </div>
                   <div className="seach_icon">
-                    <a
-                      data-toggle="modal"
-                      data-target="#exampleModalCenter"
-                      href="#"
-                    >
+                    <Link data-toggle="modal" data-target="#exampleModalCenter">
                       <i className="fa fa-search"></i>
-                    </a>
+                    </Link>
                   </div>
                   <div className="col-12">
                     <div className="mobile_menu d-block d-lg-none"></div>
