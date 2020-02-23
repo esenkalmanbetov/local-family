@@ -10,7 +10,11 @@ import Signup from "./Auth/Signup";
 import Signin from "./Auth/Signin";
 import PersonalAccount from "./PersonalAccount/index";
 import About from "../pages/About";
-import TravelDestination from "../pages/TravelDestination";
+import TravelDestination from "../pages/Destionation/TravelDestination";
+import DestinationDetails from "../pages/Destionation/DestinationDetails";
+import Blog from "../pages/Blog/Blog";
+import SingleBlog from "../pages/Blog/SingleBlog";
+import Contact from "../pages/Contact";
 
 import "./App.css";
 
@@ -24,6 +28,10 @@ function App() {
             <Route exact path="/" component={Home} />
             <Route path="/about" component={About} />
             <Route path="/travel_destination" component={TravelDestination} />
+            <Route path="/destination_details" component={DestinationDetails} />
+            <Route path="/blog" component={Blog} />
+            <Route path="/single-blog" component={SingleBlog} />
+            <Route path="/contact" component={Contact} />
             <Route path="/kg" component={Kg} />
             <Route path="/kz" component={Kz} />
             <Route path="/signup" component={Signup} />

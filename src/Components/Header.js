@@ -37,35 +37,32 @@ class Header extends React.Component {
                             <Link to="/travel_destination">Destination</Link>
                           </li>
                           <li>
-                            <a href="">
+                            <Link>
                               pages <i className="ti-angle-down"></i>
-                            </a>
+                            </Link>
                             <ul className="submenu">
                               <li>
-                                <a href="destination_details.html">
+                                <Link to="/destination_details">
                                   Destinations details
-                                </a>
-                              </li>
-                              <li>
-                                <a href="elements.html">elements</a>
+                                </Link>
                               </li>
                             </ul>
                           </li>
                           <li>
-                            <a href="#">
+                            <Link>
                               blog <i className="ti-angle-down"></i>
-                            </a>
+                            </Link>
                             <ul className="submenu">
                               <li>
-                                <a href="blog.html">blog</a>
+                                <Link to="/blog">blog</Link>
                               </li>
                               <li>
-                                <a href="single-blog.html">single-blog</a>
+                                <Link to="/single-blog">single-blog</Link>
                               </li>
                             </ul>
                           </li>
                           <li>
-                            <a href="contact.html">Contact</a>
+                            <Link to="/contact">Contact</Link>
                           </li>
                         </ul>
                       </nav>
