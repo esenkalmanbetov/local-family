@@ -37,29 +37,7 @@ class Header extends React.Component {
                             <a href="/travel_destination">Destination</a>
                           </li>
                           <li>
-                            <Link>
-                              pages <i className="ti-angle-down"></i>
-                            </Link>
-                            <ul className="submenu">
-                              <li>
-                                <a href="/destination_details">
-                                  Destinations details
-                                </a>
-                              </li>
-                            </ul>
-                          </li>
-                          <li>
-                            <Link>
-                              blog <i className="ti-angle-down"></i>
-                            </Link>
-                            <ul className="submenu">
-                              <li>
-                                <a href="/blog">blog</a>
-                              </li>
-                              <li>
-                                <a href="/single-blog">single-blog</a>
-                              </li>
-                            </ul>
+                            <a href="/blog">blog</a>
                           </li>
                           <li>
                             <a href="/contact">Contact</a>
