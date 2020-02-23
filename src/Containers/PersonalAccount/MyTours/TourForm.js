@@ -5,24 +5,28 @@ import ImageUploader from "react-images-upload";
 class ImageUpload extends React.Component {
   constructor(props) {
     super(props);
-    this.state = { pictures: [] };
+    this.state = { Pictures: [] };
     this.onDrop = this.onDrop.bind(this);
   }
 
   onDrop(pictureFiles, pictureDataURLs) {
-    this.setState({
-      pictures: this.state.pictures.concat(pictureFiles)
-    });
+    const newPictures = pictureFiles.map(picture =>
+      URL.createObjectURL(picture)
+    );
+    let Pictures = [...this.state.Pictures];
+    Pictures = Pictures.concat(newPictures);
+
+    this.setState({ Pictures });
+    this.props.onUpload(Pictures);
   }
 
   render() {
     return (
       <div>
-        {this.state.pictures.map((picture, idx) => {
+        {this.state.Pictures.map((picture, idx) => {
           return (
             <div key={idx}>
-              picture
-              <img src={URL.createObjectURL(picture)} alt={"surot"} />
+              <img src={picture} alt="surot" />
             </div>
           );
         })}
@@ -30,8 +34,6 @@ class ImageUpload extends React.Component {
           withIcon={true}
           buttonText="Choose images"
           onChange={this.onDrop}
-          // imgExtension={['.jpg', '.gif', '.png', '.gif']}
-          // maxFileSize={5242880}
         />
       </div>
     );
@@ -43,7 +45,8 @@ class TourForm extends React.Component {
       Title: "",
       Place: "",
       Description: "",
-      Id: 0
+      Id: 0,
+      Pictures: []
     }
   };
 
@@ -69,6 +72,12 @@ class TourForm extends React.Component {
   changeHandler = event => {
     let form = { ...this.state.form };
     form[event.target.name] = event.target.value;
+    this.setState({ form });
+  };
+
+  onUpload = pictures => {
+    let form = { ...this.state.form };
+    form.Pictures = pictures;
     this.setState({ form });
   };
 
@@ -136,7 +145,7 @@ class TourForm extends React.Component {
             </MDBCol>
           </MDBRow>
 
-          <ImageUpload />
+          <ImageUpload onUpload={this.onUpload} />
 
           <MDBBtn type="submit" color="success">
             Save
