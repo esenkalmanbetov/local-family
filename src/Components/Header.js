@@ -21,7 +21,7 @@ class Header extends React.Component {
                       </a>
                     </div>
                   </div>
-                  <div className="col-xl-6 col-lg-6">
+                  <div className="col-xl-8 col-lg-8">
                     <div className="main-menu  d-none d-lg-block">
                       <nav>
                         <ul id="navigation">
@@ -42,48 +42,27 @@ class Header extends React.Component {
                           <li>
                             <a href="/contact">Contact</a>
                           </li>
+                          <li class="text-right">
+                            <Link
+                              to="/signin"
+                              class="genric-btn info medium circle login-btn"
+                            >
+                              login
+                            </Link>
+                          </li>
+                          <li class="text-right">
+                            <Link
+                              to="/personal-account"
+                              class="genric-btn info medium circle login-btn"
+                            >
+                              profile
+                            </Link>
+                          </li>
                         </ul>
                       </nav>
                     </div>
                   </div>
-                  <div className="col-xl-4 col-lg-4 d-none d-lg-block">
-                    <div className="social_wrap d-flex align-items-center justify-content-end">
-                      <div className="number">
-                        <p>
-                          {" "}
-                          <i className="fa fa-phone"></i> 10(256)-928 256
-                        </p>
-                      </div>
-                      <div className="social_links d-none d-xl-block">
-                        <ul>
-                          <li>
-                            <Link>
-                              {" "}
-                              <i className="fa fa-instagram"></i>{" "}
-                            </Link>
-                          </li>
-                          <li>
-                            <Link>
-                              {" "}
-                              <i className="fa fa-linkedin"></i>{" "}
-                            </Link>
-                          </li>
-                          <li>
-                            <Link>
-                              {" "}
-                              <i className="fa fa-facebook"></i>{" "}
-                            </Link>
-                          </li>
-                          <li>
-                            <Link>
-                              {" "}
-                              <i className="fa fa-google-plus"></i>{" "}
-                            </Link>
-                          </li>
-                        </ul>
-                      </div>
-                    </div>
-                  </div>
+
                   <div className="seach_icon">
                     <Link data-toggle="modal" data-target="#exampleModalCenter">
                       <i className="fa fa-search"></i>

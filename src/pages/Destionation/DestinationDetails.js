@@ -1,21 +1,32 @@
 import React from "react";
 import { withRouter } from "react-router";
+import { Carousel } from "react-bootstrap";
+
 import NewLetterArea from "../../Components/NewLetterArea";
 
 import Place1 from "../../assets/img/place/1.png";
 import Place2 from "../../assets/img/place/2.png";
 import Place3 from "../../assets/img/place/3.png";
 
+import BannerPng from "../../assets/img/banner/banner.png";
+import Banner2Png from "../../assets/img/banner/banner2.png";
+import Banner3Png from "../../assets/img/banner/banner3.png";
+
 class DestinationDetails extends React.Component {
   render() {
     return (
       <div>
-        <div class="destination_banner_wrap overlay">
-          <div class="destination_text text-center">
-            <h3>Saintmartine Iceland</h3>
-            <p>Pixel perfect design with awesome contents</p>
-          </div>
-        </div>
+        <Carousel>
+          <Carousel.Item>
+            <img className="d-block w-100" src={BannerPng} alt="First slide" />
+          </Carousel.Item>
+          <Carousel.Item>
+            <img className="d-block w-100" src={Banner2Png} alt="Third slide" />
+          </Carousel.Item>
+          <Carousel.Item>
+            <img className="d-block w-100" src={Banner3Png} alt="Third slide" />
+          </Carousel.Item>
+        </Carousel>
 
         <div class="destination_details_info">
           <div class="container">

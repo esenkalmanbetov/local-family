@@ -16,7 +16,7 @@ import Blog from "../pages/Blog/Blog";
 import SingleBlog from "../pages/Blog/SingleBlog";
 import Contact from "../pages/Contact";
 
-import "./App.css";
+import "./App.scss";
 
 function App() {
   return (
