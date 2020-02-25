@@ -1,5 +1,6 @@
 import React from "react";
 import { withRouter } from "react-router";
+import { Link } from 'react-router-dom'
 
 import Trip1 from "../assets/img/trip/1.png";
 import Trip2 from "../assets/img/trip/2.png";
@@ -27,9 +28,9 @@ class RecentTripArea extends React.Component {
                   <div class="date">
                     <span>Oct 12, 2019</span>
                   </div>
-                  <a href="destination_details">
+                  <Link to="/destination_details">
                     <h3>Journeys Are Best Measured In New Friends</h3>
-                  </a>
+                  </Link>
                 </div>
               </div>
             </div>
@@ -42,9 +43,9 @@ class RecentTripArea extends React.Component {
                   <div class="date">
                     <span>Oct 12, 2019</span>
                   </div>
-                  <a href="destination_details">
+                  <Link to="/destination_details">
                     <h3>Journeys Are Best Measured In New Friends</h3>
-                  </a>
+                  </Link>
                 </div>
               </div>
             </div>
@@ -57,9 +58,9 @@ class RecentTripArea extends React.Component {
                   <div class="date">
                     <span>Oct 12, 2019</span>
                   </div>
-                  <a href="destination_details">
+                  <Link to="/destination_details">
                     <h3>Journeys Are Best Measured In New Friends</h3>
-                  </a>
+                  </Link>
                 </div>
               </div>
             </div>

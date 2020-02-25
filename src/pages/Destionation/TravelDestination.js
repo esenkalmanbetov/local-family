@@ -32,14 +32,14 @@ class TravelDestionation extends React.Component {
                 <div class="single_place">
                   <div class="thumb">
                     <img src={Place1} alt="" />
-                    <a href="destination_details" class="prise">
+                    <Link to="/destination_details" class="prise">
                       $500
-                    </a>
+                    </Link>
                   </div>
                   <div class="place_info">
-                    <a href="destination_details">
+                    <Link to="/destination_details">
                       <h3>California</h3>
-                    </a>
+                    </Link>
                     <p>United State of America</p>
                     <div class="rating_days d-flex justify-content-between">
                       <span class="d-flex justify-content-center align-items-center">
@@ -48,11 +48,11 @@ class TravelDestionation extends React.Component {
                         <i class="fa fa-star"></i>
                         <i class="fa fa-star"></i>
                         <i class="fa fa-star"></i>
-                        <a href="destination_details">(20 Review)</a>
+                        <Link to="/destination_details">(20 Review)</Link>
                       </span>
                       <div class="days">
                         <i class="fa fa-clock-o"></i>
-                        <a href="destination_details">5 Days</a>
+                        <Link to="/destination_details">5 Days</Link>
                       </div>
                     </div>
                   </div>
@@ -62,14 +62,14 @@ class TravelDestionation extends React.Component {
                 <div class="single_place">
                   <div class="thumb">
                     <img src={Place2} alt="" />
-                    <a href="destination_details" class="prise">
+                    <Link to="/destination_details" class="prise">
                       $500
-                    </a>
+                    </Link>
                   </div>
                   <div class="place_info">
-                    <a href="destination_details">
+                    <Link to="/destination_details">
                       <h3>Korola Megna</h3>
-                    </a>
+                    </Link>
                     <p>United State of America</p>
                     <div class="rating_days d-flex justify-content-between">
                       <span class="d-flex justify-content-center align-items-center">
@@ -78,11 +78,11 @@ class TravelDestionation extends React.Component {
                         <i class="fa fa-star"></i>
                         <i class="fa fa-star"></i>
                         <i class="fa fa-star"></i>
-                        <a href="destination_details">(20 Review)</a>
+                        <Link to="/destination_details">(20 Review)</Link>
                       </span>
                       <div class="days">
                         <i class="fa fa-clock-o"></i>
-                        <a href="destination_details">5 Days</a>
+                        <Link to="/destination_details">5 Days</Link>
                       </div>
                     </div>
                   </div>
@@ -92,14 +92,14 @@ class TravelDestionation extends React.Component {
                 <div class="single_place">
                   <div class="thumb">
                     <img src={Place3} alt="" />
-                    <a href="destination_details" class="prise">
+                    <Link to="/destination_details" class="prise">
                       $500
-                    </a>
+                    </Link>
                   </div>
                   <div class="place_info">
-                    <a href="destination_details">
+                    <Link to="/destination_details">
                       <h3>London</h3>
-                    </a>
+                    </Link>
                     <p>United State of America</p>
                     <div class="rating_days d-flex justify-content-between">
                       <span class="d-flex justify-content-center align-items-center">
@@ -108,11 +108,11 @@ class TravelDestionation extends React.Component {
                         <i class="fa fa-star"></i>
                         <i class="fa fa-star"></i>
                         <i class="fa fa-star"></i>
-                        <a href="destination_details">(20 Review)</a>
+                        <Link to="/destination_details">(20 Review)</Link>
                       </span>
                       <div class="days">
                         <i class="fa fa-clock-o"></i>
-                        <a href="destination_details">5 Days</a>
+                        <Link to="/destination_details">5 Days</Link>
                       </div>
                     </div>
                   </div>
@@ -122,14 +122,14 @@ class TravelDestionation extends React.Component {
                 <div class="single_place">
                   <div class="thumb">
                     <img src={Place4} alt="" />
-                    <a href="destination_details" class="prise">
+                    <Link to="/destination_details" class="prise">
                       $500
-                    </a>
+                    </Link>
                   </div>
                   <div class="place_info">
-                    <a href="destination_details">
+                    <Link to="/destination_details">
                       <h3>Miami Beach</h3>
-                    </a>
+                    </Link>
                     <p>United State of America</p>
                     <div class="rating_days d-flex justify-content-between">
                       <span class="d-flex justify-content-center align-items-center">
@@ -138,11 +138,11 @@ class TravelDestionation extends React.Component {
                         <i class="fa fa-star"></i>
                         <i class="fa fa-star"></i>
                         <i class="fa fa-star"></i>
-                        <a href="destination_details">(20 Review)</a>
+                        <Link to="/destination_details">(20 Review)</Link>
                       </span>
                       <div class="days">
                         <i class="fa fa-clock-o"></i>
-                        <a href="destination_details">5 Days</a>
+                        <Link to="/destination_details">5 Days</Link>
                       </div>
                     </div>
                   </div>
@@ -152,14 +152,14 @@ class TravelDestionation extends React.Component {
                 <div class="single_place">
                   <div class="thumb">
                     <img src={Place5} alt="" />
-                    <a href="destination_details" class="prise">
+                    <Link to="/destination_details" class="prise">
                       $500
-                    </a>
+                    </Link>
                   </div>
                   <div class="place_info">
-                    <a href="destination_details">
+                    <Link to="/destination_details">
                       <h3>California</h3>
-                    </a>
+                    </Link>
                     <p>United State of America</p>
                     <div class="rating_days d-flex justify-content-between">
                       <span class="d-flex justify-content-center align-items-center">
@@ -168,11 +168,11 @@ class TravelDestionation extends React.Component {
                         <i class="fa fa-star"></i>
                         <i class="fa fa-star"></i>
                         <i class="fa fa-star"></i>
-                        <a href="destination_details">(20 Review)</a>
+                        <Link to="/destination_details">(20 Review)</Link>
                       </span>
                       <div class="days">
                         <i class="fa fa-clock-o"></i>
-                        <a href="destination_details">5 Days</a>
+                        <Link to="/destination_details">5 Days</Link>
                       </div>
                     </div>
                   </div>
@@ -182,14 +182,14 @@ class TravelDestionation extends React.Component {
                 <div class="single_place">
                   <div class="thumb">
                     <img src={Place6} alt="" />
-                    <a href="destination_details" class="prise">
+                    <Link to="/destination_details" class="prise">
                       $500
-                    </a>
+                    </Link>
                   </div>
                   <div class="place_info">
-                    <a href="destination_details">
+                    <Link to="/destination_details">
                       <h3>Saintmartine Iceland</h3>
-                    </a>
+                    </Link>
                     <p>United State of America</p>
                     <div class="rating_days d-flex justify-content-between">
                       <span class="d-flex justify-content-center align-items-center">
@@ -198,11 +198,11 @@ class TravelDestionation extends React.Component {
                         <i class="fa fa-star"></i>
                         <i class="fa fa-star"></i>
                         <i class="fa fa-star"></i>
-                        <a href="destination_details">(20 Review)</a>
+                        <Link to="/destination_details">(20 Review)</Link>
                       </span>
                       <div class="days">
                         <i class="fa fa-clock-o"></i>
-                        <a href="destination_details">5 Days</a>
+                        <Link to="/destination_details">5 Days</Link>
                       </div>
                     </div>
                   </div>

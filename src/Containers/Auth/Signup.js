@@ -1,6 +1,5 @@
 import React from "react";
 import { Form, Col, Button, InputGroup } from "react-bootstrap";
-import { Link } from "react-router-dom";
 
 import "./Auth.scss";
 
@@ -65,7 +64,11 @@ class Signup extends React.Component {
             </Form.Group>
             <Form.Group as={Col} controlId="validationCustom03">
               <Form.Label>Confirm Password</Form.Label>
-              <Form.Control type="password" placeholder="Confirm Password" required />
+              <Form.Control
+                type="password"
+                placeholder="Confirm Password"
+                required
+              />
               <Form.Control.Feedback type="invalid">
                 Please provide a valid password.
               </Form.Control.Feedback>

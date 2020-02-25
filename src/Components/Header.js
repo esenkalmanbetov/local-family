@@ -16,9 +16,9 @@ class Header extends React.Component {
                 <div className="row align-items-center">
                   <div className="col-xl-2 col-lg-2">
                     <div className="logo">
-                      <a href="/">
+                      <Link to="/">
                         <img src={Logo} alt="Local family" />
-                      </a>
+                      </Link>
                     </div>
                   </div>
                   <div className="col-xl-8 col-lg-8">
@@ -26,21 +26,21 @@ class Header extends React.Component {
                       <nav>
                         <ul id="navigation">
                           <li>
-                            <a className="active" href="/">
+                            <Link className="active" to="/">
                               home
-                            </a>
+                            </Link>
                           </li>
                           <li>
-                            <a href="/about">About</a>
+                            <Link to="/about">About</Link>
                           </li>
                           <li>
-                            <a href="/travel_destination">Destination</a>
+                            <Link to="/travel_destination">Destination</Link>
                           </li>
                           <li>
-                            <a href="/blog">blog</a>
+                            <Link to="/blog">blog</Link>
                           </li>
                           <li>
-                            <a href="/contact">Contact</a>
+                            <Link to="/contact">Contact</Link>
                           </li>
                           <li class="text-right">
                             <Link

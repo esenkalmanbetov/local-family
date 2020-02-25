@@ -39,16 +39,16 @@ class Blog extends React.Component {
                         src={SingleBlog1}
                         alt=""
                       />
-                      <a href="single-blog" class="blog_item_date">
+                      <Link to="/single-blog" class="blog_item_date">
                         <h3>15</h3>
                         <p>Jan</p>
-                      </a>
+                      </Link>
                     </div>
 
                     <div class="blog_details">
-                      <a class="d-inline-block" href="single-blog">
+                      <Link class="d-inline-block" to="/single-blog">
                         <h2>Google inks pact for new 35-storey office</h2>
-                      </a>
+                      </Link>
                       <p>
                         That dominion stars lights dominion divide years for
                         fourth have don't stars is that he earth it first
@@ -56,14 +56,14 @@ class Blog extends React.Component {
                       </p>
                       <ul class="blog-info-link">
                         <li>
-                          <a href="single-blog">
+                          <Link to="/single-blog">
                             <i class="fa fa-user"></i> Travel, Lifestyle
-                          </a>
+                          </Link>
                         </li>
                         <li>
-                          <a href="single-blog">
+                          <Link to="/single-blog">
                             <i class="fa fa-comments"></i> 03 Comments
-                          </a>
+                          </Link>
                         </li>
                       </ul>
                     </div>
@@ -76,16 +76,16 @@ class Blog extends React.Component {
                         src={SingleBlog2}
                         alt=""
                       />
-                      <a href="single-blog" class="blog_item_date">
+                      <Link to="/single-blog" class="blog_item_date">
                         <h3>15</h3>
                         <p>Jan</p>
-                      </a>
+                      </Link>
                     </div>
 
                     <div class="blog_details">
-                      <a class="d-inline-block" href="single-blog">
+                      <Link class="d-inline-block" to="/single-blog">
                         <h2>Google inks pact for new 35-storey office</h2>
-                      </a>
+                      </Link>
                       <p>
                         That dominion stars lights dominion divide years for
                         fourth have don't stars is that he earth it first
@@ -93,14 +93,14 @@ class Blog extends React.Component {
                       </p>
                       <ul class="blog-info-link">
                         <li>
-                          <a href="single-blog">
+                          <Link to="/single-blog">
                             <i class="fa fa-user"></i> Travel, Lifestyle
-                          </a>
+                          </Link>
                         </li>
                         <li>
-                          <a href="single-blog">
+                          <Link to="/single-blog">
                             <i class="fa fa-comments"></i> 03 Comments
-                          </a>
+                          </Link>
                         </li>
                       </ul>
                     </div>
@@ -113,16 +113,16 @@ class Blog extends React.Component {
                         src={SingleBlog3}
                         alt=""
                       />
-                      <a href="single-blog" class="blog_item_date">
+                      <Link to="/single-blog" class="blog_item_date">
                         <h3>15</h3>
                         <p>Jan</p>
-                      </a>
+                      </Link>
                     </div>
 
                     <div class="blog_details">
-                      <a class="d-inline-block" href="single-blog">
+                      <Link class="d-inline-block" to="/single-blog">
                         <h2>Google inks pact for new 35-storey office</h2>
-                      </a>
+                      </Link>
                       <p>
                         That dominion stars lights dominion divide years for
                         fourth have don't stars is that he earth it first
@@ -130,14 +130,14 @@ class Blog extends React.Component {
                       </p>
                       <ul class="blog-info-link">
                         <li>
-                          <a href="single-blog">
+                          <Link to="/single-blog">
                             <i class="fa fa-user"></i> Travel, Lifestyle
-                          </a>
+                          </Link>
                         </li>
                         <li>
-                          <a href="single-blog">
+                          <Link to="/single-blog">
                             <i class="fa fa-comments"></i> 03 Comments
-                          </a>
+                          </Link>
                         </li>
                       </ul>
                     </div>
@@ -150,16 +150,16 @@ class Blog extends React.Component {
                         src={SingleBlog4}
                         alt=""
                       />
-                      <a href="single-blog" class="blog_item_date">
+                      <Link to="/single-blog" class="blog_item_date">
                         <h3>15</h3>
                         <p>Jan</p>
-                      </a>
+                      </Link>
                     </div>
 
                     <div class="blog_details">
-                      <a class="d-inline-block" href="single-blog">
+                      <Link class="d-inline-block" to="/single-blog">
                         <h2>Google inks pact for new 35-storey office</h2>
-                      </a>
+                      </Link>
                       <p>
                         That dominion stars lights dominion divide years for
                         fourth have don't stars is that he earth it first
@@ -167,14 +167,14 @@ class Blog extends React.Component {
                       </p>
                       <ul class="blog-info-link">
                         <li>
-                          <a href="single-blog">
+                          <Link to="/single-blog">
                             <i class="fa fa-user"></i> Travel, Lifestyle
-                          </a>
+                          </Link>
                         </li>
                         <li>
-                          <a href="single-blog">
+                          <Link to="/single-blog">
                             <i class="fa fa-comments"></i> 03 Comments
-                          </a>
+                          </Link>
                         </li>
                       </ul>
                     </div>
@@ -187,16 +187,16 @@ class Blog extends React.Component {
                         src={SingleBlog5}
                         alt=""
                       />
-                      <a href="single-blog" class="blog_item_date">
+                      <Link to="/single-blog" class="blog_item_date">
                         <h3>15</h3>
                         <p>Jan</p>
-                      </a>
+                      </Link>
                     </div>
 
                     <div class="blog_details">
-                      <a class="d-inline-block" href="single-blog">
+                      <Link class="d-inline-block" to="/single-blog">
                         <h2>Google inks pact for new 35-storey office</h2>
-                      </a>
+                      </Link>
                       <p>
                         That dominion stars lights dominion divide years for
                         fourth have don't stars is that he earth it first
@@ -204,14 +204,14 @@ class Blog extends React.Component {
                       </p>
                       <ul class="blog-info-link">
                         <li>
-                          <a href="single-blog">
+                          <Link to="/single-blog">
                             <i class="fa fa-user"></i> Travel, Lifestyle
-                          </a>
+                          </Link>
                         </li>
                         <li>
-                          <a href="single-blog">
+                          <Link to="/single-blog">
                             <i class="fa fa-comments"></i> 03 Comments
-                          </a>
+                          </Link>
                         </li>
                       </ul>
                     </div>
@@ -225,14 +225,10 @@ class Blog extends React.Component {
                         </Link>
                       </li>
                       <li class="page-item">
-                        <Link class="page-link">
-                          1
-                        </Link>
+                        <Link class="page-link">1</Link>
                       </li>
                       <li class="page-item active">
-                        <Link class="page-link">
-                          2
-                        </Link>
+                        <Link class="page-link">2</Link>
                       </li>
                       <li class="page-item">
                         <Link class="page-link" aria-label="Next">
