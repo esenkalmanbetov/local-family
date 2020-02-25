@@ -1,5 +1,10 @@
-import React from "react";
-import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
+import React, { useEffect } from "react";
+import {
+  BrowserRouter as Router,
+  Switch,
+  Route,
+  useLocation
+} from "react-router-dom";
 
 import Header from "../Components/Header";
 import Footer from "../Components/Footer";
@@ -18,26 +23,40 @@ import Contact from "../pages/Contact";
 
 import "./App.scss";
 
+function ScrollToTop() {
+  const { pathname } = useLocation();
+
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, [pathname]);
+
+  return null;
+}
+
 function App() {
   return (
     <div className="App">
       <Router>
         <Header />
         <div className="containers">
-          <Switch>
-            <Route exact path="/" component={Home} />
-            <Route path="/about" component={About} />
-            <Route path="/travel_destination" component={TravelDestination} />
-            <Route path="/destination_details" component={DestinationDetails} />
-            <Route path="/blog" component={Blog} />
-            <Route path="/single-blog" component={SingleBlog} />
-            <Route path="/contact" component={Contact} />
-            <Route path="/kg" component={Kg} />
-            <Route path="/kz" component={Kz} />
-            <Route path="/signup" component={Signup} />
-            <Route path="/signin" component={Signin} />
-            <Route path="/personal-account" component={PersonalAccount} />
-          </Switch>
+          <ScrollToTop />
+            <Switch>
+              <Route exact path="/" component={Home} />
+              <Route path="/about" component={About} />
+              <Route path="/travel_destination" component={TravelDestination} />
+              <Route
+                path="/destination_details"
+                component={DestinationDetails}
+              />
+              <Route path="/blog" component={Blog} />
+              <Route path="/single-blog" component={SingleBlog} />
+              <Route path="/contact" component={Contact} />
+              <Route path="/kg" component={Kg} />
+              <Route path="/kz" component={Kz} />
+              <Route path="/signup" component={Signup} />
+              <Route path="/signin" component={Signin} />
+              <Route path="/personal-account" component={PersonalAccount} />
+            </Switch>
         </div>
         <Footer />
       </Router>
