@@ -16,74 +16,53 @@ class Header extends React.Component {
                 <div className="row align-items-center">
                   <div className="col-xl-2 col-lg-2">
                     <div className="logo">
-                      <a href="/">
+                      <Link to="/">
                         <img src={Logo} alt="Local family" />
-                      </a>
+                      </Link>
                     </div>
                   </div>
-                  <div className="col-xl-6 col-lg-6">
+                  <div className="col-xl-8 col-lg-8">
                     <div className="main-menu  d-none d-lg-block">
                       <nav>
                         <ul id="navigation">
                           <li>
-                            <a className="active" href="/">
+                            <Link className="active" to="/">
                               home
-                            </a>
+                            </Link>
                           </li>
                           <li>
-                            <a href="/about">About</a>
+                            <Link to="/about">About</Link>
                           </li>
                           <li>
-                            <a href="/travel_destination">Destination</a>
+                            <Link to="/travel_destination">Destination</Link>
                           </li>
                           <li>
-                            <a href="/blog">blog</a>
+                            <Link to="/blog">blog</Link>
                           </li>
                           <li>
-                            <a href="/contact">Contact</a>
+                            <Link to="/contact">Contact</Link>
+                          </li>
+                          <li class="text-right">
+                            <Link
+                              to="/signin"
+                              class="genric-btn info medium circle login-btn"
+                            >
+                              login
+                            </Link>
+                          </li>
+                          <li class="text-right">
+                            <Link
+                              to="/personal-account"
+                              class="genric-btn info medium circle login-btn"
+                            >
+                              profile
+                            </Link>
                           </li>
                         </ul>
                       </nav>
                     </div>
                   </div>
-                  <div className="col-xl-4 col-lg-4 d-none d-lg-block">
-                    <div className="social_wrap d-flex align-items-center justify-content-end">
-                      <div className="number">
-                        <p>
-                          {" "}
-                          <i className="fa fa-phone"></i> 10(256)-928 256
-                        </p>
-                      </div>
-                      <div className="social_links d-none d-xl-block">
-                        <ul>
-                          <li>
-                            <Link>
-                              {" "}
-                              <i className="fa fa-instagram"></i>{" "}
-                            </Link>
-                          </li>
-                          <li>
-                            <Link>
-                              {" "}
-                              <i className="fa fa-linkedin"></i>{" "}
-                            </Link>
-                          </li>
-                          <li>
-                            <Link>
-                              {" "}
-                              <i className="fa fa-facebook"></i>{" "}
-                            </Link>
-                          </li>
-                          <li>
-                            <Link>
-                              {" "}
-                              <i className="fa fa-google-plus"></i>{" "}
-                            </Link>
-                          </li>
-                        </ul>
-                      </div>
-                    </div>
-                  </div>
+
                   <div className="seach_icon">
                     <Link data-toggle="modal" data-target="#exampleModalCenter">
                       <i className="fa fa-search"></i>

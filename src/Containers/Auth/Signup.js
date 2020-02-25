@@ -1,63 +1,87 @@
 import React from "react";
-import { MDBContainer, MDBRow, MDBCol, MDBBtn, MDBInput } from "mdbreact";
+import { Form, Col, Button, InputGroup } from "react-bootstrap";
+
+import "./Auth.scss";
 
 class Signup extends React.Component {
+  constructor(props) {
+    super(props);
+
+    this.state = {
+      validated: false
+    };
+  }
+
+  handleSubmit = event => {
+    const form = event.currentTarget;
+    if (form.checkValidity() === false) {
+      event.preventDefault();
+      event.stopPropagation();
+    } else {
+      this.props.history.push("/");
+    }
+
+    this.setState({ validated: true });
+  };
+
   render() {
+    const {
+      state: { validated },
+      handleSubmit
+    } = this;
     return (
-      <MDBContainer>
-        <MDBRow>
-          <MDBCol md="6">
-            <form>
-              <p className="h5 text-center mb-4">Sign up</p>
-              <div className="grey-text">
-                <MDBInput
-                  label="Your name"
-                  icon="user"
-                  group
-                  type="text"
-                  validate
-                  error="wrong"
-                  success="right"
-                />
-                <MDBInput
-                  label="Your email"
-                  icon="envelope"
-                  group
+      <div className="auth">
+        <Col
+          md={{ span: 6, offset: 3 }}
+          lg={{ span: 4, offset: 4 }}
+          xl={{ span: 4, offset: 4 }}
+          sm={{ span: 6, offset: 3 }}
+        >
+          <Form noValidate validated={validated} onSubmit={handleSubmit}>
+            <Form.Group as={Col} controlId="validationCustomUsername">
+              <Form.Label>Email</Form.Label>
+              <InputGroup>
+                <InputGroup.Prepend>
+                  <InputGroup.Text id="inputGroupPrepend">@</InputGroup.Text>
+                </InputGroup.Prepend>
+                <Form.Control
                   type="email"
-                  validate
-                  error="wrong"
-                  success="right"
+                  placeholder="Email"
+                  aria-describedby="inputGroupPrepend"
+                  required
                 />
-                <MDBInput
-                  label="Confirm your email"
-                  icon="exclamation-triangle"
-                  group
-                  type="text"
-                  validate
-                  error="wrong"
-                  success="right"
-                />
-                <MDBInput
-                  label="Your password"
-                  icon="lock"
-                  group
-                  type="password"
-                  validate
-                />
-              </div>
-              <div className="text-center">
-                <MDBBtn
-                  style={{ borderRadius: "20px" }}
-                  color="primary"
-                  onClick={() => this.props.history.push("/")}
-                >
-                  Register
-                </MDBBtn>
-              </div>
-            </form>
-          </MDBCol>
-        </MDBRow>
-      </MDBContainer>
+                <Form.Control.Feedback type="invalid">
+                  Please choose a email.
+                </Form.Control.Feedback>
+              </InputGroup>
+            </Form.Group>
+            <Form.Group as={Col} controlId="validationCustom03">
+              <Form.Label>Password</Form.Label>
+              <Form.Control type="password" placeholder="Password" required />
+              <Form.Control.Feedback type="invalid">
+                Please provide a valid password.
+              </Form.Control.Feedback>
+            </Form.Group>
+            <Form.Group as={Col} controlId="validationCustom03">
+              <Form.Label>Confirm Password</Form.Label>
+              <Form.Control
+                type="password"
+                placeholder="Confirm Password"
+                required
+              />
+              <Form.Control.Feedback type="invalid">
+                Please provide a valid password.
+              </Form.Control.Feedback>
+            </Form.Group>
+            <Button
+              className="genric-btn info medium circle c-w-120"
+              type="submit"
+            >
+              Register
+            </Button>
+          </Form>
+        </Col>
+      </div>
     );
   }
 }

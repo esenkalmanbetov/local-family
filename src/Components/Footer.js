@@ -22,9 +22,9 @@ class Footer extends React.Component {
               <div class="col-xl-4 col-md-6 col-lg-4 ">
                 <div class="footer_widget">
                   <div class="footer_logo">
-                    <a href="/">
+                    <Link to="/">
                       <img src={FooterLogo} alt="" />
-                    </a>
+                    </Link>
                   </div>
                   <p>
                     5th flora, 700/D kings road, green <br /> lane New York-1782{" "}
@@ -71,13 +71,13 @@ class Footer extends React.Component {
                       <Link>Pricing</Link>
                     </li>
                     <li>
-                      <a href="about">About</a>
+                      <Link to="/about">About</Link>
                     </li>
                     <li>
                       <Link> Gallery</Link>
                     </li>
                     <li>
-                      <a href="contact"> Contact</a>
+                      <Link to="/contact"> Contact</Link>
                     </li>
                   </ul>
                 </div>
@@ -87,28 +87,28 @@ class Footer extends React.Component {
                   <h3 class="footer_title">Popular destination</h3>
                   <ul class="links double_links">
                     <li>
-                      <a href="travel_destination">Indonesia</a>
+                      <Link to="/travel_destination">Indonesia</Link>
                     </li>
                     <li>
-                      <a href="travel_destination">America</a>
+                      <Link to="/travel_destination">America</Link>
                     </li>
                     <li>
-                      <a href="travel_destination">India</a>
+                      <Link to="/travel_destination">India</Link>
                     </li>
                     <li>
-                      <a href="travel_destination">Switzerland</a>
+                      <Link to="/travel_destination">Switzerland</Link>
                     </li>
                     <li>
-                      <a href="travel_destination">Italy</a>
+                      <Link to="/travel_destination">Italy</Link>
                     </li>
                     <li>
-                      <a href="travel_destination">Canada</a>
+                      <Link to="/travel_destination">Canada</Link>
                     </li>
                     <li>
-                      <a href="travel_destination">Franch</a>
+                      <Link to="/travel_destination">Franch</Link>
                     </li>
                     <li>
-                      <a href="travel_destination">England</a>
+                      <Link to="/travel_destination">England</Link>
                     </li>
                   </ul>
                 </div>
@@ -118,34 +118,34 @@ class Footer extends React.Component {
                   <h3 class="footer_title">Popular Places</h3>
                   <div class="instagram_feed">
                     <div class="single_insta">
-                      <a href="destination_details">
+                      <Link to="/destination_details">
                         <img src={Instagram1} alt="" />
-                      </a>
+                      </Link>
                     </div>
                     <div class="single_insta">
-                      <a href="destination_details">
+                      <Link to="/destination_details">
                         <img src={Instagram2} alt="" />
-                      </a>
+                      </Link>
                     </div>
                     <div class="single_insta">
-                      <a href="destination_details">
+                      <Link to="/destination_details">
                         <img src={Instagram3} alt="" />
-                      </a>
+                      </Link>
                     </div>
                     <div class="single_insta">
-                      <a href="destination_details">
+                      <Link to="/destination_details">
                         <img src={Instagram4} alt="" />
-                      </a>
+                      </Link>
                     </div>
                     <div class="single_insta">
-                      <a href="destination_details">
+                      <Link to="/destination_details">
                         <img src={Instagram5} alt="" />
-                      </a>
+                      </Link>
                     </div>
                     <div class="single_insta">
-                      <a href="destination_details">
+                      <Link to="/destination_details">
                         <img src={Instagram6} alt="" />
-                      </a>
+                      </Link>
                     </div>
                   </div>
                 </div>
