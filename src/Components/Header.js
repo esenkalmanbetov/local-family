@@ -1,5 +1,5 @@
-import React from "react";
-import { Link } from "react-router-dom";
+  import React from "react";
+  import { Link } from "react-router-dom";
 
 import "./Header.scss";
 
@@ -47,29 +47,29 @@ class Header extends React.Component {
                           {/* <li>
                             <Link to="/contact">Contact</Link>
                           </li> */}
-
-                          {/* display on righ side */}
-                          <li class="text-right">
-                            <Link
-                              to="/signin"
-                              class="genric-btn info medium circle login-btn"
-                            >
-                              login
-                            </Link>
-                          </li>
-                          <li class="text-right">
-                            <Link
-                              to="/personal-account"
-                              class="genric-btn info medium circle login-btn"
-                            >
-                              profile
-                            </Link>
-                          </li>
                         </ul>
                       </nav>
                     </div>
                   </div>
-
+                  <div class="header-auth">
+                    <li class="text-right">
+                      {false ? (
+                        <Link
+                          to="/personal-account"
+                          class="genric-btn info medium circle login-btn"
+                        >
+                          profile
+                        </Link>
+                      ) : (
+                        <Link
+                          to="/signin"
+                          class="genric-btn info medium circle login-btn"
+                        >
+                          login
+                        </Link>
+                      )}
+                    </li>
+                  </div>
                   <div className="col-12">
                     <div className="mobile_menu d-block d-lg-none"></div>
                   </div>
@@ -78,7 +78,6 @@ class Header extends React.Component {
             </div>
           </div>
         </div>
-
       </header>
     );
   }

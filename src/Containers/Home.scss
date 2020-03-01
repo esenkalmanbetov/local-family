@@ -1,3 +1,35 @@
 .countries {
-  padding-top: 100px;
+  padding-top: 0;
+  margin-top: -117px;
+
+  .align-center {
+    left: 50% !important;
+    top: 66% !important;
+    bottom: 0 !important;
+    transform: translate(-50%, -50%);
+  }
+
+  @media (min-width: 576px) {
+    .container {
+      max-width: 100%;
+    }
+  }
+
+  @media (min-width: 768px) {
+    .container {
+      max-width: 100%;
+    }
+  }
+
+  @media (min-width: 992px) {
+    .container {
+      max-width: 100%;
+    }
+  }
+
+  @media (min-width: 1200px) {
+    .container {
+      max-width: 100%;
+    }
+  }
 }
