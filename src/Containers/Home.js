@@ -1,13 +1,7 @@
 import React from "react";
-import { Link } from 'react-router-dom'
+import { Link } from "react-router-dom";
 
 import "./Home.scss";
-
-import VideoArea from "../Components/VideoArea";
-import RecentTripArea from "../Components/RecentTripArea";
-// import TravelVariationArea from "../Components/TravelVariationArea";
-// import TestimonialArea from "../Components/TestimonialArea";
-// import NewLetterArea from "../Components/NewLetterArea";
 
 import Dest1 from "../assets/img/destination/1.png";
 import Dest2 from "../assets/img/destination/2.png";
@@ -29,6 +23,7 @@ class Home extends React.Component {
       <div>
         <div class="popular_destination_area countries">
           <div class="container">
+            {/* margin 0 all of them */}
             <div class="row">
               <div class="col-lg-4 col-md-6">
                 <Link to="/travel_destination">
@@ -38,7 +33,8 @@ class Home extends React.Component {
                     </div>
                     <div class="content">
                       <p class="d-flex align-items-center">
-                        Kyrgyzstan <Link to="/travel_destination"> 07 Places</Link>{" "}
+                        Kyrgyzstan{" "}
+                        <Link to="/travel_destination"> 07 Places</Link>{" "}
                       </p>
                     </div>
                   </div>
@@ -52,7 +48,8 @@ class Home extends React.Component {
                     </div>
                     <div class="content">
                       <p class="d-flex align-items-center">
-                        Kazakstan <Link to="/travel_destination"> 03 Places</Link>{" "}
+                        Kazakstan{" "}
+                        <Link to="/travel_destination"> 03 Places</Link>{" "}
                       </p>
                     </div>
                   </div>
@@ -66,7 +63,8 @@ class Home extends React.Component {
                     </div>
                     <div class="content">
                       <p class="d-flex align-items-center">
-                        Ozbekstan <Link to="/travel_destination"> 10 Places</Link>{" "}
+                        Uzbekistan{" "}
+                        <Link to="/travel_destination"> 10 Places</Link>{" "}
                       </p>
                     </div>
                   </div>
@@ -82,7 +80,7 @@ class Home extends React.Component {
             <div class="row justify-content-center">
               <div class="col-lg-6">
                 <div class="section_title text-center mb_70">
-                  <h3>Popular Destination</h3>
+                  <h3>Families</h3>
                   <p>
                     Suffered alteration in some form, by injected humour or good
                     day randomised booth anim 8-bit hella wolf moon beard words.
@@ -376,11 +374,6 @@ class Home extends React.Component {
             </div>
           </div>
         </div>
-
-        <VideoArea />
-        {/* <TravelVariationArea /> */}
-        {/* <TestimonialArea /> */}
-        <RecentTripArea />
       </div>
     );
   }

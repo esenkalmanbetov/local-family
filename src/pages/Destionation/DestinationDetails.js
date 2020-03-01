@@ -29,6 +29,8 @@ class DestinationDetails extends React.Component {
           </Carousel.Item>
         </Carousel>
 
+        User's Family
+
         <div class="destination_details_info">
           <div class="container">
             <div class="row justify-content-center">
