@@ -8,7 +8,11 @@ import Tours from "../Components/Tours";
 
 import Dest2 from "../assets/img/destination/2.png";
 import Dest5 from "../assets/img/destination/5.png";
-import Dest6 from "../assets/img/destination/6.png";
+// import Dest6 from "../assets/img/destination/6.png";
+
+import Kg from '../assets/img/countries/kg.jpg'
+// import Kz from '../assets/img/countries/kz.jpg'
+// import Tajikstan from '../assets/img/countries/tajikstan.jpg'
 
 class Home extends React.Component {
   render() {
@@ -19,10 +23,10 @@ class Home extends React.Component {
             {/* margin 0 all of them */}
             <div class="row">
               <div class="col-lg-4 p-0">
-                <Link to="/travel_destination">
+                <Link to="/kg">
                   <div class="single_destination m-0">
                     <div class="thumb">
-                      <img src={Dest6} alt="" />
+                      <img src={Kg} alt="" />
                     </div>
                     <div class="content align-center">
                       <p class="d-flex align-items-center">
@@ -34,7 +38,7 @@ class Home extends React.Component {
                 </Link>
               </div>
               <div class="col-lg-4 p-0">
-                <Link to="/travel_destination">
+                <Link to="/kz">
                   <div class="single_destination m-0">
                     <div class="thumb">
                       <img src={Dest5} alt="" />
@@ -56,7 +60,7 @@ class Home extends React.Component {
                     </div>
                     <div class="content align-center">
                       <p class="d-flex align-items-center">
-                        Uzbekistan{" "}
+                        Tajikistan{" "}
                         {/* <Link to="/travel_destination"> 10 Places</Link>{" "} */}
                       </p>
                     </div>
