@@ -1,5 +1,5 @@
-  import React from "react";
-  import { Link } from "react-router-dom";
+import React from "react";
+import { Link } from "react-router-dom";
 
 import "./Header.scss";
 
@@ -35,7 +35,7 @@ class Header extends React.Component {
                             </Link>
                           </li>
                           <li>
-                            <Link to="/travel_destination">Tours</Link>
+                            <Link to="/join-to-tours">Tours</Link>
                           </li>
                           <li>
                             <Link to="/travel_destination">Guides</Link>

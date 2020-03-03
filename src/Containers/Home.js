@@ -10,7 +10,7 @@ import Dest2 from "../assets/img/destination/2.png";
 import Dest5 from "../assets/img/destination/5.png";
 // import Dest6 from "../assets/img/destination/6.png";
 
-import Kg from '../assets/img/countries/kg.jpg'
+import Kg from "../assets/img/countries/kg.jpg";
 // import Kz from '../assets/img/countries/kz.jpg'
 // import Tajikstan from '../assets/img/countries/tajikstan.jpg'
 
@@ -73,7 +73,7 @@ class Home extends React.Component {
 
         <Families />
 
-        <Tours />
+        <Tours nextUrl="join-to-tours" />
       </div>
     );
   }

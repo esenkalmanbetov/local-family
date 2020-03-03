@@ -3,18 +3,20 @@ import { withRouter } from "react-router";
 import { Link } from "react-router-dom";
 import { Carousel } from "react-bootstrap";
 
-import NewLetterArea from "../../Components/NewLetterArea";
+import NewLetterArea from "./NewLetterArea";
 
-import Place1 from "../../assets/img/place/1.png";
-import Place2 from "../../assets/img/place/2.png";
-import Place3 from "../../assets/img/place/3.png";
+import Place1 from "../assets/img/place/1.png";
+import Place2 from "../assets/img/place/2.png";
+import Place3 from "../assets/img/place/3.png";
 
-import BannerPng from "../../assets/img/banner/banner.png";
-import Banner2Png from "../../assets/img/banner/banner2.png";
-import Banner3Png from "../../assets/img/banner/banner3.png";
+import BannerPng from "../assets/img/banner/banner.png";
+import Banner2Png from "../assets/img/banner/banner2.png";
+import Banner3Png from "../assets/img/banner/banner3.png";
 
-class DestinationDetails extends React.Component {
+class TourDetail extends React.Component {
   render() {
+    // const { tourId } = this.props.match.params;
+
     return (
       <div>
         <Carousel>
@@ -28,9 +30,7 @@ class DestinationDetails extends React.Component {
             <img className="d-block w-100" src={Banner3Png} alt="Third slide" />
           </Carousel.Item>
         </Carousel>
-
-        User's Family
-
+        {/* User's Family */}
         <div class="destination_details_info">
           <div class="container">
             <div class="row justify-content-center">
@@ -118,9 +118,7 @@ class DestinationDetails extends React.Component {
             </div>
           </div>
         </div>
-
         <NewLetterArea />
-
         <div class="popular_places_area">
           <div class="container">
             <div class="row justify-content-center">
@@ -229,4 +227,4 @@ class DestinationDetails extends React.Component {
   }
 }
 
-export default withRouter(DestinationDetails);
+export default withRouter(TourDetail);
