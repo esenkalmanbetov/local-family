@@ -25,48 +25,50 @@ class Header extends React.Component {
                     <div className="main-menu  d-none d-lg-block">
                       <nav>
                         <ul id="navigation">
+                          {/* for footer */}
+                          {/* <li>
+                            <Link to="/about">About</Link>
+                          </li> */}
                           <li>
-                            <Link className="active" to="/">
-                              home
+                            <Link to="/travel_destination" className="active">
+                              Families
                             </Link>
                           </li>
                           <li>
-                            <Link to="/about">About</Link>
+                            <Link to="/join-to-tours">Tours</Link>
                           </li>
                           <li>
-                            <Link to="/travel_destination">Destination</Link>
+                            <Link to="/travel_destination">Guides</Link>
                           </li>
+                          {/* for footer
                           <li>
                             <Link to="/blog">blog</Link>
-                          </li>
-                          <li>
+                          </li> */}
+                          {/* <li>
                             <Link to="/contact">Contact</Link>
-                          </li>
-                          <li class="text-right">
-                            <Link
-                              to="/signin"
-                              class="genric-btn info medium circle login-btn"
-                            >
-                              login
-                            </Link>
-                          </li>
-                          <li class="text-right">
-                            <Link
-                              to="/personal-account"
-                              class="genric-btn info medium circle login-btn"
-                            >
-                              profile
-                            </Link>
-                          </li>
+                          </li> */}
                         </ul>
                       </nav>
                     </div>
                   </div>
-
-                  <div className="seach_icon">
-                    <Link data-toggle="modal" data-target="#exampleModalCenter">
-                      <i className="fa fa-search"></i>
-                    </Link>
+                  <div class="header-auth">
+                    <li class="text-right">
+                      {false ? (
+                        <Link
+                          to="/personal-account"
+                          class="genric-btn info medium circle login-btn"
+                        >
+                          profile
+                        </Link>
+                      ) : (
+                        <Link
+                          to="/signin"
+                          class="genric-btn info medium circle login-btn"
+                        >
+                          login
+                        </Link>
+                      )}
+                    </li>
                   </div>
                   <div className="col-12">
                     <div className="mobile_menu d-block d-lg-none"></div>
@@ -76,26 +78,6 @@ class Header extends React.Component {
             </div>
           </div>
         </div>
-
-        {/* <!-- Modal --> */}
-        <div
-          class="modal fade custom_search_pop"
-          id="exampleModalCenter"
-          tabindex="-1"
-          role="dialog"
-          aria-labelledby="exampleModalCenterTitle"
-          aria-hidden="true"
-        >
-          <div class="modal-dialog modal-dialog-centered" role="document">
-            <div class="modal-content">
-              <div class="serch_form">
-                <input type="text" placeholder="Search" />
-                <button type="submit">search</button>
-              </div>
-            </div>
-          </div>
-        </div>
-        {/* <!-- link that opens popup --> */}
       </header>
     );
   }

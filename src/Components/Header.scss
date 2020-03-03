@@ -1,7 +1,38 @@
 .login-btn {
-  width: 80px;
+  width: 100px;
   color: white !important;
   &:hover {
     color: #38a4ff !important;
+  }
+}
+
+.header-auth {
+  position: absolute;
+  right: 20px;
+  top: 12px;
+  bottom: 0;
+  z-index: 9;
+}
+
+@media (max-width: 767px) {
+  .header-auth {
+    right: 60px;
+  }
+}
+
+@media (min-width: 768px) and (max-width: 991px) {
+  .header-auth {
+    right: 85px;
+  }
+}
+
+@media (min-width: 992px) and (max-width: 1200px) {
+  /* line 17, ../../Arafath/CL/December/231. Travel-02/HTML/scss/_header.scss */
+  .header-auth {
+  }
+}
+
+@media (min-width: 1200px) and (max-width: 1500px) {
+  .header-auth {
   }
 }
