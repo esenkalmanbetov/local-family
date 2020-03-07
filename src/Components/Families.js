@@ -62,9 +62,9 @@ class Families extends React.Component {
                 </div>
                 <div class="place_info">
                   <Link to={`${url}/fanilyId`}>
-                    <h3>Korola Megna</h3>
+                    <h3>Kalmanbetov's family</h3>
                   </Link>
-                  <p>United State of America</p>
+                  <p>Talas Region, Kyrgyzstan</p>
                   <div class="rating_days d-flex justify-content-between">
                     <span class="d-flex justify-content-center align-items-center">
                       <i class="fa fa-star"></i>
@@ -89,9 +89,9 @@ class Families extends React.Component {
                 </div>
                 <div class="place_info">
                   <Link to={`${url}/fanilyId`}>
-                    <h3>London</h3>
+                    <h3>Kalmanbetov's family</h3>
                   </Link>
-                  <p>United State of America</p>
+                  <p>Talas Region, Kyrgyzstan</p>
                   <div class="rating_days d-flex justify-content-between">
                     <span class="d-flex justify-content-center align-items-center">
                       <i class="fa fa-star"></i>
@@ -116,9 +116,9 @@ class Families extends React.Component {
                 </div>
                 <div class="place_info">
                   <Link to={`${url}/fanilyId`}>
-                    <h3>Miami Beach</h3>
+                    <h3>Kalmanbetov's family</h3>
                   </Link>
-                  <p>United State of America</p>
+                  <p>Talas Region, Kyrgyzstan</p>
                   <div class="rating_days d-flex justify-content-between">
                     <span class="d-flex justify-content-center align-items-center">
                       <i class="fa fa-star"></i>
@@ -143,9 +143,9 @@ class Families extends React.Component {
                 </div>
                 <div class="place_info">
                   <Link to={`${url}/fanilyId`}>
-                    <h3>California</h3>
+                    <h3>Kalmanbetov's family</h3>
                   </Link>
-                  <p>United State of America</p>
+                  <p>Talas Region, Kyrgyzstan</p>
                   <div class="rating_days d-flex justify-content-between">
                     <span class="d-flex justify-content-center align-items-center">
                       <i class="fa fa-star"></i>
@@ -170,9 +170,9 @@ class Families extends React.Component {
                 </div>
                 <div class="place_info">
                   <Link to={`${url}/fanilyId`}>
-                    <h3>Saintmartine Iceland</h3>
+                    <h3>Kalmanbetov's family</h3>
                   </Link>
-                  <p>United State of America</p>
+                  <p>Talas Region, Kyrgyzstan</p>
                   <div class="rating_days d-flex justify-content-between">
                     <span class="d-flex justify-content-center align-items-center">
                       <i class="fa fa-star"></i>
