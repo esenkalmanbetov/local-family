@@ -2,21 +2,16 @@ import React from "react";
 import { withRouter } from "react-router";
 import { Link } from "react-router-dom";
 
-import Place1 from "../assets/img/place/1.png";
-import Place2 from "../assets/img/place/2.png";
-import Place3 from "../assets/img/place/3.png";
-import Place4 from "../assets/img/place/4.png";
-import Place5 from "../assets/img/place/5.png";
-import Place6 from "../assets/img/place/6.png";
+import Place1 from "../../assets/img/place/1.png";
+import Place2 from "../../assets/img/place/2.png";
+import Place3 from "../../assets/img/place/3.png";
+import Place4 from "../../assets/img/place/4.png";
+import Place5 from "../../assets/img/place/5.png";
+import Place6 from "../../assets/img/place/6.png";
 
-class Families extends React.Component {
+class AllFamilies extends React.Component {
   render() {
-    const {
-      props: { nextUrl }
-    } = this;
-
-    let { url } = this.props.match;
-    url = nextUrl ? url + nextUrl : url;
+    const { url } = this.props.match;
     return (
       <div class="popular_places_area">
         <div class="container">
@@ -34,7 +29,7 @@ class Families extends React.Component {
                   <img src={Place1} alt="" />
                 </div>
                 <div class="place_info">
-                  <Link to={`${url}/fanilyId`}>
+                  <Link to={`${url}/familyId`}>
                     <h3>Kalmanbetov's family</h3>
                   </Link>
                   <p>Talas Region, Kyrgyzstan</p>
@@ -45,11 +40,11 @@ class Families extends React.Component {
                       <i class="fa fa-star"></i>
                       <i class="fa fa-star"></i>
                       <i class="fa fa-star"></i>
-                      <Link to={`${url}/fanilyId`}>(20 Review)</Link>
+                      <Link to={`${url}/familyId`}>(20 Review)</Link>
                     </span>
                     <div class="days">
                       <i class="fa fa-clock-o"></i>
-                      <Link to={`${url}/fanilyId`}>5 Days</Link>
+                      <Link to={`${url}/familyId`}>5 Days</Link>
                     </div>
                   </div>
                 </div>
@@ -61,10 +56,10 @@ class Families extends React.Component {
                   <img src={Place2} alt="" />
                 </div>
                 <div class="place_info">
-                  <Link to={`${url}/fanilyId`}>
-                    <h3>Korola Megna</h3>
+                  <Link to={`${url}/familyId`}>
+                    <h3>Kalmanbetov's family</h3>
                   </Link>
-                  <p>United State of America</p>
+                  <p>Talas Region, Kyrgyzstan</p>
                   <div class="rating_days d-flex justify-content-between">
                     <span class="d-flex justify-content-center align-items-center">
                       <i class="fa fa-star"></i>
@@ -72,11 +67,11 @@ class Families extends React.Component {
                       <i class="fa fa-star"></i>
                       <i class="fa fa-star"></i>
                       <i class="fa fa-star"></i>
-                      <Link to={`${url}/fanilyId`}>(20 Review)</Link>
+                      <Link to={`${url}/familyId`}>(20 Review)</Link>
                     </span>
                     <div class="days">
                       <i class="fa fa-clock-o"></i>
-                      <Link to={`${url}/fanilyId`}>5 Days</Link>
+                      <Link to={`${url}/familyId`}>5 Days</Link>
                     </div>
                   </div>
                 </div>
@@ -88,10 +83,10 @@ class Families extends React.Component {
                   <img src={Place3} alt="" />
                 </div>
                 <div class="place_info">
-                  <Link to={`${url}/fanilyId`}>
-                    <h3>London</h3>
+                  <Link to={`${url}/familyId`}>
+                    <h3>Kalmanbetov's family</h3>
                   </Link>
-                  <p>United State of America</p>
+                  <p>Talas Region, Kyrgyzstan</p>
                   <div class="rating_days d-flex justify-content-between">
                     <span class="d-flex justify-content-center align-items-center">
                       <i class="fa fa-star"></i>
@@ -99,11 +94,11 @@ class Families extends React.Component {
                       <i class="fa fa-star"></i>
                       <i class="fa fa-star"></i>
                       <i class="fa fa-star"></i>
-                      <Link to={`${url}/fanilyId`}>(20 Review)</Link>
+                      <Link to={`${url}/familyId`}>(20 Review)</Link>
                     </span>
                     <div class="days">
                       <i class="fa fa-clock-o"></i>
-                      <Link to={`${url}/fanilyId`}>5 Days</Link>
+                      <Link to={`${url}/familyId`}>5 Days</Link>
                     </div>
                   </div>
                 </div>
@@ -115,10 +110,10 @@ class Families extends React.Component {
                   <img src={Place4} alt="" />
                 </div>
                 <div class="place_info">
-                  <Link to={`${url}/fanilyId`}>
-                    <h3>Miami Beach</h3>
+                  <Link to={`${url}/familyId`}>
+                    <h3>Kalmanbetov's family</h3>
                   </Link>
-                  <p>United State of America</p>
+                  <p>Talas Region, Kyrgyzstan</p>
                   <div class="rating_days d-flex justify-content-between">
                     <span class="d-flex justify-content-center align-items-center">
                       <i class="fa fa-star"></i>
@@ -126,11 +121,11 @@ class Families extends React.Component {
                       <i class="fa fa-star"></i>
                       <i class="fa fa-star"></i>
                       <i class="fa fa-star"></i>
-                      <Link to={`${url}/fanilyId`}>(20 Review)</Link>
+                      <Link to={`${url}/familyId`}>(20 Review)</Link>
                     </span>
                     <div class="days">
                       <i class="fa fa-clock-o"></i>
-                      <Link to={`${url}/fanilyId`}>5 Days</Link>
+                      <Link to={`${url}/familyId`}>5 Days</Link>
                     </div>
                   </div>
                 </div>
@@ -142,10 +137,10 @@ class Families extends React.Component {
                   <img src={Place5} alt="" />
                 </div>
                 <div class="place_info">
-                  <Link to={`${url}/fanilyId`}>
-                    <h3>California</h3>
+                  <Link to={`${url}/familyId`}>
+                    <h3>Kalmanbetov's family</h3>
                   </Link>
-                  <p>United State of America</p>
+                  <p>Talas Region, Kyrgyzstan</p>
                   <div class="rating_days d-flex justify-content-between">
                     <span class="d-flex justify-content-center align-items-center">
                       <i class="fa fa-star"></i>
@@ -153,11 +148,11 @@ class Families extends React.Component {
                       <i class="fa fa-star"></i>
                       <i class="fa fa-star"></i>
                       <i class="fa fa-star"></i>
-                      <Link to={`${url}/fanilyId`}>(20 Review)</Link>
+                      <Link to={`${url}/familyId`}>(20 Review)</Link>
                     </span>
                     <div class="days">
                       <i class="fa fa-clock-o"></i>
-                      <Link to={`${url}/fanilyId`}>5 Days</Link>
+                      <Link to={`${url}/familyId`}>5 Days</Link>
                     </div>
                   </div>
                 </div>
@@ -169,10 +164,10 @@ class Families extends React.Component {
                   <img src={Place6} alt="" />
                 </div>
                 <div class="place_info">
-                  <Link to={`${url}/fanilyId`}>
-                    <h3>Saintmartine Iceland</h3>
+                  <Link to={`${url}/familyId`}>
+                    <h3>Kalmanbetov's family</h3>
                   </Link>
-                  <p>United State of America</p>
+                  <p>Talas Region, Kyrgyzstan</p>
                   <div class="rating_days d-flex justify-content-between">
                     <span class="d-flex justify-content-center align-items-center">
                       <i class="fa fa-star"></i>
@@ -180,11 +175,11 @@ class Families extends React.Component {
                       <i class="fa fa-star"></i>
                       <i class="fa fa-star"></i>
                       <i class="fa fa-star"></i>
-                      <Link to={`${url}/fanilyId`}>(20 Review)</Link>
+                      <Link to={`${url}/familyId`}>(20 Review)</Link>
                     </span>
                     <div class="days">
                       <i class="fa fa-clock-o"></i>
-                      <Link to={`${url}/fanilyId`}>5 Days</Link>
+                      <Link to={`${url}/familyId`}>5 Days</Link>
                     </div>
                   </div>
                 </div>
@@ -194,9 +189,7 @@ class Families extends React.Component {
           <div class="row">
             <div class="col-lg-12">
               <div class="more_place_btn text-center">
-                <Link class="boxed-btn4" to={`${url}`}>
-                  More Families
-                </Link>
+                <Link class="boxed-btn4">More Families</Link>
               </div>
             </div>
           </div>
@@ -206,4 +199,4 @@ class Families extends React.Component {
   }
 }
 
-export default withRouter(Families);
+export default withRouter(AllFamilies);

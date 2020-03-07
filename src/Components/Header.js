@@ -30,7 +30,7 @@ class Header extends React.Component {
                             <Link to="/about">About</Link>
                           </li> */}
                           <li>
-                            <Link to="/travel_destination" className="active">
+                            <Link to="/all-families" className="active">
                               Families
                             </Link>
                           </li>

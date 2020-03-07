@@ -21,6 +21,7 @@ import SingleBlog from "../pages/Blog/SingleBlog";
 import Contact from "../pages/Contact";
 
 import "./App.scss";
+import AllFamilies from "../pages/AllFamilies";
 
 function ScrollToTop() {
   const { pathname } = useLocation();
@@ -43,6 +44,7 @@ function App() {
             <Route exact path="/" component={Home} />
             <Route path="/about" component={About} />
             <Route path="/join-to-tours" component={AllTours} />
+            <Route path="/all-families" component={AllFamilies} />
             <Route path="/blog" component={Blog} />
             <Route path="/single-blog" component={SingleBlog} />
             <Route path="/contact" component={Contact} />

@@ -23,7 +23,7 @@ class NavKg extends React.Component {
           </div>
         </div>
         <div>
-          <Families />
+          <Families nextUrl="/all-families" />
           <Tours nextUrl="/join-to-tours" />
         </div>
       </div>

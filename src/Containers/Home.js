@@ -71,7 +71,7 @@ class Home extends React.Component {
           </div>
         </div>
 
-        <Families />
+        <Families nextUrl="all-families" />
 
         <Tours nextUrl="join-to-tours" />
       </div>

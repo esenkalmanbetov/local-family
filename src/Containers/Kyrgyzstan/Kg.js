@@ -18,7 +18,7 @@ class Kg extends React.Component {
         <Switch>
           <Route exact path={path} component={NavKg} />
           <Route path={`${path}/join-to-tours`} component={JoinTours} />
-          <Route path={`${path}/local-families`} component={LocalFamilies} />
+          <Route path={`${path}/all-families`} component={LocalFamilies} />
           <Route path={`${path}/local-guides`} component={LocalGuides} />
         </Switch>
       </div>

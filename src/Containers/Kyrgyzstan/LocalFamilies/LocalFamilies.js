@@ -3,7 +3,7 @@ import { withRouter } from "react-router";
 import { Switch, Route } from "react-router-dom";
 
 import NavLocalFamilies from "./NavLocalFamilies";
-import FamilyDetail from "./FamilyDetail";
+import FamilyDetail from "../../../Components/FamilyDetail";
 
 class LocalFamilies extends React.Component {
   render() {
