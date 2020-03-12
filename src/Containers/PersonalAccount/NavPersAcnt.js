@@ -16,6 +16,9 @@ class NavPersAcnt extends React.Component {
           <li>
             <Link to={`${url}/my-tours`}>My tours</Link>
           </li>
+          <li>
+            <Link to={`${url}/my-families`}>My families</Link>
+          </li>
         </ul>
       </div>
     );

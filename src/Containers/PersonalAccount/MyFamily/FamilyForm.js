@@ -1,22 +1,15 @@
 import React from "react";
 import { MDBRow, MDBCol, MDBBtn } from "mdbreact";
-import Select from "react-select";
-
 import ImageUpload from "../../../Components/ImageUpload";
 
-const categoryOptions = [
-  { value: "trekking", label: "Trekking" },
-  { value: "horseRiding", label: "Horse Riding" },
-  { value: "cycling", label: "Cycling" }
-];
-class TourForm extends React.Component {
+class FamilyForm extends React.Component {
   state = {
     form: {
       id: 0,
-      tourName: "",
-      duration: null,
-      price: null,
-      categories: [],
+      familyName: "",
+      location: "",
+      phoneNumber: null,
+      whatsapp: null,
       description: "",
       gallery: []
     }
@@ -27,7 +20,7 @@ class TourForm extends React.Component {
   }
 
   initForm = () => {
-    this.setState({ form: this.props.tour || this.state.form });
+    this.setState({ form: this.props.family || this.state.form });
   };
 
   submitHandler = event => {
@@ -44,18 +37,11 @@ class TourForm extends React.Component {
     let form = { ...this.state.form };
     form[event.target.name] = event.target.value;
     this.setState({ form });
-    console.log(form);
   };
 
   onUpload = pictures => {
     let form = { ...this.state.form };
     form.gallery = pictures;
-    this.setState({ form });
-  };
-
-  onSelectCategories = selectedCategories => {
-    let form = { ...this.state.form };
-    form.categories = selectedCategories;
     this.setState({ form });
   };
 
@@ -71,16 +57,16 @@ class TourForm extends React.Component {
           <MDBRow>
             <MDBCol md="6" className="mb-3">
               <label htmlFor="defaultFormRegisterNameEx" className="grey-text">
-                Name of Tour
+                Family Name
               </label>
               <input
-                value={form.tourName}
-                name="tourName"
+                value={form.familyName}
+                name="familyName"
                 onChange={this.changeHandler}
                 type="text"
                 id="defaultFormRegisterNameEx"
                 className="form-control"
-                placeholder="Name"
+                placeholder="Family Name"
                 required
               />
               <div className="valid-feedback">Looks good!</div>
@@ -90,16 +76,35 @@ class TourForm extends React.Component {
                 htmlFor="defaultFormRegisterEmailEx2"
                 className="grey-text"
               >
-                Duration
+                Location
               </label>
               <input
-                value={form.duration}
-                name="duration"
+                value={form.location}
+                name="location"
+                onChange={this.changeHandler}
+                type="text"
+                id="defaultFormRegisterEmailEx2"
+                className="form-control"
+                placeholder="location"
+                required
+              />
+              <div className="valid-feedback">Looks good!</div>
+            </MDBCol>
+            <MDBCol md="6" className="mb-3">
+              <label
+                htmlFor="defaultFormRegisterEmailEx2"
+                className="grey-text"
+              >
+                Phone Number
+              </label>
+              <input
+                value={form.phoneNumber}
+                name="phoneNumber"
                 onChange={this.changeHandler}
                 type="number"
                 id="defaultFormRegisterEmailEx2"
                 className="form-control"
-                placeholder="duration"
+                placeholder="phoneNumber"
                 required
               />
               <div className="valid-feedback">Looks good!</div>
@@ -109,32 +114,17 @@ class TourForm extends React.Component {
                 htmlFor="defaultFormRegisterEmailEx2"
                 className="grey-text"
               >
-                Price
+                WhatsApp
               </label>
               <input
-                value={form.price}
-                name="price"
+                value={form.whatsapp}
+                name="whatsapp"
                 onChange={this.changeHandler}
                 type="number"
                 id="defaultFormRegisterEmailEx2"
                 className="form-control"
-                placeholder="price"
+                placeholder="whatsapp"
                 required
-              />
-              <div className="valid-feedback">Looks good!</div>
-            </MDBCol>
-            <MDBCol md="6" className="mb-3">
-              <label
-                htmlFor="defaultFormRegisterEmailEx2"
-                className="grey-text"
-              >
-                Categories
-              </label>
-              <Select
-                value={form.categories}
-                onChange={this.onSelectCategories}
-                options={categoryOptions}
-                isMulti
               />
               <div className="valid-feedback">Looks good!</div>
             </MDBCol>
@@ -171,4 +161,4 @@ class TourForm extends React.Component {
   }
 }
 
-export default TourForm;
+export default FamilyForm;
