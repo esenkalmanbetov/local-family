@@ -32,8 +32,8 @@ class MyTours extends Component {
 
   createTour = form => {
     let tourList = [...this.state.tourList];
-    if (!tourList.length) form.Id = 1;
-    else form.Id = tourList[tourList.length - 1].Id + 1;
+    if (!tourList.length) form.id = 1;
+    else form.id = tourList[tourList.length - 1].id + 1;
     tourList.push(form);
     localStorage.setItem("tourList", JSON.stringify(tourList));
     this.setState({ tourList });
@@ -42,7 +42,7 @@ class MyTours extends Component {
   editTour = form => {
     let tourList = [...this.state.tourList];
     tourList.forEach(tour => {
-      if (form.Id === tour.Id) for (let key in tour) tour[key] = form[key];
+      if (form.id === tour.id) for (let key in tour) tour[key] = form[key];
     });
     localStorage.setItem("tourList", JSON.stringify(tourList));
     this.setState({ tourList });
@@ -50,7 +50,7 @@ class MyTours extends Component {
 
   deleteTour = id => {
     let tourList = [...this.state.tourList];
-    const deleteIdx = tourList.findIndex(tour => tour.Id === id);
+    const deleteIdx = tourList.findIndex(tour => tour.id === id);
     tourList.splice(deleteIdx, 1);
     this.setState({ tourList });
     localStorage.setItem("tourList", JSON.stringify(tourList));
@@ -77,8 +77,8 @@ class MyTours extends Component {
             ) : null}
             {tourList.map(tour => {
               return (
-                <div key={tour.Id}>
-                  {isTourFormOpen === tour.Id ? (
+                <div key={tour.id}>
+                  {isTourFormOpen === tour.id ? (
                     <TourForm
                       tour={tour}
                       onSave={this.editTour}
