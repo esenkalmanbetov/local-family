@@ -3,8 +3,9 @@ import {
   BrowserRouter as Router,
   Switch,
   Route,
-  useLocation
+  useLocation,
 } from "react-router-dom";
+import { observer, inject } from "mobx-react";
 
 import Header from "../Components/Header";
 import Footer from "../Components/Footer";
@@ -61,4 +62,4 @@ function App() {
   );
 }
 
-export default App;
+export default inject("stores")(observer(App));

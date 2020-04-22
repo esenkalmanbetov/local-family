@@ -39,15 +39,19 @@ class Signup extends React.Component {
   handleSubmit = (event) => {
     const form = event.currentTarget;
     let userForm = this.state.userForm;
-    console.log(userForm);
-    if (form.checkValidity() === false) {
-      event.preventDefault();
-      event.stopPropagation();
-    } else {
-      this.props.history.push("/");
+    if (form.checkValidity()) {
+      this.props.stores.authStore.signup(userForm).then(
+        (resp) => {
+          this.props.history.push("/");
+        },
+        (err) => {
+          console.log("error: ", err);
+        }
+      );
     }
 
     this.setState({ validated: true });
+    event.preventDefault();
   };
 
   onUserFormChange = (e) => {
@@ -273,6 +277,7 @@ class Signup extends React.Component {
               className="genric-btn info medium circle c-w-120"
               type="submit"
               disabled={!isUserAgree}
+              // onClick={handleSubmit}
             >
               Register
             </Button>
