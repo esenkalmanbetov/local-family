@@ -1,11 +1,33 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import { observer, inject } from "mobx-react";
 
 import "./Header.scss";
 
 import Logo from "../assets/img/logo.png";
 
 class Header extends React.Component {
+  state = {
+    userId: null,
+  };
+
+  componentDidMount() {
+    this.loadUserId();
+  }
+
+  loadUserId() {
+    const userId = localStorage.getItem("userId");
+    this.setState({ userId });
+    this.props.stores.authStore.setUserId(userId);
+  }
+
+  changeUserId(userId) {
+    this.props.stores.authStore.setUserId(userId);
+  }
+
+  get userId() {
+    return this.props.stores.authStore.userId;
+  }
   render() {
     return (
       <header>
@@ -53,7 +75,7 @@ class Header extends React.Component {
                   </div>
                   <div class="header-auth">
                     <li class="text-right">
-                      {false ? (
+                      {this.state.userId ? (
                         <Link
                           to="/personal-account"
                           class="genric-btn info medium circle login-btn"
@@ -83,4 +105,4 @@ class Header extends React.Component {
   }
 }
 
-export default Header;
+export default inject("stores")(observer(Header));

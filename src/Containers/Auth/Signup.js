@@ -1,30 +1,9 @@
 import React from "react";
 import Select from "react-select";
+import { observer, inject } from "mobx-react";
 import { Form, Col, Button, InputGroup } from "react-bootstrap";
 
 import "./Auth.scss";
-
-const countryOptions = [
-  { value: "kg", label: "Kyrgyzstan" },
-  { value: "kz", label: "Kazakstan" },
-  { value: "tj", label: "Tajikistan" }
-];
-
-const countries = {
-  kg: [
-    { value: "talas", label: "Talas" },
-    { value: "chuy", label: "Chuy" },
-    { value: "osh", label: "Osh" }
-  ],
-  kz: [
-    { value: "taraz", label: "Taraz" },
-    { value: "jambyl", label: "Jambyl" }
-  ],
-  tj: [
-    { value: "tj1", label: "Tj1" },
-    { value: "tj2", label: "Tj2" }
-  ]
-};
 
 class Signup extends React.Component {
   constructor(props) {
@@ -33,77 +12,97 @@ class Signup extends React.Component {
     this.state = {
       validated: false,
       isUserAgree: false,
+      regionOptions: [],
       userForm: {
-        role: "guide",
+        role: "tourist",
         email: "",
         firstName: "",
         lastName: "",
         password: "",
-        passwordConfirm: ""
+        passwordConfirm: "",
+        residence: "",
+        serviceCountriesId: [],
+        countryId: null,
+        regionId: null,
       },
-      touristForm: {
-        residence: ""
-      },
-      guideForm: {
-        serviceCountries: []
-      },
-      hostForm: {
-        country: "",
-        region: ""
-      }
     };
   }
 
-  handleSubmit = event => {
+  get countries() {
+    return this.props.stores.authStore.countries;
+  }
+
+  componentDidMount() {
+    this.loadCountries();
+  }
+
+  handleSubmit = (event) => {
     const form = event.currentTarget;
-    if (form.checkValidity() === false) {
-      event.preventDefault();
-      event.stopPropagation();
-    } else {
-      this.props.history.push("/");
+    let userForm = this.state.userForm;
+    if (form.checkValidity()) {
+      this.props.stores.authStore.signup(userForm).then(
+        (resp) => {
+          this.props.history.push("/");
+        },
+        (err) => {
+          console.log("error: ", err);
+        }
+      );
     }
 
     this.setState({ validated: true });
+    event.preventDefault();
   };
 
-  onUserFormChange = e => {
+  onUserFormChange = (e) => {
+    let userForm = this.state.userForm;
     const { name, value } = e.target;
-    this.setState({ userForm: { [name]: value } });
+    userForm[name] = value;
+    this.setState({ userForm });
   };
 
-  onTouristFormChange = e => {
-    this.setState({ touristForm: { residence: e.target.value } });
+  onCountrySelect = (selectedCountry) => {
+    let userForm = this.state.userForm;
+    userForm.countryId = selectedCountry.id;
+
+    this.setState({
+      userForm,
+      regionOptions: selectedCountry.regions,
+    });
   };
 
-  onGuideFormChange = selectedCountries => {
-    this.setState({ guideForm: { serviceCountries: selectedCountries } });
+  onRegionSelect = (selectedRegion) => {
+    let userForm = this.state.userForm;
+    userForm.regionId = selectedRegion.id;
+    this.setState({ userForm });
   };
 
-  onCountrySelect = selectedCountry => {
-    this.regionOptions = countries[selectedCountry.value];
-    this.setState({ hostForm: { country: selectedCountry } });
-  };
-
-  onRegionSelect = selectedRegion => {
-    this.setState({ hostForm: { region: selectedRegion } });
+  onServiceCountriesSelect = (selectedCountries) => {
+    const serviceCountriesId = selectedCountries.map((country) => country.id);
+    let userForm = this.state.userForm;
+    userForm.serviceCountriesId = serviceCountriesId;
+    this.setState({ userForm });
   };
 
   toggleAgreement = () => {
     this.setState({ isUserAgree: !this.state.isUserAgree });
   };
 
+  loadCountries() {
+    this.props.stores.authStore.getCountries();
+  }
+
   render() {
     const {
-      state: { validated, userForm, touristForm, isUserAgree },
+      state: { validated, userForm, isUserAgree, regionOptions },
       handleSubmit,
       onUserFormChange,
-      onTouristFormChange,
-      onGuideFormChange,
       onCountrySelect,
       onRegionSelect,
+      onServiceCountriesSelect,
       toggleAgreement,
-      regionOptions
     } = this;
+
     return (
       <div className="auth">
         <Col
@@ -121,7 +120,6 @@ class Signup extends React.Component {
                 label="Tourist"
                 value="tourist"
                 name="role"
-                id="formHorizontalRadios1"
                 onChange={onUserFormChange}
               />
               <Form.Check
@@ -130,7 +128,6 @@ class Signup extends React.Component {
                 label="Guide"
                 value="guide"
                 name="role"
-                id="formHorizontalRadios2"
                 onChange={onUserFormChange}
               />
               <Form.Check
@@ -139,7 +136,6 @@ class Signup extends React.Component {
                 label="Host"
                 value="host"
                 name="role"
-                id="formHorizontalRadios3"
                 onChange={onUserFormChange}
               />
             </Form.Group>
@@ -155,7 +151,6 @@ class Signup extends React.Component {
                   value={userForm.email}
                   type="email"
                   placeholder="Email"
-                  aria-describedby="inputGroupPrepend"
                   required
                   onChange={onUserFormChange}
                 />
@@ -223,8 +218,9 @@ class Signup extends React.Component {
                   required
                   type="text"
                   placeholder="Residence"
-                  value={touristForm.residence}
-                  onChange={onTouristFormChange}
+                  name="residence"
+                  value={userForm.residence}
+                  onChange={onUserFormChange}
                 />
                 <Form.Control.Feedback>Looks good!</Form.Control.Feedback>
               </Form.Group>
@@ -233,9 +229,12 @@ class Signup extends React.Component {
               <Form.Group as={Col}>
                 <Form.Label>Service Countries</Form.Label>
                 <Select
-                  onChange={onGuideFormChange}
-                  options={countryOptions}
+                  onChange={onServiceCountriesSelect}
+                  options={this.countries}
+                  getOptionLabel={({ title }) => title}
+                  getOptionValue={({ id }) => id}
                   isMulti
+                  required
                 />
               </Form.Group>
             )}
@@ -243,14 +242,23 @@ class Signup extends React.Component {
               <>
                 <Form.Group as={Col}>
                   <Form.Label>Country</Form.Label>
-                  <Select options={countryOptions} onChange={onCountrySelect} />
+                  <Select
+                    options={this.countries}
+                    onChange={onCountrySelect}
+                    getOptionLabel={({ title }) => title}
+                    getOptionValue={({ id }) => id}
+                    required
+                  />
                 </Form.Group>
                 <Form.Group as={Col}>
                   <Form.Label>Region</Form.Label>
                   <Select
                     options={regionOptions}
                     onChange={onRegionSelect}
+                    getOptionLabel={({ title }) => title}
+                    getOptionValue={({ id }) => id}
                     noOptionsMessage={() => "Please select a country"}
+                    required
                   />
                 </Form.Group>
               </>
@@ -269,6 +277,7 @@ class Signup extends React.Component {
               className="genric-btn info medium circle c-w-120"
               type="submit"
               disabled={!isUserAgree}
+              // onClick={handleSubmit}
             >
               Register
             </Button>
@@ -279,4 +288,4 @@ class Signup extends React.Component {
   }
 }
 
-export default Signup;
+export default inject("stores")(observer(Signup));
