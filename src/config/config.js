@@ -1,6 +1,9 @@
 export default {
-  apiUrl: "http://localhost:8080",
+  apiUrl:
+    process.env.NODE_ENV === "production"
+      ? "https://local-family-backend.herokuapp.com"
+      : "http://localhost:8080",
 };
 
-// http://localhost:8080
-// https://local-family-backend.herokuapp.com
+// development: http://localhost:8080
+//  production: https://local-family-backend.herokuapp.com
