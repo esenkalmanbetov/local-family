@@ -1,6 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import { observer, inject } from "mobx-react";
+import { withRouter } from "react-router-dom";
 
 import { Dropdown } from "react-bootstrap";
 
@@ -9,30 +10,39 @@ import "./Header.scss";
 import Logo from "../assets/img/logo.png";
 
 class Header extends React.Component {
-  state = {
-    userId: null,
+  componentDidMount() {
+    this.loadUser();
+  }
+
+  componentDidUpdate() {
+    this.loadUser();
+  }
+
+  get user() {
+    return this.props.stores.authStore.user();
+  }
+
+  get counter() {
+    return this.props.stores.tutorStore.counter;
+  }
+
+  loadUser = () => {
+    this.props.stores.authStore.loadUser();
   };
 
-  componentDidMount() {
-    this.loadUserId();
-  }
-
-  loadUserId() {
-    const userId = localStorage.getItem("userId");
-    this.setState({ userId });
-    this.props.stores.authStore.setUserId(userId);
-  }
-
-  get userId() {
-    return this.props.stores.authStore.userId;
-  }
-
   signOut = () => {
-    localStorage.removeItem("userId");
-    this.setState({ userId: null });
+    this.props.stores.authStore.signout().then(() => {
+      this.props.history.push("/");
+    });
   };
 
   render() {
+    const toPersonalAccnt =
+      this.user.role === "tourist"
+        ? "/personal-account/profile"
+        : "/personal-account";
+
+    const userLogo = this.user.firstName[0] + this.user.lastName[0];
     return (
       <header>
         <div className="header-area ">
@@ -79,15 +89,15 @@ class Header extends React.Component {
                   </div>
                   <div class="header-auth">
                     <li class="text-right">
-                      {this.state.userId ? (
+                      {this.user.id ? (
                         <Dropdown>
                           <Dropdown.Toggle className="user-toggle">
-                            us
+                            {userLogo}
                           </Dropdown.Toggle>
 
                           <Dropdown.Menu className="user-menu">
-                            <Dropdown.Item href="/personal-account">
-                              profile
+                            <Dropdown.Item>
+                              <Link to={toPersonalAccnt}>profile</Link>
                             </Dropdown.Item>
                             <Dropdown.Item onClick={() => this.signOut()}>
                               sign-out
@@ -117,4 +127,4 @@ class Header extends React.Component {
   }
 }
 
-export default inject("stores")(observer(Header));
+export default inject("stores")(withRouter(observer(Header)));

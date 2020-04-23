@@ -24,7 +24,7 @@ class Signin extends React.Component {
     if (form.checkValidity()) {
       this.props.stores.authStore.signin(loginForm).then(
         (resp) => {
-          console.log("res: ", resp);
+          this.props.history.push("/");
         },
         (err) => {
           console.log("err: ", err);

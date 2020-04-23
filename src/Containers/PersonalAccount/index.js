@@ -1,5 +1,4 @@
 import React from "react";
-import { withRouter } from "react-router";
 import { Switch, Route } from "react-router-dom";
 
 import NavPersAcnt from "./NavPersAcnt";
@@ -24,4 +23,4 @@ class PersonalAccount extends React.Component {
   }
 }
 
-export default withRouter(PersonalAccount);
+export default PersonalAccount;

@@ -5,9 +5,7 @@ import "./index.css";
 import App from "./Containers/App";
 import RootStore from "./stores/Root.store";
 
-const rootStore = RootStore.create({
-  authStore: {},
-});
+const rootStore = RootStore.create({});
 
 ReactDOM.render(
   <Provider stores={rootStore}>

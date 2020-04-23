@@ -1,6 +1,8 @@
-import { types } from "mobx-state-tree";
+import { types, getSnapshot, applySnapshot } from "mobx-state-tree";
 
-import config from "../config/config";
+import config from "../../config/config";
+
+import UserModel from "../models/User.model";
 
 const countriesApi = config.apiUrl + "/api/countries";
 const usersApi = config.apiUrl + "/api/users";
@@ -19,7 +21,7 @@ const AuthStore = types
         ),
       })
     ),
-    userId: types.optional(types.number, 0),
+    _user: types.optional(UserModel, {}),
   })
   .actions((self) => ({
     getCountries() {
@@ -41,8 +43,8 @@ const AuthStore = types
         })
           .then((res) => res.json())
           .then((data) => {
+            applySnapshot(self._user, data);
             localStorage.setItem("userId", data.id);
-            self.userId = data.id;
             resolve(data);
           })
           .catch((err) => {
@@ -63,7 +65,11 @@ const AuthStore = types
           .then((res) => res.json())
           .then((data) => {
             if (data.message) reject(data.message);
-            resolve(data);
+            else {
+              self._user.setInfo(data);
+              localStorage.setItem("userId", data.id);
+              resolve(data);
+            }
           })
           .catch((err) => {
             reject(err);
@@ -71,16 +77,33 @@ const AuthStore = types
       });
     },
 
-    setUserId(userId) {
-      self.userId = userId;
+    loadUser() {
+      new Promise((resolve, reject) => {
+        const userId = localStorage.getItem("userId");
+        resolve(userId);
+      }).then((userId) => {
+        if (!userId) return;
+        fetch(usersApi + "/getUserById/" + userId)
+          .then((res) => res.json())
+          .then((userInfo) => {
+            applySnapshot(self._user, userInfo);
+          });
+      });
+    },
+
+    signout() {
+      localStorage.removeItem("userId");
+      applySnapshot(self._user, getSnapshot(UserModel.create()));
+      return Promise.resolve();
     },
   }))
   .views((self) => ({
     countries() {
       return self.countries;
     },
-    userId() {
-      return self.userId;
+
+    user() {
+      return getSnapshot(self._user);
     },
   }));
 
