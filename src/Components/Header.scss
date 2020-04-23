@@ -36,3 +36,17 @@
   .header-auth {
   }
 }
+
+.user-toggle {
+  border-radius: 50px;
+  &::after {
+    display: none;
+  }
+  text-transform: uppercase;
+}
+
+.user-menu {
+  position: relative !important;
+  left: -6px !important;
+  will-change: unset;
+}

@@ -1,34 +1,48 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import { observer, inject } from "mobx-react";
+import { withRouter } from "react-router-dom";
+
+import { Dropdown } from "react-bootstrap";
 
 import "./Header.scss";
 
 import Logo from "../assets/img/logo.png";
 
 class Header extends React.Component {
-  state = {
-    userId: null,
+  componentDidMount() {
+    this.loadUser();
+  }
+
+  componentDidUpdate() {
+    this.loadUser();
+  }
+
+  get user() {
+    return this.props.stores.authStore.user();
+  }
+
+  get counter() {
+    return this.props.stores.tutorStore.counter;
+  }
+
+  loadUser = () => {
+    this.props.stores.authStore.loadUser();
   };
 
-  componentDidMount() {
-    this.loadUserId();
-  }
+  signOut = () => {
+    this.props.stores.authStore.signout().then(() => {
+      this.props.history.push("/");
+    });
+  };
 
-  loadUserId() {
-    const userId = localStorage.getItem("userId");
-    this.setState({ userId });
-    this.props.stores.authStore.setUserId(userId);
-  }
-
-  changeUserId(userId) {
-    this.props.stores.authStore.setUserId(userId);
-  }
-
-  get userId() {
-    return this.props.stores.authStore.userId;
-  }
   render() {
+    const toPersonalAccnt =
+      this.user.role === "tourist"
+        ? "/personal-account/profile"
+        : "/personal-account";
+
+    const userLogo = this.user.firstName[0] + this.user.lastName[0];
     return (
       <header>
         <div className="header-area ">
@@ -75,13 +89,21 @@ class Header extends React.Component {
                   </div>
                   <div class="header-auth">
                     <li class="text-right">
-                      {this.state.userId ? (
-                        <Link
-                          to="/personal-account"
-                          class="genric-btn info medium circle login-btn"
-                        >
-                          profile
-                        </Link>
+                      {this.user.id ? (
+                        <Dropdown>
+                          <Dropdown.Toggle className="user-toggle">
+                            {userLogo}
+                          </Dropdown.Toggle>
+
+                          <Dropdown.Menu className="user-menu">
+                            <Dropdown.Item>
+                              <Link to={toPersonalAccnt}>profile</Link>
+                            </Dropdown.Item>
+                            <Dropdown.Item onClick={() => this.signOut()}>
+                              sign-out
+                            </Dropdown.Item>
+                          </Dropdown.Menu>
+                        </Dropdown>
                       ) : (
                         <Link
                           to="/signin"
@@ -105,4 +127,4 @@ class Header extends React.Component {
   }
 }
 
-export default inject("stores")(observer(Header));
+export default inject("stores")(withRouter(observer(Header)));

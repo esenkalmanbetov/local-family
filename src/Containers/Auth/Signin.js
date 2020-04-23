@@ -1,4 +1,5 @@
 import React from "react";
+import { observer, inject } from "mobx-react";
 import { Form, Col, Button, InputGroup } from "react-bootstrap";
 import { Link } from "react-router-dom";
 
@@ -9,26 +10,43 @@ class Signin extends React.Component {
     super(props);
 
     this.state = {
-      validated: false
+      validated: false,
+      loginForm: {
+        email: null,
+        password: null,
+      },
     };
   }
 
-  handleSubmit = event => {
+  handleSubmit = (event) => {
     const form = event.currentTarget;
-    if (form.checkValidity() === false) {
-      event.preventDefault();
-      event.stopPropagation();
-    } else {
-      this.props.history.push("/");
+    let loginForm = this.state.loginForm;
+    if (form.checkValidity()) {
+      this.props.stores.authStore.signin(loginForm).then(
+        (resp) => {
+          this.props.history.push("/");
+        },
+        (err) => {
+          console.log("err: ", err);
+        }
+      );
     }
 
     this.setState({ validated: true });
+    event.preventDefault();
+  };
+
+  onLoginFormChange = (e) => {
+    let loginForm = this.state.loginForm;
+    const { name, value } = e.target;
+    loginForm[name] = value;
+    this.setState({ loginForm });
   };
 
   render() {
     const {
-      state: { validated },
-      handleSubmit
+      state: { validated, loginForm },
+      handleSubmit,
     } = this;
     return (
       <div className="auth">
@@ -48,7 +66,9 @@ class Signin extends React.Component {
                 <Form.Control
                   type="email"
                   placeholder="Email"
-                  aria-describedby="inputGroupPrepend"
+                  name="email"
+                  value={loginForm.email}
+                  onChange={this.onLoginFormChange}
                   required
                 />
                 <Form.Control.Feedback type="invalid">
@@ -58,7 +78,14 @@ class Signin extends React.Component {
             </Form.Group>
             <Form.Group as={Col} controlId="validationCustom03">
               <Form.Label>Password</Form.Label>
-              <Form.Control type="password" placeholder="Password" required />
+              <Form.Control
+                type="password"
+                placeholder="Password"
+                name="password"
+                value={loginForm.password}
+                onChange={this.onLoginFormChange}
+                required
+              />
               <Form.Control.Feedback type="invalid">
                 Please provide a valid password.
               </Form.Control.Feedback>
@@ -79,4 +106,4 @@ class Signin extends React.Component {
   }
 }
 
-export default Signin;
+export default inject("stores")(observer(Signin));
