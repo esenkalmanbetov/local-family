@@ -2,6 +2,8 @@ import React from "react";
 import { Link } from "react-router-dom";
 import { observer, inject } from "mobx-react";
 
+import { Dropdown } from "react-bootstrap";
+
 import "./Header.scss";
 
 import Logo from "../assets/img/logo.png";
@@ -21,13 +23,15 @@ class Header extends React.Component {
     this.props.stores.authStore.setUserId(userId);
   }
 
-  changeUserId(userId) {
-    this.props.stores.authStore.setUserId(userId);
-  }
-
   get userId() {
     return this.props.stores.authStore.userId;
   }
+
+  signOut = () => {
+    localStorage.removeItem("userId");
+    this.setState({ userId: null });
+  };
+
   render() {
     return (
       <header>
@@ -76,12 +80,20 @@ class Header extends React.Component {
                   <div class="header-auth">
                     <li class="text-right">
                       {this.state.userId ? (
-                        <Link
-                          to="/personal-account"
-                          class="genric-btn info medium circle login-btn"
-                        >
-                          profile
-                        </Link>
+                        <Dropdown>
+                          <Dropdown.Toggle className="user-toggle">
+                            us
+                          </Dropdown.Toggle>
+
+                          <Dropdown.Menu className="user-menu">
+                            <Dropdown.Item href="/personal-account">
+                              profile
+                            </Dropdown.Item>
+                            <Dropdown.Item onClick={() => this.signOut()}>
+                              sign-out
+                            </Dropdown.Item>
+                          </Dropdown.Menu>
+                        </Dropdown>
                       ) : (
                         <Link
                           to="/signin"

@@ -31,7 +31,6 @@ const AuthStore = types
     },
 
     signup(userForm) {
-      console.log(userForm);
       return new Promise(function(resolve, reject) {
         fetch(usersApi + "/createUser", {
           method: "POST",
@@ -44,6 +43,26 @@ const AuthStore = types
           .then((data) => {
             localStorage.setItem("userId", data.id);
             self.userId = data.id;
+            resolve(data);
+          })
+          .catch((err) => {
+            reject(err);
+          });
+      });
+    },
+
+    signin(loginForm) {
+      return new Promise(function(resolve, reject) {
+        fetch(usersApi + "/signin", {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json;charset=utf-8",
+          },
+          body: JSON.stringify(loginForm),
+        })
+          .then((res) => res.json())
+          .then((data) => {
+            if (data.message) reject(data.message);
             resolve(data);
           })
           .catch((err) => {
