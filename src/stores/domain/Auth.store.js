@@ -97,6 +97,9 @@ const AuthStore = types
           .then((res) => res.json())
           .then((userInfo) => {
             applySnapshot(self._user, userInfo);
+          })
+          .catch((err) => {
+            console.error("err: ", err);
           });
       });
     },
