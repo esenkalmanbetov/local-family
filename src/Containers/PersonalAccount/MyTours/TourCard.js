@@ -1,32 +1,49 @@
 import React from "react";
-import {
-  MDBBtn,
-  MDBCard,
-  MDBCardBody,
-  // MDBCardImage,
-  MDBCardTitle,
-  MDBCardText,
-  MDBCol
-} from "mdbreact";
 
-// import ImageCarousel from "./ImageCarousel";
+import { Link } from "react-router-dom";
 
-const TourCard = ({ tour, onEdit, onDelete }) => {
+import { Button } from "react-bootstrap";
+
+import Place1 from "../../../assets/img/place/1.png";
+
+const TourCard = ({ tour, onEdit, onDelete, url }) => {
   return (
-    <MDBCol>
-      <MDBCard style={{ width: "22rem" }}>
-        {/* <ImageCarousel Pictures={tour.Pictures} /> */}
-        <MDBCardBody>
-          <MDBCardTitle>{tour.tourName}</MDBCardTitle>
-          <MDBCardTitle>{tour.duration}</MDBCardTitle>
-          <MDBCardText>{tour.price}</MDBCardText>
-          {/* <MDBCardText>{tour.categories}</MDBCardText> */}
-          <MDBCardText>{tour.description}</MDBCardText>
-          <MDBBtn onClick={() => onEdit(tour.id)}>Edit</MDBBtn>
-          <MDBBtn onClick={() => onDelete(tour.id)}>Delete</MDBBtn>
-        </MDBCardBody>
-      </MDBCard>
-    </MDBCol>
+    <div class="single_place">
+      <div class="thumb">
+        <img src={Place1} alt="" />
+        <Link to={`${url}/tourId`} class="prise">
+          ${tour.price}
+        </Link>
+      </div>
+      <div class="place_info">
+        <Link to={`${url}/tourId`}>
+          <h3>{tour.title}</h3>
+        </Link>
+        {/* <p>Ysyk kol Region, Kyrgyzstan</p> */}
+        <div class="rating_days d-flex justify-content-between">
+          <span class="d-flex justify-content-center align-items-center">
+            <i class="fa fa-star"></i>
+            <i class="fa fa-star"></i>
+            <i class="fa fa-star"></i>
+            <i class="fa fa-star"></i>
+            <i class="fa fa-star"></i>
+            <Link to={`${url}/tourId`}>(20 Review)</Link>
+          </span>
+          <div class="days">
+            <i class="fa fa-clock-o"></i>
+            <Link to={`${url}/tourId`}>{tour.duration} Days</Link>
+          </div>
+        </div>
+      </div>
+      <Button onClick={() => onEdit(tour.id)}>Edit</Button>
+      <Button
+        className="ml-4"
+        variant="danger"
+        onClick={() => onDelete(tour.id)}
+      >
+        Delete
+      </Button>
+    </div>
   );
 };
 

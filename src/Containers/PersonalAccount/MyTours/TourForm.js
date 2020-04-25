@@ -1,60 +1,69 @@
 import React from "react";
 import { MDBRow, MDBCol, MDBBtn } from "mdbreact";
+import { observer, inject } from "mobx-react";
 import Select from "react-select";
 
 import ImageUpload from "../../../Components/ImageUpload";
 
-const categoryOptions = [
-  { value: "trekking", label: "Trekking" },
-  { value: "horseRiding", label: "Horse Riding" },
-  { value: "cycling", label: "Cycling" }
-];
 class TourForm extends React.Component {
   state = {
     form: {
-      id: 0,
-      tourName: "",
+      title: "",
       duration: null,
       price: null,
-      categories: [],
+      categoriesId: [],
       description: "",
-      gallery: []
-    }
+      gallery: [],
+    },
   };
+
+  get categories() {
+    return this.props.stores.tourStore.categories();
+  }
 
   componentDidMount() {
     this.initForm();
+    this.loadCategories();
+  }
+
+  loadCategories() {
+    this.props.stores.tourStore.getCategories();
   }
 
   initForm = () => {
-    this.setState({ form: this.props.tour || this.state.form });
+    let form = { ...this.props.tour } || { ...this.state.form };
+    const categoriesId = form.categories.map((category) => category.id);
+    form.categoriesId = categoriesId;
+    this.setState({ form });
   };
 
-  submitHandler = event => {
+  submitHandler = (event) => {
     event.preventDefault();
     event.target.className += " was-validated";
     let form = this.state.form;
-    if (true) {
+    if (event.currentTarget.checkValidity()) {
       this.props.onSave(form);
-      this.props.toggleForm();
     }
   };
 
-  changeHandler = event => {
+  changeHandler = (event) => {
     let form = { ...this.state.form };
     form[event.target.name] = event.target.value;
     this.setState({ form });
-    console.log(form);
   };
 
-  onUpload = pictures => {
+  onUpload = (pictures) => {
     let form = { ...this.state.form };
     form.gallery = pictures;
     this.setState({ form });
   };
 
-  onSelectCategories = selectedCategories => {
+  onSelectCategories = (selectedCategories) => {
     let form = { ...this.state.form };
+    let categoriesId = [];
+    if (selectedCategories && selectedCategories.length)
+      categoriesId = selectedCategories.map((category) => category.id);
+    form.categoriesId = categoriesId;
     form.categories = selectedCategories;
     this.setState({ form });
   };
@@ -70,15 +79,12 @@ class TourForm extends React.Component {
         >
           <MDBRow>
             <MDBCol md="6" className="mb-3">
-              <label htmlFor="defaultFormRegisterNameEx" className="grey-text">
-                Name of Tour
-              </label>
+              <label className="grey-text">Name of Tour</label>
               <input
-                value={form.tourName}
-                name="tourName"
+                value={form.title}
+                name="title"
                 onChange={this.changeHandler}
                 type="text"
-                id="defaultFormRegisterNameEx"
                 className="form-control"
                 placeholder="Name"
                 required
@@ -86,18 +92,12 @@ class TourForm extends React.Component {
               <div className="valid-feedback">Looks good!</div>
             </MDBCol>
             <MDBCol md="6" className="mb-3">
-              <label
-                htmlFor="defaultFormRegisterEmailEx2"
-                className="grey-text"
-              >
-                Duration
-              </label>
+              <label className="grey-text">Duration</label>
               <input
                 value={form.duration}
                 name="duration"
                 onChange={this.changeHandler}
                 type="number"
-                id="defaultFormRegisterEmailEx2"
                 className="form-control"
                 placeholder="duration"
                 required
@@ -105,18 +105,12 @@ class TourForm extends React.Component {
               <div className="valid-feedback">Looks good!</div>
             </MDBCol>
             <MDBCol md="6" className="mb-3">
-              <label
-                htmlFor="defaultFormRegisterEmailEx2"
-                className="grey-text"
-              >
-                Price
-              </label>
+              <label className="grey-text">Price</label>
               <input
                 value={form.price}
                 name="price"
                 onChange={this.changeHandler}
                 type="number"
-                id="defaultFormRegisterEmailEx2"
                 className="form-control"
                 placeholder="price"
                 required
@@ -124,32 +118,23 @@ class TourForm extends React.Component {
               <div className="valid-feedback">Looks good!</div>
             </MDBCol>
             <MDBCol md="6" className="mb-3">
-              <label
-                htmlFor="defaultFormRegisterEmailEx2"
-                className="grey-text"
-              >
-                Categories
-              </label>
+              <label className="grey-text">Categories</label>
               <Select
                 value={form.categories}
                 onChange={this.onSelectCategories}
-                options={categoryOptions}
+                options={this.categories}
+                getOptionLabel={({ title }) => title}
+                getOptionValue={({ id }) => id}
                 isMulti
               />
               <div className="valid-feedback">Looks good!</div>
             </MDBCol>
             <MDBCol md="12" className="mb-3">
-              <label
-                htmlFor="defaultFormRegisterConfirmEx3"
-                className="grey-text"
-              >
-                Description
-              </label>
+              <label className="grey-text">Description</label>
               <textarea
                 value={form.description}
                 onChange={this.changeHandler}
                 type="textArea"
-                id="defaultFormRegisterConfirmEx3"
                 className="form-control"
                 name="description"
                 placeholder="Description"
@@ -162,7 +147,12 @@ class TourForm extends React.Component {
           <MDBBtn type="submit" color="success">
             Save
           </MDBBtn>
-          <MDBBtn onClick={this.props.toggleForm} color="primary" type="button">
+          <MDBBtn
+            onClick={this.props.toggleForm}
+            color="primary"
+            type="button"
+            className="ml-4"
+          >
             Cancel
           </MDBBtn>
         </form>
@@ -171,4 +161,4 @@ class TourForm extends React.Component {
   }
 }
 
-export default TourForm;
+export default inject("stores")(observer(TourForm));

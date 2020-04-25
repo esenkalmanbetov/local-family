@@ -10,19 +10,13 @@ import "./Header.scss";
 import Logo from "../assets/img/logo.png";
 
 class Header extends React.Component {
-  componentDidMount() {
-    this.loadUser();
-  }
+  componentDidMount() {}
 
   componentDidUpdate() {}
 
   get user() {
     return this.props.stores.authStore.user();
   }
-
-  loadUser = () => {
-    this.props.stores.authStore.loadUser();
-  };
 
   signOut = () => {
     this.props.stores.authStore.signout().then(() => {

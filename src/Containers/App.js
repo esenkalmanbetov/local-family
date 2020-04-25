@@ -37,6 +37,7 @@ function ScrollToTop() {
 class App extends React.Component {
   componentDidMount() {
     this.loadCountries();
+    this.loadUser();
   }
 
   componentDidUpdate() {}
@@ -44,6 +45,11 @@ class App extends React.Component {
   loadCountries() {
     this.props.stores.authStore.getCountries();
   }
+
+  loadUser = () => {
+    this.props.stores.authStore.loadUser();
+  };
+
   render() {
     return (
       <div className="App">

@@ -1,25 +1,43 @@
 import React, { Component } from "react";
+import { observer, inject } from "mobx-react";
 import { MDBRow, MDBCol, MDBContainer, MDBBtn } from "mdbreact";
 
 import TourForm from "./TourForm";
-import TourCard from "./TourCard";
+import TempTourCard from "./TourCard";
+
+import "./MyTours.scss";
 
 class MyTours extends Component {
   constructor(props) {
     super(props);
     this.state = {
       isTourFormOpen: -1,
-      tourList: []
     };
   }
 
   componentDidMount() {
-    this.initTourList();
+    this.startInterval();
   }
 
-  initTourList = () => {
-    let tourList = JSON.parse(localStorage.getItem("tourList"));
-    tourList && this.setState({ tourList });
+  get userId() {
+    return this.props.stores.authStore.user().id;
+  }
+
+  get tours() {
+    return this.props.stores.tourStore.tours();
+  }
+
+  loadTours = (userId) => {
+    this.props.stores.tourStore.loadTours(userId);
+  };
+
+  startInterval = () => {
+    this.interval = setInterval(() => {
+      if (this.userId) {
+        this.loadTours(this.userId);
+        clearInterval(this.interval);
+      }
+    }, 100);
   };
 
   toggleTourForm = (isTourFormOpen = -1) => {
@@ -30,70 +48,71 @@ class MyTours extends Component {
     this.setState({ isTourFormOpen });
   };
 
-  createTour = form => {
-    let tourList = [...this.state.tourList];
-    if (!tourList.length) form.id = 1;
-    else form.id = tourList[tourList.length - 1].id + 1;
-    tourList.push(form);
-    localStorage.setItem("tourList", JSON.stringify(tourList));
-    this.setState({ tourList });
-  };
-
-  editTour = form => {
-    let tourList = [...this.state.tourList];
-    tourList.forEach(tour => {
-      if (form.id === tour.id) for (let key in tour) tour[key] = form[key];
+  createTour = (form) => {
+    form.userId = this.userId;
+    this.props.stores.tourStore.createTour(form).then(() => {
+      this.toggleTourForm();
+      this.loadTours(this.userId);
     });
-    localStorage.setItem("tourList", JSON.stringify(tourList));
-    this.setState({ tourList });
   };
 
-  deleteTour = id => {
-    let tourList = [...this.state.tourList];
-    const deleteIdx = tourList.findIndex(tour => tour.id === id);
-    tourList.splice(deleteIdx, 1);
-    this.setState({ tourList });
-    localStorage.setItem("tourList", JSON.stringify(tourList));
+  editTour = (form) => {
+    this.props.stores.tourStore.updateTour(form).then(() => {
+      this.toggleTourForm();
+      this.loadTours(this.userId);
+    });
+  };
+
+  deleteTour = (tourId) => {
+    this.props.stores.tourStore.deleteTour(tourId).then(() => {
+      this.loadTours(this.userId);
+    });
   };
 
   render() {
     const {
-      state: { isTourFormOpen, tourList }
+      state: { isTourFormOpen },
+      props: {
+        match: { url },
+      },
     } = this;
 
     return (
-      <MDBContainer>
+      <MDBContainer className="personal-tours">
         <MDBRow>
           <MDBCol xl="5" md="4" className="mb-3 text-center">
             My Tours
           </MDBCol>
           <MDBCol>
             <MDBBtn onClick={() => this.toggleTourForm(0)}>Add Tour</MDBBtn>
-            {isTourFormOpen === 0 ? (
-              <TourForm
-                onSave={this.createTour}
-                toggleForm={this.toggleTourForm}
-              />
-            ) : null}
-            {tourList.map(tour => {
-              return (
-                <div key={tour.id}>
-                  {isTourFormOpen === tour.id ? (
-                    <TourForm
-                      tour={tour}
-                      onSave={this.editTour}
-                      toggleForm={this.toggleTourForm}
-                    />
-                  ) : (
-                    <TourCard
-                      tour={tour}
-                      onEdit={this.toggleTourForm}
-                      onDelete={this.deleteTour}
-                    />
-                  )}
+            {isTourFormOpen === 0 && <TourForm onSave={this.createTour} />}
+            <div class="popular_places_area">
+              <div class="container">
+                <div class="row justify-content-center">
+                  <div class="row">
+                    {this.tours.map((tour, idx) => (
+                      <div>
+                        {isTourFormOpen === tour.id ? (
+                          <TourForm
+                            tour={tour}
+                            onSave={this.editTour}
+                            toggleForm={this.toggleTourForm}
+                          />
+                        ) : (
+                          <TempTourCard
+                            key={idx}
+                            url={url}
+                            tour={tour}
+                            onEdit={this.toggleTourForm}
+                            onDelete={this.deleteTour}
+                          />
+                        )}
+                      </div>
+                    ))}
+                  </div>
                 </div>
-              );
-            })}
+              </div>
+            </div>
           </MDBCol>
         </MDBRow>
       </MDBContainer>
@@ -101,4 +120,4 @@ class MyTours extends Component {
   }
 }
 
-export default MyTours;
+export default inject("stores")(observer(MyTours));
