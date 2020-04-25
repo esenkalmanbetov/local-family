@@ -13,6 +13,7 @@ class TourForm extends React.Component {
       price: null,
       categoriesId: [],
       description: "",
+      categories: [],
       gallery: [],
     },
   };
@@ -31,7 +32,10 @@ class TourForm extends React.Component {
   }
 
   initForm = () => {
-    let form = { ...this.props.tour } || { ...this.state.form };
+    let form;
+    if (this.props.isNew) form = { ...this.state.form };
+    else form = { ...this.props.tour };
+    console.log("categories", form);
     const categoriesId = form.categories.map((category) => category.id);
     form.categoriesId = categoriesId;
     this.setState({ form });

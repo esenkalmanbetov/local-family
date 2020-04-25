@@ -93,12 +93,20 @@ class Header extends React.Component {
                           </Dropdown.Menu>
                         </Dropdown>
                       ) : (
-                        <Link
-                          to="/signin"
-                          class="genric-btn info medium circle login-btn"
-                        >
-                          login
-                        </Link>
+                        <div>
+                          <Link
+                            to="/signup"
+                            class="genric-btn info medium circle login-btn mr-3"
+                          >
+                            signup
+                          </Link>
+                          <Link
+                            to="/signin"
+                            class="genric-btn info medium circle login-btn"
+                          >
+                            signin
+                          </Link>
+                        </div>
                       )}
                     </li>
                   </div>

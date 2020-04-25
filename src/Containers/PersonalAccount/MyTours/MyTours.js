@@ -85,7 +85,9 @@ class MyTours extends Component {
           </MDBCol>
           <MDBCol>
             <MDBBtn onClick={() => this.toggleTourForm(0)}>Add Tour</MDBBtn>
-            {isTourFormOpen === 0 && <TourForm onSave={this.createTour} />}
+            {isTourFormOpen === 0 && (
+              <TourForm onSave={this.createTour} isNew />
+            )}
             <div class="popular_places_area">
               <div class="container">
                 <div class="row justify-content-center">
