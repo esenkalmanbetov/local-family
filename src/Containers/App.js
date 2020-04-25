@@ -34,32 +34,43 @@ function ScrollToTop() {
   return null;
 }
 
-function App() {
-  return (
-    <div className="App">
-      <Router>
-        <Header />
-        <div className="containers">
-          <ScrollToTop />
-          <Switch>
-            <Route exact path="/" component={Home} />
-            <Route path="/about" component={About} />
-            <Route path="/join-to-tours" component={AllTours} />
-            <Route path="/all-families" component={AllFamilies} />
-            <Route path="/blog" component={Blog} />
-            <Route path="/single-blog" component={SingleBlog} />
-            <Route path="/contact" component={Contact} />
-            <Route path="/kg" component={Kg} />
-            <Route path="/kz" component={Kz} />
-            <Route path="/signup" component={Signup} />
-            <Route path="/signin" component={Signin} />
-            <Route path="/personal-account" component={PersonalAccount} />
-          </Switch>
-        </div>
-        <Footer />
-      </Router>
-    </div>
-  );
+class App extends React.Component {
+  componentDidMount() {
+    this.loadCountries();
+  }
+
+  componentDidUpdate() {}
+
+  loadCountries() {
+    this.props.stores.authStore.getCountries();
+  }
+  render() {
+    return (
+      <div className="App">
+        <Router>
+          <Header />
+          <div className="containers">
+            <ScrollToTop />
+            <Switch>
+              <Route exact path="/" component={Home} />
+              <Route path="/about" component={About} />
+              <Route path="/join-to-tours" component={AllTours} />
+              <Route path="/all-families" component={AllFamilies} />
+              <Route path="/blog" component={Blog} />
+              <Route path="/single-blog" component={SingleBlog} />
+              <Route path="/contact" component={Contact} />
+              <Route path="/kg" component={Kg} />
+              <Route path="/kz" component={Kz} />
+              <Route path="/signup" component={Signup} />
+              <Route path="/signin" component={Signin} />
+              <Route path="/personal-account" component={PersonalAccount} />
+            </Switch>
+          </div>
+          <Footer />
+        </Router>
+      </div>
+    );
+  }
 }
 
 export default inject("stores")(observer(App));

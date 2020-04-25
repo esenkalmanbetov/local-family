@@ -14,16 +14,10 @@ class Header extends React.Component {
     this.loadUser();
   }
 
-  componentDidUpdate() {
-    this.loadUser();
-  }
+  componentDidUpdate() {}
 
   get user() {
     return this.props.stores.authStore.user();
-  }
-
-  get counter() {
-    return this.props.stores.tutorStore.counter;
   }
 
   loadUser = () => {

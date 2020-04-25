@@ -3,24 +3,14 @@ import { types, getSnapshot, applySnapshot } from "mobx-state-tree";
 import config from "../../config/config";
 
 import UserModel from "../models/User.model";
+import CountryModel from "../models/Country.model";
 
 const countriesApi = config.apiUrl + "/api/countries";
 const usersApi = config.apiUrl + "/api/users";
 
 const AuthStore = types
   .model("AuthStore", {
-    countries: types.array(
-      types.model("Countries", {
-        id: types.number,
-        title: types.string,
-        regions: types.array(
-          types.model("Regions", {
-            id: types.number,
-            title: types.string,
-          })
-        ),
-      })
-    ),
+    _countries: types.optional(types.array(CountryModel), []),
     _user: types.optional(UserModel, {}),
   })
   .actions((self) => ({
@@ -28,7 +18,7 @@ const AuthStore = types
       fetch(countriesApi + "/getCountriesWithRegions")
         .then((res) => res.json())
         .then((data) => {
-          self.countries = data;
+          applySnapshot(self._countries, data);
         });
     },
 
@@ -53,6 +43,26 @@ const AuthStore = types
       });
     },
 
+    updateUserInfo(userForm) {
+      return new Promise(function(resolve, reject) {
+        fetch(usersApi + "/update", {
+          method: "PUT",
+          headers: {
+            "Content-Type": "application/json;charset=utf-8",
+          },
+          body: JSON.stringify(userForm),
+        })
+          .then((res) => res.json())
+          .then((data) => {
+            applySnapshot(self._user, data);
+            resolve(data);
+          })
+          .catch((err) => {
+            reject(err);
+          });
+      });
+    },
+
     signin(loginForm) {
       return new Promise(function(resolve, reject) {
         fetch(usersApi + "/signin", {
@@ -66,7 +76,7 @@ const AuthStore = types
           .then((data) => {
             if (data.message) reject(data.message);
             else {
-              self._user.setInfo(data);
+              applySnapshot(self._user, data);
               localStorage.setItem("userId", data.id);
               resolve(data);
             }
@@ -99,7 +109,7 @@ const AuthStore = types
   }))
   .views((self) => ({
     countries() {
-      return self.countries;
+      return getSnapshot(self._countries);
     },
 
     user() {

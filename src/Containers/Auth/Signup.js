@@ -29,12 +29,10 @@ class Signup extends React.Component {
   }
 
   get countries() {
-    return this.props.stores.authStore.countries;
+    return this.props.stores.authStore.countries();
   }
 
-  componentDidMount() {
-    this.loadCountries();
-  }
+  componentDidMount() {}
 
   handleSubmit = (event) => {
     const form = event.currentTarget;
@@ -78,8 +76,10 @@ class Signup extends React.Component {
   };
 
   onServiceCountriesSelect = (selectedCountries) => {
-    const serviceCountriesId = selectedCountries.map((country) => country.id);
     let userForm = this.state.userForm;
+    let serviceCountriesId = [];
+    if (selectedCountries && selectedCountries.lenth)
+      serviceCountriesId = selectedCountries.map((country) => country.id);
     userForm.serviceCountriesId = serviceCountriesId;
     this.setState({ userForm });
   };
@@ -87,10 +87,6 @@ class Signup extends React.Component {
   toggleAgreement = () => {
     this.setState({ isUserAgree: !this.state.isUserAgree });
   };
-
-  loadCountries() {
-    this.props.stores.authStore.getCountries();
-  }
 
   render() {
     const {
