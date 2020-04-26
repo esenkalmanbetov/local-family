@@ -11,12 +11,10 @@ const TourCard = ({ tour, onEdit, onDelete, url }) => {
     <div class="single_place">
       <div class="thumb">
         <img src={Place1} alt="" />
-        <Link to={`${url}/tourId`} class="prise">
-          ${tour.price}
-        </Link>
+        <Link class="prise">${tour.price}</Link>
       </div>
       <div class="place_info">
-        <Link to={`${url}/tourId`}>
+        <Link>
           <h3>{tour.title}</h3>
         </Link>
         {/* <p>Ysyk kol Region, Kyrgyzstan</p> */}
@@ -27,11 +25,11 @@ const TourCard = ({ tour, onEdit, onDelete, url }) => {
             <i class="fa fa-star"></i>
             <i class="fa fa-star"></i>
             <i class="fa fa-star"></i>
-            <Link to={`${url}/tourId`}>(20 Review)</Link>
+            <Link>(20 Review)</Link>
           </span>
           <div class="days">
             <i class="fa fa-clock-o"></i>
-            <Link to={`${url}/tourId`}>{tour.duration} Days</Link>
+            <Link>{tour.duration} Days</Link>
           </div>
         </div>
       </div>

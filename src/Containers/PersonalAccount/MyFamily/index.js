@@ -1,25 +1,43 @@
 import React, { Component } from "react";
 import { MDBRow, MDBCol, MDBContainer, MDBBtn } from "mdbreact";
+import { observer, inject } from "mobx-react";
 
 import FamilyForm from "./FamilyForm";
 import FamilyCard from "./FamilyCard";
+
+import "./MyHomes.scss";
 
 class MyFamilies extends Component {
   constructor(props) {
     super(props);
     this.state = {
       isFamilyFormOpen: -1,
-      familyList: []
     };
   }
 
-  componentDidMount() {
-    this.initFamilyList();
+  get userId() {
+    return this.props.stores.authStore.user().id;
   }
 
-  initFamilyList = () => {
-    let familyList = JSON.parse(localStorage.getItem("familyList"));
-    familyList && this.setState({ familyList });
+  get families() {
+    return this.props.stores.familyStore.families();
+  }
+
+  componentDidMount() {
+    this.startInterval();
+  }
+
+  startInterval = () => {
+    this.interval = setInterval(() => {
+      if (this.userId) {
+        this.loadFamilies(this.userId);
+        clearInterval(this.interval);
+      }
+    }, 100);
+  };
+
+  loadFamilies = (userId) => {
+    this.props.stores.familyStore.loadFamilies(userId);
   };
 
   toggleFamilyForm = (isFamilyFormOpen = -1) => {
@@ -30,71 +48,72 @@ class MyFamilies extends Component {
     this.setState({ isFamilyFormOpen });
   };
 
-  createFamily = form => {
-    let familyList = [...this.state.familyList];
-    if (!familyList.length) form.id = 1;
-    else form.id = familyList[familyList.length - 1].id + 1;
-    familyList.push(form);
-    localStorage.setItem("familyList", JSON.stringify(familyList));
-    this.setState({ familyList });
-  };
-
-  editFamily = form => {
-    let familyList = [...this.state.familyList];
-    familyList.forEach(family => {
-      if (form.id === family.id)
-        for (let key in family) family[key] = form[key];
+  createFamily = (form) => {
+    form.userId = this.userId;
+    this.props.stores.familyStore.createFamily(form).then(() => {
+      this.toggleFamilyForm();
+      this.loadFamilies(this.userId);
     });
-    localStorage.setItem("familyList", JSON.stringify(familyList));
-    this.setState({ familyList });
   };
 
-  deleteFamily = id => {
-    let familyList = [...this.state.familyList];
-    const deleteIdx = familyList.findIndex(family => family.id === id);
-    familyList.splice(deleteIdx, 1);
-    this.setState({ familyList });
-    localStorage.setItem("familyList", JSON.stringify(familyList));
+  editFamily = (form) => {
+    this.props.stores.familyStore.editFamily(form).then(() => {
+      this.toggleFamilyForm();
+      this.loadFamilies(this.userId);
+    });
+  };
+
+  deleteFamily = (familyId) => {
+    this.props.stores.familyStore.deleteFamily(familyId).then(() => {
+      this.loadFamilies(this.userId);
+    });
   };
 
   render() {
     const {
-      state: { isFamilyFormOpen, familyList }
+      state: { isFamilyFormOpen },
     } = this;
 
     return (
-      <MDBContainer>
+      <MDBContainer className="my-homes">
         <MDBRow>
           <MDBCol xl="5" md="4" className="mb-3 text-center">
-            My Familes
+            My homes
           </MDBCol>
           <MDBCol>
-            <MDBBtn onClick={() => this.toggleFamilyForm(0)}>Add Family</MDBBtn>
-            {isFamilyFormOpen === 0 ? (
+            <MDBBtn onClick={() => this.toggleFamilyForm(0)}>Add home</MDBBtn>
+            {isFamilyFormOpen === 0 && (
               <FamilyForm
                 onSave={this.createFamily}
                 toggleForm={this.toggleFamilyForm}
               />
-            ) : null}
-            {familyList.map(family => {
-              return (
-                <div key={family.id}>
-                  {isFamilyFormOpen === family.id ? (
-                    <FamilyForm
-                      family={family}
-                      onSave={this.editFamily}
-                      toggleForm={this.toggleFamilyForm}
-                    />
-                  ) : (
-                    <FamilyCard
-                      family={family}
-                      onEdit={this.toggleFamilyForm}
-                      onDelete={this.deleteFamily}
-                    />
-                  )}
+            )}
+
+            <div class="popular_places_area">
+              <div class="container">
+                <div class="row">
+                  {this.families.map((family) => {
+                    return (
+                      <div key={family.id}>
+                        {isFamilyFormOpen === family.id ? (
+                          <FamilyForm
+                            family={family}
+                            onSave={this.editFamily}
+                            toggleForm={this.toggleFamilyForm}
+                          />
+                        ) : (
+                          <FamilyCard
+                            family={family}
+                            onEdit={this.toggleFamilyForm}
+                            onDelete={this.deleteFamily}
+                          />
+                        )}
+                      </div>
+                    );
+                  })}
                 </div>
-              );
-            })}
+              </div>
+            </div>
           </MDBCol>
         </MDBRow>
       </MDBContainer>
@@ -102,4 +121,4 @@ class MyFamilies extends Component {
   }
 }
 
-export default MyFamilies;
+export default inject("stores")(observer(MyFamilies));

@@ -196,21 +196,6 @@ class NavFamilies extends React.Component {
           </div>
         </div>
       </div>
-      // <div>
-      //   <h2>Local Families</h2>
-      //   <h4>Lists</h4>
-      //   <ul>
-      //     <li>
-      //       <Link to={`${url}/a`}>Family a</Link>
-      //     </li>
-      //     <li>
-      //       <Link to={`${url}/b`}>Family b</Link>
-      //     </li>
-      //     <li>
-      //       <Link to={`${url}/c`}>Family c</Link>
-      //     </li>
-      //   </ul>
-      // </div>
     );
   }
 }

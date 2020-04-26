@@ -25,7 +25,7 @@ class NavPersAcnt extends React.Component {
             )}
             {this.userRole === "host" && (
               <ListGroup.Item>
-                <Link to={`${url}/my-families`}>My families</Link>
+                <Link to={`${url}/my-families`}>My homes</Link>
               </ListGroup.Item>
             )}
           </ListGroup>
