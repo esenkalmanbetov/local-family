@@ -2,17 +2,12 @@ import React from "react";
 import { withRouter } from "react-router";
 import { Link } from "react-router-dom";
 
-import Place1 from "../assets/img/place/1.png";
 import Place2 from "../assets/img/place/2.png";
-import Place3 from "../assets/img/place/3.png";
-import Place4 from "../assets/img/place/4.png";
-import Place5 from "../assets/img/place/5.png";
-import Place6 from "../assets/img/place/6.png";
 
 class Tours extends React.Component {
   render() {
     const {
-      props: { nextUrl }
+      props: { nextUrl, tours },
     } = this;
 
     let { url } = this.props.match;
@@ -28,186 +23,37 @@ class Tours extends React.Component {
             </div>
           </div>
           <div class="row">
-            <div class="col-lg-4 col-md-6">
-              <div class="single_place">
-                <div class="thumb">
-                  <img src={Place1} alt="" />
-                  <Link to={`${url}/tourId`} class="prise">
-                    $500
-                  </Link>
-                </div>
-                <div class="place_info">
-                  <Link to={`${url}/tourId`}>
-                    <h3>Zheti Oguz</h3>
-                  </Link>
-                  <p>Ysyk kol Region, Kyrgyzstan</p>
-                  <div class="rating_days d-flex justify-content-between">
-                    <span class="d-flex justify-content-center align-items-center">
-                      <i class="fa fa-star"></i>
-                      <i class="fa fa-star"></i>
-                      <i class="fa fa-star"></i>
-                      <i class="fa fa-star"></i>
-                      <i class="fa fa-star"></i>
-                      <Link to={`${url}/tourId`}>(20 Review)</Link>
-                    </span>
-                    <div class="days">
-                      <i class="fa fa-clock-o"></i>
-                      <Link to={`${url}/tourId`}>5 Days</Link>
+            {tours.map((tour) => (
+              <div class="col-lg-4 col-md-6" key={tour.id}>
+                <div class="single_place">
+                  <div class="thumb">
+                    <img src={Place2} alt="" />
+                    <Link to={`${url}/tourId`} class="prise">
+                      ${tour.price}
+                    </Link>
+                  </div>
+                  <div class="place_info">
+                    <Link to={`${url}/tourId`}>
+                      <h3>{tour.title}</h3>
+                    </Link>
+                    <div class="rating_days d-flex justify-content-between">
+                      <span class="d-flex justify-content-center align-items-center">
+                        <i class="fa fa-star"></i>
+                        <i class="fa fa-star"></i>
+                        <i class="fa fa-star"></i>
+                        <i class="fa fa-star"></i>
+                        <i class="fa fa-star"></i>
+                        <Link to={`${url}/tourId`}>(20 Review)</Link>
+                      </span>
+                      <div class="days">
+                        <i class="fa fa-clock-o"></i>
+                        <Link to={`${url}/tourId`}>{tour.duration} Days</Link>
+                      </div>
                     </div>
                   </div>
                 </div>
               </div>
-            </div>
-            <div class="col-lg-4 col-md-6">
-              <div class="single_place">
-                <div class="thumb">
-                  <img src={Place2} alt="" />
-                  <Link to={`${url}/tourId`} class="prise">
-                    $500
-                  </Link>
-                </div>
-                <div class="place_info">
-                  <Link to={`${url}/tourId`}>
-                    <h3>Zheti Oguz</h3>
-                  </Link>
-                  <p>Ysyk kol Region, Kyrgyzstan</p>
-                  <div class="rating_days d-flex justify-content-between">
-                    <span class="d-flex justify-content-center align-items-center">
-                      <i class="fa fa-star"></i>
-                      <i class="fa fa-star"></i>
-                      <i class="fa fa-star"></i>
-                      <i class="fa fa-star"></i>
-                      <i class="fa fa-star"></i>
-                      <Link to={`${url}/tourId`}>(20 Review)</Link>
-                    </span>
-                    <div class="days">
-                      <i class="fa fa-clock-o"></i>
-                      <Link to={`${url}/tourId`}>5 Days</Link>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div class="col-lg-4 col-md-6">
-              <div class="single_place">
-                <div class="thumb">
-                  <img src={Place3} alt="" />
-                  <Link to={`${url}/tourId`} class="prise">
-                    $500
-                  </Link>
-                </div>
-                <div class="place_info">
-                  <Link to={`${url}/tourId`}>
-                    <h3>Zheti Oguz</h3>
-                  </Link>
-                  <p>Ysyk kol Region, Kyrgyzstan</p>
-                  <div class="rating_days d-flex justify-content-between">
-                    <span class="d-flex justify-content-center align-items-center">
-                      <i class="fa fa-star"></i>
-                      <i class="fa fa-star"></i>
-                      <i class="fa fa-star"></i>
-                      <i class="fa fa-star"></i>
-                      <i class="fa fa-star"></i>
-                      <Link to={`${url}/tourId`}>(20 Review)</Link>
-                    </span>
-                    <div class="days">
-                      <i class="fa fa-clock-o"></i>
-                      <Link to={`${url}/tourId`}>5 Days</Link>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div class="col-lg-4 col-md-6">
-              <div class="single_place">
-                <div class="thumb">
-                  <img src={Place4} alt="" />
-                  <Link to={`${url}/tourId`} class="prise">
-                    $500
-                  </Link>
-                </div>
-                <div class="place_info">
-                  <Link to={`${url}/tourId`}>
-                    <h3>Zheti Oguz</h3>
-                  </Link>
-                  <p>Ysyk kol Region, Kyrgyzstan</p>
-                  <div class="rating_days d-flex justify-content-between">
-                    <span class="d-flex justify-content-center align-items-center">
-                      <i class="fa fa-star"></i>
-                      <i class="fa fa-star"></i>
-                      <i class="fa fa-star"></i>
-                      <i class="fa fa-star"></i>
-                      <i class="fa fa-star"></i>
-                      <Link to={`${url}/tourId`}>(20 Review)</Link>
-                    </span>
-                    <div class="days">
-                      <i class="fa fa-clock-o"></i>
-                      <Link to={`${url}/tourId`}>5 Days</Link>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div class="col-lg-4 col-md-6">
-              <div class="single_place">
-                <div class="thumb">
-                  <img src={Place5} alt="" />
-                  <Link to={`${url}/tourId`} class="prise">
-                    $500
-                  </Link>
-                </div>
-                <div class="place_info">
-                  <Link to={`${url}/tourId`}>
-                    <h3>Zheti Oguz</h3>
-                  </Link>
-                  <p>Ysyk kol Region, Kyrgyzstan</p>
-                  <div class="rating_days d-flex justify-content-between">
-                    <span class="d-flex justify-content-center align-items-center">
-                      <i class="fa fa-star"></i>
-                      <i class="fa fa-star"></i>
-                      <i class="fa fa-star"></i>
-                      <i class="fa fa-star"></i>
-                      <i class="fa fa-star"></i>
-                      <Link to={`${url}/tourId`}>(20 Review)</Link>
-                    </span>
-                    <div class="days">
-                      <i class="fa fa-clock-o"></i>
-                      <Link to={`${url}/tourId`}>5 Days</Link>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div class="col-lg-4 col-md-6">
-              <div class="single_place">
-                <div class="thumb">
-                  <img src={Place6} alt="" />
-                  <Link to={`${url}/tourId`} class="prise">
-                    $500
-                  </Link>
-                </div>
-                <div class="place_info">
-                  <Link to={`${url}/tourId`}>
-                    <h3>Zheti Oguz</h3>
-                  </Link>
-                  <p>Ysyk kol Region, Kyrgyzstan</p>
-                  <div class="rating_days d-flex justify-content-between">
-                    <span class="d-flex justify-content-center align-items-center">
-                      <i class="fa fa-star"></i>
-                      <i class="fa fa-star"></i>
-                      <i class="fa fa-star"></i>
-                      <i class="fa fa-star"></i>
-                      <i class="fa fa-star"></i>
-                      <Link to={`${url}/tourId`}>(20 Review)</Link>
-                    </span>
-                    <div class="days">
-                      <i class="fa fa-clock-o"></i>
-                      <Link to={`${url}/tourId`}>5 Days</Link>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
+            ))}
           </div>
           <div class="row">
             <div class="col-lg-12">

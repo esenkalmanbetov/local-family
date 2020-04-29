@@ -73,6 +73,19 @@ const TourStore = types
       });
     },
 
+    loadAllTours() {
+      new Promise((resolve, reject) => {
+        fetch(toursApi + "/getAllTours")
+          .then((res) => res.json())
+          .then((tours) => {
+            applySnapshot(self._tours, tours);
+          })
+          .catch((err) => {
+            console.error("err: ", err);
+          });
+      });
+    },
+
     deleteTour(tourId) {
       return new Promise(function(resolve, reject) {
         fetch(toursApi + "/delete/" + tourId, {

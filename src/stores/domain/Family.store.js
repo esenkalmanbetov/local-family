@@ -62,6 +62,19 @@ const FamilyStore = types
       });
     },
 
+    loadAllFamilies() {
+      new Promise((resolve, reject) => {
+        fetch(familiesApi + "/getAllFamilies")
+          .then((res) => res.json())
+          .then((families) => {
+            applySnapshot(self._families, families);
+          })
+          .catch((err) => {
+            console.error("err: ", err);
+          });
+      });
+    },
+
     deleteFamily(familyId) {
       return new Promise(function(resolve, reject) {
         fetch(familiesApi + "/delete/" + familyId, {

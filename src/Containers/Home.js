@@ -1,5 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import { observer, inject } from "mobx-react";
 
 import "./Home.scss";
 
@@ -15,6 +16,27 @@ import Kg from "../assets/img/countries/kg.jpg";
 // import Tajikstan from '../assets/img/countries/tajikstan.jpg'
 
 class Home extends React.Component {
+  get families() {
+    return this.props.stores.familyStore.families();
+  }
+
+  get tours() {
+    return this.props.stores.tourStore.tours();
+  }
+
+  componentDidMount() {
+    this.loadAllFamilies();
+    this.loadAllTours();
+  }
+
+  loadAllFamilies = () => {
+    this.props.stores.familyStore.loadAllFamilies();
+  };
+
+  loadAllTours = () => {
+    this.props.stores.tourStore.loadAllTours();
+  };
+
   render() {
     return (
       <div>
@@ -71,12 +93,12 @@ class Home extends React.Component {
           </div>
         </div>
 
-        <Families nextUrl="all-families" />
+        <Families nextUrl="all-families" families={this.families} />
 
-        <Tours nextUrl="join-to-tours" />
+        <Tours nextUrl="join-to-tours" tours={this.tours} />
       </div>
     );
   }
 }
 
-export default Home;
+export default inject("stores")(observer(Home));

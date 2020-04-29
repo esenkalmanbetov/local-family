@@ -2,17 +2,12 @@ import React from "react";
 import { withRouter } from "react-router";
 import { Link } from "react-router-dom";
 
-import Place1 from "../assets/img/place/1.png";
-import Place2 from "../assets/img/place/2.png";
-import Place3 from "../assets/img/place/3.png";
-import Place4 from "../assets/img/place/4.png";
 import Place5 from "../assets/img/place/5.png";
-import Place6 from "../assets/img/place/6.png";
 
 class Families extends React.Component {
   render() {
     const {
-      props: { nextUrl }
+      props: { nextUrl, families },
     } = this;
 
     let { url } = this.props.match;
@@ -28,168 +23,31 @@ class Families extends React.Component {
             </div>
           </div>
           <div class="row">
-            <div class="col-lg-4 col-md-6">
-              <div class="single_place">
-                <div class="thumb">
-                  <img src={Place1} alt="" />
-                </div>
-                <div class="place_info">
-                  <Link to={`${url}/fanilyId`}>
-                    <h3>Kalmanbetov's family</h3>
-                  </Link>
-                  <p>Talas Region, Kyrgyzstan</p>
-                  <div class="rating_days d-flex justify-content-between">
-                    <span class="d-flex justify-content-center align-items-center">
-                      <i class="fa fa-star"></i>
-                      <i class="fa fa-star"></i>
-                      <i class="fa fa-star"></i>
-                      <i class="fa fa-star"></i>
-                      <i class="fa fa-star"></i>
-                      <Link to={`${url}/fanilyId`}>(20 Review)</Link>
-                    </span>
-                    <div class="days">
-                      <i class="fa fa-clock-o"></i>
-                      <Link to={`${url}/fanilyId`}>5 Days</Link>
+            {families.map((family) => (
+              <div class="col-lg-4 col-md-6" key={family.id}>
+                <div class="single_place">
+                  <div class="thumb">
+                    <img src={Place5} alt="" />
+                  </div>
+                  <div class="place_info">
+                    <Link to={`${url}/fanilyId`}>
+                      <h3>{family.familyName}</h3>
+                    </Link>
+                    <p>{family.location}</p>
+                    <div class="rating_days d-flex justify-content-between">
+                      <span class="d-flex justify-content-center align-items-center">
+                        <i class="fa fa-star"></i>
+                        <i class="fa fa-star"></i>
+                        <i class="fa fa-star"></i>
+                        <i class="fa fa-star"></i>
+                        <i class="fa fa-star"></i>
+                        <Link to={`${url}/fanilyId`}>(20 Review)</Link>
+                      </span>
                     </div>
                   </div>
                 </div>
               </div>
-            </div>
-            <div class="col-lg-4 col-md-6">
-              <div class="single_place">
-                <div class="thumb">
-                  <img src={Place2} alt="" />
-                </div>
-                <div class="place_info">
-                  <Link to={`${url}/fanilyId`}>
-                    <h3>Kalmanbetov's family</h3>
-                  </Link>
-                  <p>Talas Region, Kyrgyzstan</p>
-                  <div class="rating_days d-flex justify-content-between">
-                    <span class="d-flex justify-content-center align-items-center">
-                      <i class="fa fa-star"></i>
-                      <i class="fa fa-star"></i>
-                      <i class="fa fa-star"></i>
-                      <i class="fa fa-star"></i>
-                      <i class="fa fa-star"></i>
-                      <Link to={`${url}/fanilyId`}>(20 Review)</Link>
-                    </span>
-                    <div class="days">
-                      <i class="fa fa-clock-o"></i>
-                      <Link to={`${url}/fanilyId`}>5 Days</Link>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div class="col-lg-4 col-md-6">
-              <div class="single_place">
-                <div class="thumb">
-                  <img src={Place3} alt="" />
-                </div>
-                <div class="place_info">
-                  <Link to={`${url}/fanilyId`}>
-                    <h3>Kalmanbetov's family</h3>
-                  </Link>
-                  <p>Talas Region, Kyrgyzstan</p>
-                  <div class="rating_days d-flex justify-content-between">
-                    <span class="d-flex justify-content-center align-items-center">
-                      <i class="fa fa-star"></i>
-                      <i class="fa fa-star"></i>
-                      <i class="fa fa-star"></i>
-                      <i class="fa fa-star"></i>
-                      <i class="fa fa-star"></i>
-                      <Link to={`${url}/fanilyId`}>(20 Review)</Link>
-                    </span>
-                    <div class="days">
-                      <i class="fa fa-clock-o"></i>
-                      <Link to={`${url}/fanilyId`}>5 Days</Link>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div class="col-lg-4 col-md-6">
-              <div class="single_place">
-                <div class="thumb">
-                  <img src={Place4} alt="" />
-                </div>
-                <div class="place_info">
-                  <Link to={`${url}/fanilyId`}>
-                    <h3>Kalmanbetov's family</h3>
-                  </Link>
-                  <p>Talas Region, Kyrgyzstan</p>
-                  <div class="rating_days d-flex justify-content-between">
-                    <span class="d-flex justify-content-center align-items-center">
-                      <i class="fa fa-star"></i>
-                      <i class="fa fa-star"></i>
-                      <i class="fa fa-star"></i>
-                      <i class="fa fa-star"></i>
-                      <i class="fa fa-star"></i>
-                      <Link to={`${url}/fanilyId`}>(20 Review)</Link>
-                    </span>
-                    <div class="days">
-                      <i class="fa fa-clock-o"></i>
-                      <Link to={`${url}/fanilyId`}>5 Days</Link>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div class="col-lg-4 col-md-6">
-              <div class="single_place">
-                <div class="thumb">
-                  <img src={Place5} alt="" />
-                </div>
-                <div class="place_info">
-                  <Link to={`${url}/fanilyId`}>
-                    <h3>Kalmanbetov's family</h3>
-                  </Link>
-                  <p>Talas Region, Kyrgyzstan</p>
-                  <div class="rating_days d-flex justify-content-between">
-                    <span class="d-flex justify-content-center align-items-center">
-                      <i class="fa fa-star"></i>
-                      <i class="fa fa-star"></i>
-                      <i class="fa fa-star"></i>
-                      <i class="fa fa-star"></i>
-                      <i class="fa fa-star"></i>
-                      <Link to={`${url}/fanilyId`}>(20 Review)</Link>
-                    </span>
-                    <div class="days">
-                      <i class="fa fa-clock-o"></i>
-                      <Link to={`${url}/fanilyId`}>5 Days</Link>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div class="col-lg-4 col-md-6">
-              <div class="single_place">
-                <div class="thumb">
-                  <img src={Place6} alt="" />
-                </div>
-                <div class="place_info">
-                  <Link to={`${url}/fanilyId`}>
-                    <h3>Kalmanbetov's family</h3>
-                  </Link>
-                  <p>Talas Region, Kyrgyzstan</p>
-                  <div class="rating_days d-flex justify-content-between">
-                    <span class="d-flex justify-content-center align-items-center">
-                      <i class="fa fa-star"></i>
-                      <i class="fa fa-star"></i>
-                      <i class="fa fa-star"></i>
-                      <i class="fa fa-star"></i>
-                      <i class="fa fa-star"></i>
-                      <Link to={`${url}/fanilyId`}>(20 Review)</Link>
-                    </span>
-                    <div class="days">
-                      <i class="fa fa-clock-o"></i>
-                      <Link to={`${url}/fanilyId`}>5 Days</Link>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
+            ))}
           </div>
           <div class="row">
             <div class="col-lg-12">
