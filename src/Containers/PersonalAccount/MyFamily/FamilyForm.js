@@ -1,16 +1,18 @@
 import React from "react";
 import { MDBRow, MDBCol, MDBBtn } from "mdbreact";
 import ImageUpload from "../../../Components/ImageUpload";
+import config from "../../../config/config";
 
 class FamilyForm extends React.Component {
   state = {
     form: {
-      id: 0,
       familyName: "",
       location: "",
       phoneNumber: null,
       whatsapp: null,
       description: "",
+      images: [],
+      gallery: [],
     },
   };
 
@@ -19,7 +21,13 @@ class FamilyForm extends React.Component {
   }
 
   initForm = () => {
-    this.setState({ form: this.props.family || this.state.form });
+    let form;
+    if (this.props.isNew) form = { ...this.state.form };
+    else {
+      form = { ...this.props.family };
+      form.gallery = [];
+    }
+    this.setState({ form });
   };
 
   submitHandler = (event) => {
@@ -39,9 +47,23 @@ class FamilyForm extends React.Component {
 
   onUpload = (pictures) => {
     let form = { ...this.state.form };
-    form.gallery = pictures;
+    form.gallery = form.gallery.concat(pictures);
+    form.images = form.images.concat(pictures);
     this.setState({ form });
   };
+
+  deleteAllImages = () => {
+    const familyId = this.state.form.id;
+    this.props.deleteFamilyImages(familyId);
+  };
+
+  get decodedPictures() {
+    return this.state.form.images.map((picture) =>
+      picture.id
+        ? config.apiUrl + "/" + picture.pathName
+        : URL.createObjectURL(picture)
+    );
+  }
 
   render() {
     const { form } = this.state;
@@ -113,6 +135,20 @@ class FamilyForm extends React.Component {
               />
             </MDBCol>
           </MDBRow>
+
+          <h3>Gallery</h3>
+          {!this.props.isNew && (
+            <button type="button" onClick={() => this.deleteAllImages()}>
+              delete all images
+            </button>
+          )}
+          {this.decodedPictures.map((picture, idx) => {
+            return (
+              <div key={idx}>
+                <img src={picture} alt="surot" style={{ width: "100%" }} />
+              </div>
+            );
+          })}
 
           <ImageUpload onUpload={this.onUpload} />
 

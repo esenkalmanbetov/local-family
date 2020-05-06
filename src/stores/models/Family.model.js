@@ -1,5 +1,7 @@
 import { types } from "mobx-state-tree";
 
+import ImageModel from "./Image.model";
+
 const FamilyModel = types.model("FamilyModel", {
   id: types.optional(types.number, 0),
   familyName: types.optional(types.string, ""),
@@ -7,6 +9,7 @@ const FamilyModel = types.model("FamilyModel", {
   phoneNumber: types.optional(types.string, ""),
   whatsapp: types.optional(types.string, ""),
   description: types.maybeNull(types.string),
+  images: types.optional(types.array(ImageModel), []),
 });
 
 export default FamilyModel;

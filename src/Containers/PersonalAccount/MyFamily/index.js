@@ -50,14 +50,34 @@ class MyFamilies extends Component {
 
   createFamily = (form) => {
     form.userId = this.userId;
-    this.props.stores.familyStore.createFamily(form).then(() => {
+    let formData = new FormData();
+
+    const { gallery, ...restForm } = form;
+
+    for (let key in restForm) {
+      formData.append(key, restForm[key]);
+    }
+    gallery.forEach((image) => {
+      formData.append("images", image);
+    });
+    this.props.stores.familyStore.createFamily(formData).then(() => {
       this.toggleFamilyForm();
       this.loadFamilies(this.userId);
     });
   };
 
   editFamily = (form) => {
-    this.props.stores.familyStore.editFamily(form).then(() => {
+    let formData = new FormData();
+
+    const { gallery, ...restForm } = form;
+
+    for (let key in restForm) {
+      formData.append(key, restForm[key]);
+    }
+    gallery.forEach((image) => {
+      formData.append("images", image);
+    });
+    this.props.stores.familyStore.editFamily(formData).then(() => {
       this.toggleFamilyForm();
       this.loadFamilies(this.userId);
     });
@@ -66,6 +86,13 @@ class MyFamilies extends Component {
   deleteFamily = (familyId) => {
     this.props.stores.familyStore.deleteFamily(familyId).then(() => {
       this.loadFamilies(this.userId);
+    });
+  };
+
+  deleteAllImages = (familyId) => {
+    this.props.stores.familyStore.deleteFamilyImages(familyId).then(() => {
+      this.loadFamilies(this.userId);
+      this.toggleFamilyForm();
     });
   };
 
@@ -86,6 +113,7 @@ class MyFamilies extends Component {
               <FamilyForm
                 onSave={this.createFamily}
                 toggleForm={this.toggleFamilyForm}
+                isNew
               />
             )}
 
@@ -99,6 +127,7 @@ class MyFamilies extends Component {
                           <FamilyForm
                             family={family}
                             onSave={this.editFamily}
+                            deleteFamilyImages={this.deleteAllImages}
                             toggleForm={this.toggleFamilyForm}
                           />
                         ) : (

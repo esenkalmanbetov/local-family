@@ -98,7 +98,7 @@ class Header extends React.Component {
                             to="/signup"
                             class="genric-btn info medium circle login-btn mr-3"
                           >
-                            signup
+                            register
                           </Link>
                           <Link
                             to="/signin"
