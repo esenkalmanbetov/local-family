@@ -3,6 +3,8 @@ import { MDBRow, MDBCol, MDBBtn } from "mdbreact";
 import { observer, inject } from "mobx-react";
 import Select from "react-select";
 
+import config from "../../../config/config";
+
 import ImageUpload from "../../../Components/ImageUpload";
 
 class TourForm extends React.Component {
@@ -14,6 +16,7 @@ class TourForm extends React.Component {
       categoriesId: [],
       description: "",
       categories: [],
+      images: [],
       gallery: [],
     },
   };
@@ -34,8 +37,10 @@ class TourForm extends React.Component {
   initForm = () => {
     let form;
     if (this.props.isNew) form = { ...this.state.form };
-    else form = { ...this.props.tour };
-    console.log("categories", form);
+    else {
+      form = { ...this.props.tour };
+      form.gallery = [];
+    }
     const categoriesId = form.categories.map((category) => category.id);
     form.categoriesId = categoriesId;
     this.setState({ form });
@@ -58,7 +63,8 @@ class TourForm extends React.Component {
 
   onUpload = (pictures) => {
     let form = { ...this.state.form };
-    form.gallery = pictures;
+    form.gallery = form.gallery.concat(pictures);
+    form.images = form.images.concat(pictures);
     this.setState({ form });
   };
 
@@ -71,6 +77,19 @@ class TourForm extends React.Component {
     form.categories = selectedCategories;
     this.setState({ form });
   };
+
+  deleteAllImages = () => {
+    const tourId = this.state.form.id;
+    this.props.deleteTourImages(tourId);
+  };
+
+  get decodedPictures() {
+    return this.state.form.images.map((picture) =>
+      picture.id
+        ? config.apiUrl + "/" + picture.pathName
+        : URL.createObjectURL(picture)
+    );
+  }
 
   render() {
     const { form } = this.state;
@@ -145,6 +164,20 @@ class TourForm extends React.Component {
               />
             </MDBCol>
           </MDBRow>
+
+          <h3>Gallery</h3>
+          {!this.props.isNew && (
+            <button type="button" onClick={() => this.deleteAllImages()}>
+              delete all images
+            </button>
+          )}
+          {this.decodedPictures.map((picture, idx) => {
+            return (
+              <div key={idx}>
+                <img src={picture} alt="surot" style={{ width: "100%" }} />
+              </div>
+            );
+          })}
 
           <ImageUpload onUpload={this.onUpload} />
 

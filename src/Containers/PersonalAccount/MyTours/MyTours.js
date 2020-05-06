@@ -3,7 +3,7 @@ import { observer, inject } from "mobx-react";
 import { MDBRow, MDBCol, MDBContainer, MDBBtn } from "mdbreact";
 
 import TourForm from "./TourForm";
-import TempTourCard from "./TourCard";
+import TourCard from "./TourCard";
 
 import "./MyTours.scss";
 
@@ -68,7 +68,17 @@ class MyTours extends Component {
   };
 
   editTour = (form) => {
-    this.props.stores.tourStore.updateTour(form).then(() => {
+    let formData = new FormData();
+
+    const { gallery, ...restForm } = form;
+
+    for (let key in restForm) {
+      formData.append(key, restForm[key]);
+    }
+    gallery.forEach((image) => {
+      formData.append("images", image);
+    });
+    this.props.stores.tourStore.updateTour(formData).then(() => {
       this.toggleTourForm();
       this.loadTours(this.userId);
     });
@@ -77,6 +87,13 @@ class MyTours extends Component {
   deleteTour = (tourId) => {
     this.props.stores.tourStore.deleteTour(tourId).then(() => {
       this.loadTours(this.userId);
+    });
+  };
+
+  deleteAllImages = (tourId) => {
+    this.props.stores.tourStore.deleteTourImages(tourId).then(() => {
+      this.loadTours(this.userId);
+      this.toggleTourForm();
     });
   };
 
@@ -109,10 +126,11 @@ class MyTours extends Component {
                           <TourForm
                             tour={tour}
                             onSave={this.editTour}
+                            deleteTourImages={this.deleteAllImages}
                             toggleForm={this.toggleTourForm}
                           />
                         ) : (
-                          <TempTourCard
+                          <TourCard
                             key={idx}
                             url={url}
                             tour={tour}
