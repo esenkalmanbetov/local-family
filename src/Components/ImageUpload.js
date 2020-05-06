@@ -9,21 +9,22 @@ class ImageUpload extends React.Component {
   }
 
   onDrop(pictureFiles, pictureDataURLs) {
-    const newPictures = pictureFiles.map(picture =>
-      URL.createObjectURL(picture)
-    );
     let Pictures = [...this.state.Pictures];
-    Pictures = Pictures.concat(newPictures);
+    Pictures = Pictures.concat(pictureFiles);
 
     this.setState({ Pictures });
     this.props.onUpload(Pictures);
+  }
+
+  get decodedPictures() {
+    return this.state.Pictures.map((picture) => URL.createObjectURL(picture));
   }
 
   render() {
     return (
       <div>
         <h3>Gallery</h3>
-        {this.state.Pictures.map((picture, idx) => {
+        {this.decodedPictures.map((picture, idx) => {
           return (
             <div key={idx}>
               <img src={picture} alt="surot" />

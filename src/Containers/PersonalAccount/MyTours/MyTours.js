@@ -50,7 +50,18 @@ class MyTours extends Component {
 
   createTour = (form) => {
     form.userId = this.userId;
-    this.props.stores.tourStore.createTour(form).then(() => {
+
+    let formData = new FormData();
+
+    const { gallery, ...restForm } = form;
+
+    for (let key in restForm) {
+      formData.append(key, restForm[key]);
+    }
+    gallery.forEach((image) => {
+      formData.append("images", image);
+    });
+    this.props.stores.tourStore.createTour(formData).then(() => {
       this.toggleTourForm();
       this.loadTours(this.userId);
     });
