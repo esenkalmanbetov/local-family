@@ -5,12 +5,20 @@ import { Link } from "react-router-dom";
 import { Button } from "react-bootstrap";
 
 import Place1 from "../../../assets/img/place/1.png";
+import config from "../../../config/config";
 
-const TourCard = ({ tour, onEdit, onDelete, url }) => {
+const TourCard = ({ tour, onEdit, onDelete }) => {
   return (
     <div class="single_place">
       <div class="thumb">
-        <img src={Place1} alt="" />
+        <img
+          src={
+            tour.images.length
+              ? `${config.apiUrl}/${tour.images[0].pathName}`
+              : Place1
+          }
+          alt=""
+        />
         <Link class="prise">${tour.price}</Link>
       </div>
       <div class="place_info">

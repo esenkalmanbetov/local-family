@@ -4,12 +4,20 @@ import { Link } from "react-router-dom";
 import { Button } from "react-bootstrap";
 
 import Place6 from "../../../assets/img/place/6.png";
+import config from "../../../config/config";
 
 const FamilyCard = ({ family, onEdit, onDelete }) => {
   return (
     <div class="single_place">
       <div class="thumb">
-        <img src={Place6} alt="" />
+        <img
+          src={
+            family.images.length
+              ? `${config.apiUrl}/${family.images[0].pathName}`
+              : Place6
+          }
+          alt=""
+        />
       </div>
       <div class="place_info">
         <Link>

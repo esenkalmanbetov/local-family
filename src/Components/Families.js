@@ -4,6 +4,8 @@ import { Link } from "react-router-dom";
 
 import Place5 from "../assets/img/place/5.png";
 
+import config from "../config/config";
+
 class Families extends React.Component {
   render() {
     const {
@@ -27,7 +29,15 @@ class Families extends React.Component {
               <div class="col-lg-4 col-md-6" key={family.id}>
                 <div class="single_place">
                   <div class="thumb">
-                    <img src={Place5} alt="" />
+                    {}
+                    <img
+                      src={
+                        family.images.length
+                          ? `${config.apiUrl}/${family.images[0].pathName}`
+                          : Place5
+                      }
+                      alt="surot"
+                    />
                   </div>
                   <div class="place_info">
                     <Link to={`${url}/fanilyId`}>

@@ -3,6 +3,7 @@ import { withRouter } from "react-router";
 import { Link } from "react-router-dom";
 
 import Place2 from "../assets/img/place/2.png";
+import config from "../config/config";
 
 class Tours extends React.Component {
   render() {
@@ -27,7 +28,14 @@ class Tours extends React.Component {
               <div class="col-lg-4 col-md-6" key={tour.id}>
                 <div class="single_place">
                   <div class="thumb">
-                    <img src={Place2} alt="" />
+                    <img
+                      src={
+                        tour.images.length
+                          ? `${config.apiUrl}/${tour.images[0].pathName}`
+                          : Place2
+                      }
+                      alt="surot"
+                    />
                     <Link to={`${url}/tourId`} class="prise">
                       ${tour.price}
                     </Link>
