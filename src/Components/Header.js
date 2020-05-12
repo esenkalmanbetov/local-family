@@ -62,15 +62,21 @@ class Header extends React.Component {
                             <Link to="/join-to-tours">Tours</Link>
                           </li>
                           <li>
-                            <Link to="/travel_destination">Guides</Link>
+                            <Link
+                              to="/signup"
+                              class="genric-btn info medium circle login-btn"
+                            >
+                              register
+                            </Link>
                           </li>
-                          {/* for footer
                           <li>
-                            <Link to="/blog">blog</Link>
-                          </li> */}
-                          {/* <li>
-                            <Link to="/contact">Contact</Link>
-                          </li> */}
+                            <Link
+                              to="/signin"
+                              class="genric-btn info medium circle login-btn"
+                            >
+                              signin
+                            </Link>
+                          </li>
                         </ul>
                       </nav>
                     </div>
@@ -92,22 +98,21 @@ class Header extends React.Component {
                             </Dropdown.Item>
                           </Dropdown.Menu>
                         </Dropdown>
-                      ) : (
-                        <div>
-                          <Link
-                            to="/signup"
-                            class="genric-btn info medium circle login-btn mr-3"
-                          >
-                            register
-                          </Link>
-                          <Link
-                            to="/signin"
-                            class="genric-btn info medium circle login-btn"
-                          >
-                            signin
-                          </Link>
-                        </div>
-                      )}
+                      ) : // <div>
+                      //   <Link
+                      //     to="/signup"
+                      //     class="genric-btn info medium circle login-btn mr-3"
+                      //   >
+                      //     register
+                      //   </Link>
+                      //   <Link
+                      //     to="/signin"
+                      //     class="genric-btn info medium circle login-btn"
+                      //   >
+                      //     signin
+                      //   </Link>
+                      // </div>
+                      null}
                     </li>
                   </div>
                   <div className="col-12">

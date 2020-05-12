@@ -1,19 +1,22 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import { observer, inject } from "mobx-react";
+import { Carousel } from "react-bootstrap";
 
 import "./Home.scss";
 
 import Families from "../Components/Families";
 import Tours from "../Components/Tours";
 
-import Dest2 from "../assets/img/destination/2.png";
-import Dest5 from "../assets/img/destination/5.png";
-// import Dest6 from "../assets/img/destination/6.png";
-
-import Kg from "../assets/img/countries/kg.jpg";
-// import Kz from '../assets/img/countries/kz.jpg'
-// import Tajikstan from '../assets/img/countries/tajikstan.jpg'
+import Kg1 from "../assets/img/countries/kg1.jpg";
+import Kz1 from "../assets/img/countries/kz1.jpg";
+// import Kz2 from "../assets/img/countries/kz2.jpg";
+// import Kz3 from "../assets/img/countries/kz3.jpg";
+// import Kz4 from "../assets/img/countries/kz4.jpg";
+// import Tj1 from "../assets/img/countries/Tj1.jpg";
+// import Tj2 from "../assets/img/countries/Tj2.jpg";
+// import Tj3 from "../assets/img/countries/Tj3.jpg";
+import Tj4 from "../assets/img/countries/Tj4.jpg";
 
 class Home extends React.Component {
   get families() {
@@ -40,58 +43,44 @@ class Home extends React.Component {
   render() {
     return (
       <div>
-        <div class="popular_destination_area countries">
-          <div class="container">
-            {/* margin 0 all of them */}
-            <div class="row">
-              <div class="col-lg-4 p-0">
-                <Link to="/kg">
-                  <div class="single_destination m-0">
-                    <div class="thumb">
-                      <img src={Kg} alt="" />
-                    </div>
-                    <div class="content align-center">
-                      <p class="d-flex align-items-center">
-                        Kyrgyzstan{" "}
-                        {/* <Link to="/travel_destination"> 07 Places</Link>{" "} */}
-                      </p>
-                    </div>
-                  </div>
-                </Link>
-              </div>
-              <div class="col-lg-4 p-0">
-                <Link to="/kz">
-                  <div class="single_destination m-0">
-                    <div class="thumb">
-                      <img src={Dest5} alt="" />
-                    </div>
-                    <div class="content align-center">
-                      <p class="d-flex align-items-center">
-                        Kazakstan{" "}
-                        {/* <Link to="/travel_destination"> 03 Places</Link>{" "} */}
-                      </p>
-                    </div>
-                  </div>
-                </Link>
-              </div>
-              <div class="col-lg-4 p-0">
-                <Link to="/travel_destination">
-                  <div class="single_destination m-0">
-                    <div class="thumb">
-                      <img src={Dest2} alt="" />
-                    </div>
-                    <div class="content align-center">
-                      <p class="d-flex align-items-center">
-                        Tajikistan{" "}
-                        {/* <Link to="/travel_destination"> 10 Places</Link>{" "} */}
-                      </p>
-                    </div>
-                  </div>
-                </Link>
-              </div>
-            </div>
-          </div>
-        </div>
+        <Carousel>
+          <Carousel.Item>
+            <img
+              className="d-block w-100 main-slider"
+              src={Kg1}
+              alt="First slide"
+            />
+            <Carousel.Caption className="content">
+              <Link to="/kg">
+                <h1>Kyrgyzstan</h1>
+              </Link>
+            </Carousel.Caption>
+          </Carousel.Item>
+          <Carousel.Item>
+            <img
+              className="d-block w-100 main-slider"
+              src={Kz1}
+              alt="Second slide"
+            />
+
+            <Carousel.Caption>
+              <Link to="/kz">
+                <h1>Kazakstan</h1>
+              </Link>
+            </Carousel.Caption>
+          </Carousel.Item>
+          <Carousel.Item>
+            <img
+              className="d-block w-100 main-slider"
+              src={Tj4}
+              alt="Third slide"
+            />
+
+            <Carousel.Caption>
+              <h1>Tajikstan</h1>
+            </Carousel.Caption>
+          </Carousel.Item>
+        </Carousel>
 
         <Families nextUrl="all-families" families={this.families} />
 

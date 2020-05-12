@@ -1,6 +1,22 @@
+.main-slider {
+  height: 457px;
+  width: 1351px;
+  object-fit: cover;
+}
+
+.carousel-caption {
+  margin-bottom: 150px;
+  h1 {
+    color: #ff4a52;
+    font-family: "Nothing You Could Do", cursive !important;
+    font-size: 45px !important;
+    font-weight: bold;
+  }
+}
+
 .countries {
-  padding-top: 0;
-  margin-top: -117px;
+  padding-top: 10px;
+  margin-top: 40px;
 
   .align-center {
     left: 50% !important;

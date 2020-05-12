@@ -1,20 +1,29 @@
 import React from "react";
 import { withRouter } from "react-router";
-import { Link } from "react-router-dom";
 import { Carousel } from "react-bootstrap";
-
-import NewLetterArea from "./NewLetterArea";
-
-import Place1 from "../assets/img/place/1.png";
-import Place2 from "../assets/img/place/2.png";
-import Place3 from "../assets/img/place/3.png";
 
 import BannerPng from "../assets/img/banner/banner.png";
 import Banner2Png from "../assets/img/banner/banner2.png";
 import Banner3Png from "../assets/img/banner/banner3.png";
+// import Author from "../assets/img/testmonial/author.png";
+// import DefaulAvatar from "../assets/img/testmonial/default-avatar.jpg";
+import Avatar from "../assets/img/testmonial/avatar.jpg";
 
+import "./FamilyDetail.scss";
 class FamilyDetail extends React.Component {
   render() {
+    const date = new Date();
+    const dateFormat =
+      date.getFullYear() +
+      "/" +
+      (date.getMonth() + 1) +
+      "/" +
+      date.getDate() +
+      " " +
+      date.getHours() +
+      ":" +
+      date.getMinutes();
+    console.log("type: ", typeof date, date);
     return (
       <div>
         <Carousel>
@@ -28,11 +37,11 @@ class FamilyDetail extends React.Component {
             <img className="d-block w-100" src={Banner3Png} alt="Third slide" />
           </Carousel.Item>
         </Carousel>
-        User's Family
         <div class="destination_details_info">
           <div class="container">
             <div class="row justify-content-center">
               <div class="col-lg-8 col-md-9">
+                <h1>Kalmanbetov's family</h1>
                 <div class="destination_info">
                   <h3>Description</h3>
                   <p>
@@ -76,21 +85,33 @@ class FamilyDetail extends React.Component {
                     </p>
                   </div>
                 </div>
+
+                <div className="text-center single_carousel">
+                  <h2>host</h2>
+                  <div class="row justify-content-center">
+                    <div class="col-lg-8">
+                      <div class="single_testmonial text-center">
+                        <div class="author_thumb">
+                          <img src={Avatar} alt="" />
+                        </div>
+                        <p>
+                          "Working in conjunction with humanitarian aid
+                          agencies, we have supported programmes to help
+                          alleviate human suffering.
+                        </p>
+                        <div class="testmonial_author">
+                          <h3> Kalmanbetov Esen</h3>
+                          <h5>contact: esenkalmanbetov@gmail.com</h5>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
                 <div class="bordered_1px"></div>
                 <div class="contact_join">
-                  <h3>Contact for join</h3>
+                  <h3>Leave a comment</h3>
                   <form action="#">
                     <div class="row">
-                      <div class="col-lg-6 col-md-6">
-                        <div class="single_input">
-                          <input type="text" placeholder="Your Name" />
-                        </div>
-                      </div>
-                      <div class="col-lg-6 col-md-6">
-                        <div class="single_input">
-                          <input type="text" placeholder="Phone no." />
-                        </div>
-                      </div>
                       <div class="col-lg-12">
                         <div class="single_input">
                           <textarea
@@ -112,107 +133,68 @@ class FamilyDetail extends React.Component {
                     </div>
                   </form>
                 </div>
-              </div>
-            </div>
-          </div>
-        </div>
-        <NewLetterArea />
-        <div class="popular_places_area">
-          <div class="container">
-            <div class="row justify-content-center">
-              <div class="col-lg-6">
-                <div class="section_title text-center mb_70">
-                  <h3>More Places</h3>
-                </div>
-              </div>
-            </div>
-            <div class="row">
-              <div class="col-lg-4 col-md-6">
-                <div class="single_place">
-                  <div class="thumb">
-                    <img src={Place1} alt="" />
-                    <Link to="/destination_details" class="prise">
-                      $500
-                    </Link>
-                  </div>
-                  <div class="place_info">
-                    <Link to="/destination_details">
-                      <h3>California</h3>
-                    </Link>
-                    <p>United State of America</p>
-                    <div class="rating_days d-flex justify-content-between">
-                      <span class="d-flex justify-content-center align-items-center">
-                        <i class="fa fa-star"></i>
-                        <i class="fa fa-star"></i>
-                        <i class="fa fa-star"></i>
-                        <i class="fa fa-star"></i>
-                        <i class="fa fa-star"></i>
-                        <Link to="/destination_details">(20 Review)</Link>
-                      </span>
-                      <div class="days">
-                        <i class="fa fa-clock-o"></i>
-                        <Link to="/destination_details">5 Days</Link>
-                      </div>
+
+                <div class="section-top-border">
+                  <h3>
+                    Esen Kalmanbetov <span className="date">{dateFormat}</span>
+                  </h3>
+
+                  <div class="row">
+                    <div class="view-comment">ek</div>
+                    <div class="col-md-9 mt-sm-20">
+                      <p>
+                        Recently, the US Federal government banned online
+                        casinos from operating in America by making it illegal
+                        to transfer money to them through any US bank or payment
+                        system. As a result of this law, most of the popular
+                        online casino networks such as Party Gaming and PlayTech
+                        left the United States. Overnight, online casino players
+                        found themselves being chased by the Federal government.
+                        But, after a fortnight, the online casino industry came
+                        up with a solution and new online casinos started taking
+                      </p>
                     </div>
                   </div>
                 </div>
-              </div>
-              <div class="col-lg-4 col-md-6">
-                <div class="single_place">
-                  <div class="thumb">
-                    <img src={Place2} alt="" />
-                    <Link to="/destination_details" class="prise">
-                      $500
-                    </Link>
-                  </div>
-                  <div class="place_info">
-                    <Link to="/destination_details">
-                      <h3>Korola Megna</h3>
-                    </Link>
-                    <p>United State of America</p>
-                    <div class="rating_days d-flex justify-content-between">
-                      <span class="d-flex justify-content-center align-items-center">
-                        <i class="fa fa-star"></i>
-                        <i class="fa fa-star"></i>
-                        <i class="fa fa-star"></i>
-                        <i class="fa fa-star"></i>
-                        <i class="fa fa-star"></i>
-                        <Link to="/destination_details">(20 Review)</Link>
-                      </span>
-                      <div class="days">
-                        <i class="fa fa-clock-o"></i>
-                        <Link to="/destination_details">5 Days</Link>
-                      </div>
+                <div class="section-top-border">
+                  <h3>
+                    Esen Kalmanbetov <span className="date">{dateFormat}</span>
+                  </h3>
+                  <div class="row">
+                    <div class="view-comment">ek</div>
+                    <div class="col-md-9 mt-sm-20">
+                      <p>
+                        Recently, the US Federal government banned online
+                        casinos from operating in America by making it illegal
+                        to transfer money to them through any US bank or payment
+                        system. As a result of this law, most of the popular
+                        online casino networks such as Party Gaming and PlayTech
+                        left the United States. Overnight, online casino players
+                        found themselves being chased by the Federal government.
+                        But, after a fortnight, the online casino industry came
+                        up with a solution and new online casinos started taking
+                      </p>
                     </div>
                   </div>
                 </div>
-              </div>
-              <div class="col-lg-4 col-md-6">
-                <div class="single_place">
-                  <div class="thumb">
-                    <img src={Place3} alt="" />
-                    <Link to="/destination_details" class="prise">
-                      $500
-                    </Link>
-                  </div>
-                  <div class="place_info">
-                    <Link to="/destination_details">
-                      <h3>London</h3>
-                    </Link>
-                    <p>United State of America</p>
-                    <div class="rating_days d-flex justify-content-between">
-                      <span class="d-flex justify-content-center align-items-center">
-                        <i class="fa fa-star"></i>
-                        <i class="fa fa-star"></i>
-                        <i class="fa fa-star"></i>
-                        <i class="fa fa-star"></i>
-                        <i class="fa fa-star"></i>
-                        <Link to="/destination_details">(20 Review)</Link>
-                      </span>
-                      <div class="days">
-                        <i class="fa fa-clock-o"></i>
-                        <Link to="/destination_details">5 Days</Link>
-                      </div>
+                <div class="section-top-border">
+                  <h3>
+                    Esen Kalmanbetov <span className="date">{dateFormat}</span>
+                  </h3>
+                  <div class="row">
+                    <div class="view-comment">ek</div>
+                    <div class="col-md-9 mt-sm-20">
+                      <p>
+                        Recently, the US Federal government banned online
+                        casinos from operating in America by making it illegal
+                        to transfer money to them through any US bank or payment
+                        system. As a result of this law, most of the popular
+                        online casino networks such as Party Gaming and PlayTech
+                        left the United States. Overnight, online casino players
+                        found themselves being chased by the Federal government.
+                        But, after a fortnight, the online casino industry came
+                        up with a solution and new online casinos started taking
+                      </p>
                     </div>
                   </div>
                 </div>
