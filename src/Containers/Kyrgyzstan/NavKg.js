@@ -1,5 +1,6 @@
 import React from "react";
 import { withRouter } from "react-router";
+import { observer, inject } from "mobx-react";
 
 import "./NavKg.scss";
 
@@ -7,6 +8,27 @@ import Families from "../../Components/Families";
 import Tours from "../../Components/Tours";
 
 class NavKg extends React.Component {
+  get families() {
+    return this.props.stores.familyStore.families();
+  }
+
+  get tours() {
+    return this.props.stores.tourStore.tours();
+  }
+
+  componentDidMount() {
+    this.loadAllFamilies();
+    this.loadAllTours();
+  }
+
+  loadAllFamilies = () => {
+    this.props.stores.familyStore.loadAllFamilies();
+  };
+
+  loadAllTours = () => {
+    this.props.stores.tourStore.loadAllTours();
+  };
+
   render() {
     return (
       <div>
@@ -23,12 +45,12 @@ class NavKg extends React.Component {
           </div>
         </div>
         <div>
-          <Families nextUrl="/all-families" />
-          <Tours nextUrl="/join-to-tours" />
+          <Families nextUrl="/all-families" families={this.families} />
+          <Tours nextUrl="/join-to-tours" tours={this.tours} />
         </div>
       </div>
     );
   }
 }
 
-export default withRouter(NavKg);
+export default inject("stores")(withRouter(observer(NavKg)));
