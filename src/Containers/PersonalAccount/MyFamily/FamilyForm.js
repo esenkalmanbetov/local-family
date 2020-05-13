@@ -1,5 +1,7 @@
 import React from "react";
 import { MDBRow, MDBCol, MDBBtn } from "mdbreact";
+import { Button } from "react-bootstrap";
+
 import ImageUpload from "../../../Components/ImageUpload";
 import config from "../../../config/config";
 
@@ -16,6 +18,14 @@ class FamilyForm extends React.Component {
     },
   };
 
+  get decodedPictures() {
+    return this.state.form.images.map((picture) =>
+      picture.id
+        ? config.apiUrl + "/" + picture.pathName
+        : URL.createObjectURL(picture)
+    );
+  }
+
   componentDidMount() {
     this.initForm();
   }
@@ -26,6 +36,8 @@ class FamilyForm extends React.Component {
     else {
       form = { ...this.props.family };
       form.gallery = [];
+      form.images = [...this.props.family.images];
+      form.deletedImagesIds = [];
     }
     this.setState({ form });
   };
@@ -52,18 +64,18 @@ class FamilyForm extends React.Component {
     this.setState({ form });
   };
 
-  deleteAllImages = () => {
-    const familyId = this.state.form.id;
-    this.props.deleteFamilyImages(familyId);
-  };
+  onDeleteImage = (idx) => {
+    let form = { ...this.state.form };
+    const deletedImage = form.images[idx];
+    if (deletedImage.id) form.deletedImagesIds.push(deletedImage.id);
+    else {
+      const index = form.gallery.indexOf(deletedImage);
+      form.gallery.splice(index, 1);
+    }
+    form.images.splice(idx, 1);
 
-  get decodedPictures() {
-    return this.state.form.images.map((picture) =>
-      picture.id
-        ? config.apiUrl + "/" + picture.pathName
-        : URL.createObjectURL(picture)
-    );
-  }
+    this.setState({ form });
+  };
 
   render() {
     const { form } = this.state;
@@ -137,32 +149,39 @@ class FamilyForm extends React.Component {
           </MDBRow>
 
           <h3>Gallery</h3>
-          {!this.props.isNew && (
-            <button type="button" onClick={() => this.deleteAllImages()}>
-              delete all images
-            </button>
-          )}
           {this.decodedPictures.map((picture, idx) => {
             return (
               <div key={idx}>
                 <img src={picture} alt="surot" style={{ width: "100%" }} />
+                <div className="justify-content-end d-flex mt-1">
+                  <Button
+                    variant="danger"
+                    size="sm"
+                    onClick={() => this.onDeleteImage(idx)}
+                  >
+                    delete
+                  </Button>
+                </div>
+                <hr />
               </div>
             );
           })}
 
           <ImageUpload onUpload={this.onUpload} />
 
-          <MDBBtn type="submit" color="success">
-            Save
-          </MDBBtn>
-          <MDBBtn
-            onClick={this.props.toggleForm}
-            color="primary"
-            type="button"
-            className="ml-4"
-          >
-            Cancel
-          </MDBBtn>
+          <div className="mb-5">
+            <MDBBtn type="submit" color="success">
+              Save
+            </MDBBtn>
+            <MDBBtn
+              onClick={this.props.toggleForm}
+              color="primary"
+              type="button"
+              className="ml-4"
+            >
+              Cancel
+            </MDBBtn>
+          </div>
         </form>
       </div>
     );

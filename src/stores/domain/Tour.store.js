@@ -7,7 +7,6 @@ import CategoryModel from "../models/Category.model";
 
 const toursApi = config.apiUrl + "/api/tours";
 const categoriesApi = config.apiUrl + "/api/categories";
-const imagesApi = config.apiUrl + "/api/images";
 
 const TourStore = types
   .model("TourStore", {
@@ -84,24 +83,6 @@ const TourStore = types
     deleteTour(tourId) {
       return new Promise(function(resolve, reject) {
         fetch(toursApi + "/delete/" + tourId, {
-          method: "DELETE",
-          headers: {
-            "Content-Type": "application/json;charset=utf-8",
-          },
-        })
-          .then((res) => res.json())
-          .then((data) => {
-            resolve(data);
-          })
-          .catch((err) => {
-            reject(err);
-          });
-      });
-    },
-
-    deleteTourImages(tourId) {
-      return new Promise(function(resolve, reject) {
-        fetch(imagesApi + "/deleteByTourId/" + tourId, {
           method: "DELETE",
           headers: {
             "Content-Type": "application/json;charset=utf-8",

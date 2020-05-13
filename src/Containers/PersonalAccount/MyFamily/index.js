@@ -69,13 +69,17 @@ class MyFamilies extends Component {
   editFamily = (form) => {
     let formData = new FormData();
 
-    const { gallery, ...restForm } = form;
+    const { gallery, deletedImagesIds, ...restForm } = form;
 
     for (let key in restForm) {
       formData.append(key, restForm[key]);
     }
     gallery.forEach((image) => {
       formData.append("images", image);
+    });
+
+    deletedImagesIds.forEach((ids) => {
+      formData.append("deletedImagesIds", ids);
     });
     this.props.stores.familyStore.editFamily(formData).then(() => {
       this.toggleFamilyForm();
@@ -86,13 +90,6 @@ class MyFamilies extends Component {
   deleteFamily = (familyId) => {
     this.props.stores.familyStore.deleteFamily(familyId).then(() => {
       this.loadFamilies(this.userId);
-    });
-  };
-
-  deleteAllImages = (familyId) => {
-    this.props.stores.familyStore.deleteFamilyImages(familyId).then(() => {
-      this.loadFamilies(this.userId);
-      this.toggleFamilyForm();
     });
   };
 
@@ -127,7 +124,6 @@ class MyFamilies extends Component {
                           <FamilyForm
                             family={family}
                             onSave={this.editFamily}
-                            deleteFamilyImages={this.deleteAllImages}
                             toggleForm={this.toggleFamilyForm}
                           />
                         ) : (

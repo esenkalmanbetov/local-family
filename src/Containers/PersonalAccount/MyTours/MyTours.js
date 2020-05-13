@@ -53,13 +53,17 @@ class MyTours extends Component {
 
     let formData = new FormData();
 
-    const { gallery, ...restForm } = form;
+    const { gallery, categoriesId, ...restForm } = form;
 
     for (let key in restForm) {
       formData.append(key, restForm[key]);
     }
     gallery.forEach((image) => {
       formData.append("images", image);
+    });
+
+    categoriesId.forEach((ids) => {
+      formData.append("categoriesId", ids);
     });
     this.props.stores.tourStore.createTour(formData).then(() => {
       this.toggleTourForm();
@@ -70,13 +74,19 @@ class MyTours extends Component {
   editTour = (form) => {
     let formData = new FormData();
 
-    const { gallery, ...restForm } = form;
+    const { gallery, deletedImagesIds, categoriesId, ...restForm } = form;
 
     for (let key in restForm) {
       formData.append(key, restForm[key]);
     }
     gallery.forEach((image) => {
       formData.append("images", image);
+    });
+    deletedImagesIds.forEach((ids) => {
+      formData.append("deletedImagesIds", ids);
+    });
+    categoriesId.forEach((ids) => {
+      formData.append("categoriesId", ids);
     });
     this.props.stores.tourStore.updateTour(formData).then(() => {
       this.toggleTourForm();
@@ -87,13 +97,6 @@ class MyTours extends Component {
   deleteTour = (tourId) => {
     this.props.stores.tourStore.deleteTour(tourId).then(() => {
       this.loadTours(this.userId);
-    });
-  };
-
-  deleteAllImages = (tourId) => {
-    this.props.stores.tourStore.deleteTourImages(tourId).then(() => {
-      this.loadTours(this.userId);
-      this.toggleTourForm();
     });
   };
 
@@ -126,7 +129,6 @@ class MyTours extends Component {
                           <TourForm
                             tour={tour}
                             onSave={this.editTour}
-                            deleteTourImages={this.deleteAllImages}
                             toggleForm={this.toggleTourForm}
                           />
                         ) : (
