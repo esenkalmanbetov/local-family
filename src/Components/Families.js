@@ -40,7 +40,7 @@ class Families extends React.Component {
                     />
                   </div>
                   <div class="place_info">
-                    <Link to={`${url}/fanilyId`}>
+                    <Link to={`${url}/${family.id}`}>
                       <h3>{family.familyName}</h3>
                     </Link>
                     <p>{family.location}</p>
@@ -51,7 +51,7 @@ class Families extends React.Component {
                         <i class="fa fa-star"></i>
                         <i class="fa fa-star"></i>
                         <i class="fa fa-star"></i>
-                        <Link to={`${url}/fanilyId`}>(20 Review)</Link>
+                        <Link to={`${url}/${family.id}`}>(20 Review)</Link>
                       </span>
                     </div>
                   </div>

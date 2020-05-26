@@ -12,6 +12,7 @@ const TourStore = types
   .model("TourStore", {
     _categories: types.optional(types.array(CategoryModel), []),
     _tours: types.optional(types.array(TourModel), []),
+    _tourDetail: types.optional(TourModel, {}),
   })
   .actions((self) => ({
     getCategories() {
@@ -67,6 +68,19 @@ const TourStore = types
       });
     },
 
+    loadTourDetail(tourId) {
+      new Promise((resolve, reject) => {
+        fetch(toursApi + "/getById/" + tourId)
+          .then((res) => res.json())
+          .then((tourDetail) => {
+            applySnapshot(self._tourDetail, tourDetail);
+          })
+          .catch((err) => {
+            console.error("err: ", err);
+          });
+      });
+    },
+
     loadAllTours() {
       new Promise((resolve, reject) => {
         fetch(toursApi + "/getAllTours")
@@ -105,6 +119,10 @@ const TourStore = types
 
     tours() {
       return getSnapshot(self._tours);
+    },
+
+    tourDetail() {
+      return getSnapshot(self._tourDetail);
     },
   }));
 

@@ -1,16 +1,30 @@
 import React from "react";
+import { observer, inject } from "mobx-react";
 import { withRouter } from "react-router";
 import { Carousel } from "react-bootstrap";
 
-import BannerPng from "../assets/img/banner/banner.png";
-import Banner2Png from "../assets/img/banner/banner2.png";
-import Banner3Png from "../assets/img/banner/banner3.png";
-// import Author from "../assets/img/testmonial/author.png";
-// import DefaulAvatar from "../assets/img/testmonial/default-avatar.jpg";
 import Avatar from "../assets/img/testmonial/avatar.jpg";
+
+import config from "../config/config";
 
 import "./FamilyDetail.scss";
 class FamilyDetail extends React.Component {
+  get user() {
+    return this.props.stores.authStore.user();
+  }
+
+  get familyDetail() {
+    return this.props.stores.familyStore.familyDetail();
+  }
+
+  componentDidMount() {
+    this.loadFamilyDetail();
+  }
+
+  loadFamilyDetail = () => {
+    const { familyId } = this.props.match.params;
+    this.props.stores.familyStore.loadFamilyDetail(familyId);
+  };
   render() {
     const date = new Date();
     const dateFormat =
@@ -23,67 +37,32 @@ class FamilyDetail extends React.Component {
       date.getHours() +
       ":" +
       date.getMinutes();
-    console.log("type: ", typeof date, date);
+
+    const { familyDetail } = this;
+    const user = { ...familyDetail.user };
+
     return (
       <div>
-        <Carousel>
-          <Carousel.Item>
-            <img className="d-block w-100" src={BannerPng} alt="First slide" />
-          </Carousel.Item>
-          <Carousel.Item>
-            <img className="d-block w-100" src={Banner2Png} alt="Third slide" />
-          </Carousel.Item>
-          <Carousel.Item>
-            <img className="d-block w-100" src={Banner3Png} alt="Third slide" />
-          </Carousel.Item>
+        <Carousel className="carousel">
+          {familyDetail.images.map((picture) => {
+            return (
+              <Carousel.Item key={picture.id}>
+                <img
+                  src={config.apiUrl + "/" + picture.pathName}
+                  alt="Third slide"
+                />
+              </Carousel.Item>
+            );
+          })}
         </Carousel>
         <div class="destination_details_info">
           <div class="container">
             <div class="row justify-content-center">
               <div class="col-lg-8 col-md-9">
-                <h1>Kalmanbetov's family</h1>
+                <h1>{familyDetail.familyName}</h1>
                 <div class="destination_info">
                   <h3>Description</h3>
-                  <p>
-                    There are many variations of passages of Lorem Ipsum
-                    available, but the majority have suffered alteration in some
-                    form, by injected humour, or randomised words which don't
-                    look even slightly believable. If you are going to use a
-                    passage of Lorem Ipsum, you need to be sure there isn't
-                    anything embarrassing.
-                  </p>
-                  <p>
-                    Variations of passages of lorem Ipsum available, but the
-                    majority have suffered alteration in some form, by injected
-                    humour, or randomised words which don't look even slightly
-                    believable. If you are going to use a passage of Lorem
-                    Ipsum, you need to be sure there isn't anything
-                    embarrassing.
-                  </p>
-                  <div class="single_destination">
-                    <h4>Day-01</h4>
-                    <p>
-                      There are many variations of passages of Lorem Ipsum
-                      available, but the majority have suffered alteration in
-                      some form, by injected humour, or randomised words.
-                    </p>
-                  </div>
-                  <div class="single_destination">
-                    <h4>Day-02</h4>
-                    <p>
-                      There are many variations of passages of Lorem Ipsum
-                      available, but the majority have suffered alteration in
-                      some form, by injected humour, or randomised words.
-                    </p>
-                  </div>
-                  <div class="single_destination">
-                    <h4>Day-03</h4>
-                    <p>
-                      There are many variations of passages of Lorem Ipsum
-                      available, but the majority have suffered alteration in
-                      some form, by injected humour, or randomised words.
-                    </p>
-                  </div>
+                  <div>{familyDetail.description}</div>
                 </div>
 
                 <div className="text-center single_carousel">
@@ -100,41 +79,46 @@ class FamilyDetail extends React.Component {
                           alleviate human suffering.
                         </p>
                         <div class="testmonial_author">
-                          <h3> Kalmanbetov Esen</h3>
-                          <h5>contact: esenkalmanbetov@gmail.com</h5>
+                          <h3>
+                            {user.firstName} {user.lastName}
+                          </h3>
+                          <h5>contact: {user.email}</h5>
                         </div>
                       </div>
                     </div>
                   </div>
                 </div>
                 <div class="bordered_1px"></div>
-                <div class="contact_join">
-                  <h3>Leave a comment</h3>
-                  <form action="#">
-                    <div class="row">
-                      <div class="col-lg-12">
-                        <div class="single_input">
-                          <textarea
-                            name=""
-                            id=""
-                            cols="30"
-                            rows="10"
-                            placeholder="Message"
-                          ></textarea>
+                {this.user.id ? (
+                  <div class="contact_join">
+                    <h3>Leave a comment</h3>
+                    <form action="#">
+                      <div class="row">
+                        <div class="col-lg-12">
+                          <div class="single_input">
+                            <textarea
+                              name=""
+                              id=""
+                              cols="30"
+                              rows="10"
+                              placeholder="Message"
+                            ></textarea>
+                          </div>
+                        </div>
+                        <div class="col-lg-12">
+                          <div class="submit_btn">
+                            <button class="boxed-btn4" type="submit">
+                              submit
+                            </button>
+                          </div>
                         </div>
                       </div>
-                      <div class="col-lg-12">
-                        <div class="submit_btn">
-                          <button class="boxed-btn4" type="submit">
-                            submit
-                          </button>
-                        </div>
-                      </div>
-                    </div>
-                  </form>
-                </div>
+                    </form>
+                  </div>
+                ) : null}
 
                 <div class="section-top-border">
+                  <h2 className="text-center">Comments</h2>
                   <h3>
                     Esen Kalmanbetov <span className="date">{dateFormat}</span>
                   </h3>
@@ -207,4 +191,4 @@ class FamilyDetail extends React.Component {
   }
 }
 
-export default withRouter(FamilyDetail);
+export default inject("stores")(withRouter(observer(FamilyDetail)));

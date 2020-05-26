@@ -10,12 +10,6 @@ import Tours from "../Components/Tours";
 
 import Kg1 from "../assets/img/countries/kg1.jpg";
 import Kz1 from "../assets/img/countries/kz1.jpg";
-// import Kz2 from "../assets/img/countries/kz2.jpg";
-// import Kz3 from "../assets/img/countries/kz3.jpg";
-// import Kz4 from "../assets/img/countries/kz4.jpg";
-// import Tj1 from "../assets/img/countries/Tj1.jpg";
-// import Tj2 from "../assets/img/countries/Tj2.jpg";
-// import Tj3 from "../assets/img/countries/Tj3.jpg";
 import Tj4 from "../assets/img/countries/Tj4.jpg";
 
 class Home extends React.Component {

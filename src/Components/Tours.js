@@ -36,12 +36,12 @@ class Tours extends React.Component {
                       }
                       alt="surot"
                     />
-                    <Link to={`${url}/tourId`} class="prise">
+                    <Link to={`${url}/${tour.id}`} class="prise">
                       ${tour.price}
                     </Link>
                   </div>
                   <div class="place_info">
-                    <Link to={`${url}/tourId`}>
+                    <Link to={`${url}/${tour.id}`}>
                       <h3>{tour.title}</h3>
                     </Link>
                     <div class="rating_days d-flex justify-content-between">
@@ -51,11 +51,13 @@ class Tours extends React.Component {
                         <i class="fa fa-star"></i>
                         <i class="fa fa-star"></i>
                         <i class="fa fa-star"></i>
-                        <Link to={`${url}/tourId`}>(20 Review)</Link>
+                        <Link to={`${url}/${tour.id}`}>(20 Review)</Link>
                       </span>
                       <div class="days">
                         <i class="fa fa-clock-o"></i>
-                        <Link to={`${url}/tourId`}>{tour.duration} Days</Link>
+                        <Link to={`${url}/${tour.id}`}>
+                          {tour.duration} Days
+                        </Link>
                       </div>
                     </div>
                   </div>

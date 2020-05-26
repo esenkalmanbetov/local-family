@@ -9,6 +9,7 @@ const familiesApi = config.apiUrl + "/api/families";
 const FamilyStore = types
   .model("FamilyStore", {
     _families: types.optional(types.array(FamilyModel), []),
+    _familyDetail: types.optional(FamilyModel, {}),
   })
   .actions((self) => ({
     createFamily(formData) {
@@ -56,6 +57,20 @@ const FamilyStore = types
       });
     },
 
+    loadFamilyDetail(familyId) {
+      new Promise((resolve, reject) => {
+        fetch(familiesApi + "/getById/" + familyId)
+          .then((res) => res.json())
+          .then((familyDetail) => {
+            console.log("familyDetail: ", familyDetail);
+            applySnapshot(self._familyDetail, familyDetail);
+          })
+          .catch((err) => {
+            console.error("err: ", err);
+          });
+      });
+    },
+
     loadAllFamilies() {
       new Promise((resolve, reject) => {
         fetch(familiesApi + "/getAllFamilies")
@@ -90,6 +105,10 @@ const FamilyStore = types
   .views((self) => ({
     families() {
       return getSnapshot(self._families);
+    },
+
+    familyDetail() {
+      return getSnapshot(self._familyDetail);
     },
   }));
 

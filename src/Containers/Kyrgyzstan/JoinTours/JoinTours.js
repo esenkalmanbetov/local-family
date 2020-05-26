@@ -3,7 +3,7 @@ import { withRouter } from "react-router";
 import { Switch, Route } from "react-router-dom";
 
 import NavTours from "./NavTours";
-import TourDetail from "./TourDetail";
+import TourDetail from "../../../Components/TourDetail";
 import "./JoinTours.scss";
 
 class JoinTours extends React.Component {
