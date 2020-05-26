@@ -7,22 +7,19 @@
 }
 
 .header-auth {
-  position: absolute;
-  right: 20px;
-  top: 12px;
-  bottom: 0;
-  z-index: 9;
 }
 
 @media (max-width: 767px) {
   .header-auth {
-    right: 60px;
+    right: 40px;
+    position: relative;
   }
 }
 
 @media (min-width: 768px) and (max-width: 991px) {
   .header-auth {
-    right: 85px;
+    right: 40px;
+    position: relative;
   }
 }
 
@@ -46,7 +43,10 @@
 }
 
 .user-menu {
-  position: relative !important;
   left: -6px !important;
   will-change: unset;
+}
+
+.max-h-38 {
+  max-height: 38px;
 }

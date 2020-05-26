@@ -81,39 +81,27 @@ class Header extends React.Component {
                       </nav>
                     </div>
                   </div>
-                  <div class="header-auth">
-                    <li class="text-right">
-                      {this.user.id ? (
-                        <Dropdown>
-                          <Dropdown.Toggle className="user-toggle">
-                            {userLogo}
-                          </Dropdown.Toggle>
+                  <div className="col-xl-2 col-lg-2 max-h-38">
+                    <div class="header-auth">
+                      <li class="text-right">
+                        {this.user.id ? (
+                          <Dropdown>
+                            <Dropdown.Toggle className="user-toggle">
+                              {userLogo}
+                            </Dropdown.Toggle>
 
-                          <Dropdown.Menu className="user-menu">
-                            <Dropdown.Item>
-                              <Link to={toPersonalAccnt}>profile</Link>
-                            </Dropdown.Item>
-                            <Dropdown.Item onClick={() => this.signOut()}>
-                              sign-out
-                            </Dropdown.Item>
-                          </Dropdown.Menu>
-                        </Dropdown>
-                      ) : // <div>
-                      //   <Link
-                      //     to="/signup"
-                      //     class="genric-btn info medium circle login-btn mr-3"
-                      //   >
-                      //     register
-                      //   </Link>
-                      //   <Link
-                      //     to="/signin"
-                      //     class="genric-btn info medium circle login-btn"
-                      //   >
-                      //     signin
-                      //   </Link>
-                      // </div>
-                      null}
-                    </li>
+                            <Dropdown.Menu className="user-menu">
+                              <Dropdown.Item>
+                                <Link to={toPersonalAccnt}>profile</Link>
+                              </Dropdown.Item>
+                              <Dropdown.Item onClick={() => this.signOut()}>
+                                sign-out
+                              </Dropdown.Item>
+                            </Dropdown.Menu>
+                          </Dropdown>
+                        ) : null}
+                      </li>
+                    </div>
                   </div>
                   <div className="col-12">
                     <div className="mobile_menu d-block d-lg-none"></div>
