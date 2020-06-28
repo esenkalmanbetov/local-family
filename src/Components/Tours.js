@@ -27,7 +27,7 @@ class Tours extends React.Component {
             {tours.map((tour) => (
               <div class="col-lg-4 col-md-6" key={tour.id}>
                 <div class="single_place">
-                  <div class="thumb">
+                  <div class="thumb view">
                     <img
                       src={
                         tour.images.length

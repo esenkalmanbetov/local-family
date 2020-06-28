@@ -28,7 +28,7 @@ class Families extends React.Component {
             {families.map((family) => (
               <div class="col-lg-4 col-md-6" key={family.id}>
                 <div class="single_place">
-                  <div class="thumb">
+                  <div class="thumb view">
                     {}
                     <img
                       src={
