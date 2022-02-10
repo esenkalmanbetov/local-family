@@ -13,7 +13,7 @@
     "mobx-react": "^6.2.2",
     "mobx-state-tree": "^3.16.0",
     "mobx-utils": "^5.5.7",
-    "node-sass": "^4.13.1",
+    "node-sass": "^7.0.0",
     "react": "^16.13.0",
     "react-bootstrap": "^1.0.0-beta.16",
     "react-dom": "^16.12.0",
